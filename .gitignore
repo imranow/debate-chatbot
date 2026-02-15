@@ -1,0 +1,19 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+dist/
+build/
+*.egg-info/
+
+# Data files (keep local; vectors live in Pinecone)
+debate_transcripts*.csv

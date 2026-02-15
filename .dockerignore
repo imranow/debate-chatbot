@@ -1,0 +1,16 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+debate_transcripts_v3_2020-02-26.csv
+
+dist/
+build/
+*.egg-info/
+
+.git/
+.DS_Store
