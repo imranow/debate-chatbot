@@ -1,7 +1,13 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, TYPE_CHECKING
 
 from backend.config import Settings
+
+if TYPE_CHECKING:
+    from backend.rag.bm25_index import BM25Index
+    from backend.rag.knowledge_graph import KnowledgeGraph
 
 
 @dataclass
@@ -71,6 +77,89 @@ def search_pinecone_records(index: Any, settings: Settings, question: str, top_k
             f = {}
         chunks.append(RetrievedChunk(id=str(rid), score=score_f, fields=f))
     return chunks
+
+
+def merge_rrf(
+    semantic_chunks: List[RetrievedChunk],
+    bm25_chunks: List[RetrievedChunk],
+    top_k: int,
+    k: int = 60,
+    alpha: float = 0.5,
+) -> List[RetrievedChunk]:
+    """Reciprocal Rank Fusion: combine semantic and BM25 rankings."""
+    scores: Dict[str, float] = {}
+    chunk_map: Dict[str, RetrievedChunk] = {}
+
+    for rank, chunk in enumerate(semantic_chunks):
+        rrf = 1.0 / (k + rank + 1)
+        scores[chunk.id] = scores.get(chunk.id, 0.0) + alpha * rrf
+        # Prefer semantic chunk (has Pinecone fields)
+        chunk_map[chunk.id] = chunk
+
+    for rank, chunk in enumerate(bm25_chunks):
+        rrf = 1.0 / (k + rank + 1)
+        scores[chunk.id] = scores.get(chunk.id, 0.0) + (1 - alpha) * rrf
+        if chunk.id not in chunk_map:
+            chunk_map[chunk.id] = chunk
+
+    sorted_ids = sorted(scores, key=lambda cid: scores[cid], reverse=True)[:top_k]
+    return [
+        RetrievedChunk(id=cid, score=scores[cid], fields=chunk_map[cid].fields)
+        for cid in sorted_ids
+    ]
+
+
+def hybrid_search(
+    index: Any,
+    settings: Settings,
+    question: str,
+    top_k: int,
+    bm25_index: Optional[BM25Index] = None,
+) -> List[RetrievedChunk]:
+    """Run semantic + optional BM25 search, merge with RRF."""
+    fetch_k = min(top_k * 3, 50)
+
+    semantic_chunks = search_pinecone_records(index, settings, question, fetch_k)
+
+    if bm25_index is None:
+        return semantic_chunks[:top_k]
+
+    bm25_chunks = bm25_index.search(question, top_k=fetch_k)
+    return merge_rrf(
+        semantic_chunks, bm25_chunks,
+        top_k=top_k, alpha=settings.hybrid_alpha,
+    )
+
+
+def enrich_with_graph(
+    chunks: List[RetrievedChunk],
+    knowledge_graph: Optional[KnowledgeGraph],
+    bm25_index: Optional[BM25Index],
+    query: str,
+    max_graph_additions: int = 3,
+) -> Tuple[List[RetrievedChunk], Optional[str]]:
+    """Add graph-derived related chunks and return graph context text."""
+    if knowledge_graph is None:
+        return chunks, None
+
+    graph_context = knowledge_graph.format_graph_context(query)
+
+    # Find related row IDs from graph
+    row_ids = knowledge_graph.get_enrichment_row_ids(query, max_results=max_graph_additions)
+    existing_ids: Set[str] = {c.id for c in chunks}
+    new_ids = [rid for rid in row_ids if rid not in existing_ids]
+
+    if new_ids and bm25_index is not None:
+        for rid in new_ids:
+            doc = bm25_index.get_document_by_id(rid)
+            if doc is not None:
+                chunks.append(RetrievedChunk(
+                    id=doc.id,
+                    score=0.0,
+                    fields=dict(doc.fields),
+                ))
+
+    return chunks, graph_context
 
 
 def render_sources(chunks: Sequence[RetrievedChunk], settings: Settings) -> Tuple[str, List[Dict[str, Any]]]:

@@ -29,6 +29,11 @@ class Settings:
     anthropic_model: str
     top_k: int
     max_context_chars: int
+    hybrid_alpha: float
+    enable_knowledge_graph: bool
+    csv_path: str
+    bm25_index_path: str
+    knowledge_graph_path: str
 
 
 def _require(name: str) -> str:
@@ -48,6 +53,23 @@ def _get_int(name: str, default: int) -> int:
         raise RuntimeError("Invalid int for %s: %r" % (name, v)) from e
 
 
+def _get_float(name: str, default: float) -> float:
+    v = os.getenv(name)
+    if not v:
+        return default
+    try:
+        return float(v)
+    except ValueError as e:
+        raise RuntimeError("Invalid float for %s: %r" % (name, v)) from e
+
+
+def _get_bool(name: str, default: bool) -> bool:
+    v = os.getenv(name)
+    if not v:
+        return default
+    return v.lower() in ("1", "true", "yes")
+
+
 def get_settings() -> Settings:
     return Settings(
         pinecone_api_key=_require("PINECONE_API_KEY"),
@@ -62,5 +84,10 @@ def get_settings() -> Settings:
         anthropic_model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
         top_k=_get_int("TOP_K", 8),
         max_context_chars=_get_int("MAX_CONTEXT_CHARS", 12000),
+        hybrid_alpha=_get_float("HYBRID_ALPHA", 0.5),
+        enable_knowledge_graph=_get_bool("ENABLE_KNOWLEDGE_GRAPH", False),
+        csv_path=os.getenv("CSV_PATH", "debate_transcripts_v3_2020-02-26.csv"),
+        bm25_index_path=os.getenv("BM25_INDEX_PATH", "data/bm25_index.pkl"),
+        knowledge_graph_path=os.getenv("KNOWLEDGE_GRAPH_PATH", "data/knowledge_graph.json"),
     )
 

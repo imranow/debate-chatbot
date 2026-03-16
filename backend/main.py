@@ -1,3 +1,5 @@
+import logging
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -11,6 +13,8 @@ from backend.config import Settings, get_settings
 from backend.rag.anthropic_client import make_anthropic
 from backend.rag.pinecone_client import make_pinecone
 from backend.rag.rag import answer_question
+
+logger = logging.getLogger(__name__)
 
 
 class ChatRequest(BaseModel):
@@ -39,9 +43,37 @@ async def lifespan(app: FastAPI):
     _pc, index = make_pinecone(settings)
     anthropic_client = make_anthropic(settings)
 
+    # Load BM25 index (pickle or build from CSV)
+    bm25_index = None
+    try:
+        if os.path.exists(settings.bm25_index_path):
+            from backend.rag.bm25_index import BM25Index
+            bm25_index = BM25Index.load(settings.bm25_index_path)
+            logger.info("Loaded BM25 index (%d docs)", bm25_index.num_documents)
+        elif os.path.exists(settings.csv_path):
+            from backend.rag.bm25_index import BM25Index
+            bm25_index = BM25Index.from_csv(settings.csv_path)
+            logger.info("Built BM25 index from CSV (%d docs)", bm25_index.num_documents)
+    except Exception as e:
+        logger.warning("BM25 index not available: %s", e)
+
+    # Load knowledge graph
+    knowledge_graph = None
+    if settings.enable_knowledge_graph:
+        try:
+            if os.path.exists(settings.knowledge_graph_path):
+                from backend.rag.knowledge_graph import KnowledgeGraph
+                knowledge_graph = KnowledgeGraph.load(settings.knowledge_graph_path)
+                logger.info("Loaded knowledge graph (%d nodes, %d edges)",
+                            knowledge_graph.num_nodes, knowledge_graph.num_edges)
+        except Exception as e:
+            logger.warning("Knowledge graph not available: %s", e)
+
     app.state.settings = settings
     app.state.index = index
     app.state.anthropic_client = anthropic_client
+    app.state.bm25_index = bm25_index
+    app.state.knowledge_graph = knowledge_graph
     yield
 
 
@@ -72,6 +104,8 @@ def chat(req: ChatRequest) -> Dict[str, Any]:
             settings=settings,
             question=req.question,
             top_k=req.top_k,
+            bm25_index=app.state.bm25_index,
+            knowledge_graph=app.state.knowledge_graph,
         )
         return {"answer": answer, "citations": citations}
     except Exception as e:
