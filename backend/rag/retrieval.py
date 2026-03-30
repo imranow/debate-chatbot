@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, TYPE_CHECKING
 
 from backend.config import Settings
@@ -15,6 +15,15 @@ class RetrievedChunk:
     id: str
     score: float
     fields: Dict[str, Any]
+
+
+@dataclass
+class SourcesMetadata:
+    total_sources: int
+    included_sources: int
+    excluded_sources: int
+    chars_used: int
+    chars_budget: int
 
 
 def _coerce_hits(resp: Any) -> List[Dict[str, Any]]:
@@ -162,15 +171,23 @@ def enrich_with_graph(
     return chunks, graph_context
 
 
-def render_sources(chunks: Sequence[RetrievedChunk], settings: Settings) -> Tuple[str, List[Dict[str, Any]]]:
+def render_sources(
+    chunks: Sequence[RetrievedChunk], settings: Settings,
+) -> Tuple[str, List[Dict[str, Any]], SourcesMetadata]:
     """
-    Returns (sources_text_for_prompt, citations_json).
+    Rank chunks by score (highest first), then truncate to fit the context budget.
+    Returns (sources_text_for_prompt, citations_json, metadata).
     """
-    remaining = max(1000, settings.max_context_chars)
+    # Sort by score descending so the best chunks survive truncation.
+    ranked = sorted(chunks, key=lambda c: c.score, reverse=True)
+
+    budget = max(1000, settings.max_context_chars)
+    remaining = budget
     lines: List[str] = []
     citations: List[Dict[str, Any]] = []
+    included = 0
 
-    for i, c in enumerate(chunks, start=1):
+    for i, c in enumerate(ranked, start=1):
         f = c.fields
         date = (f.get("date") or "").strip() if isinstance(f.get("date"), str) else str(f.get("date") or "")
         debate_name = (f.get("debate_name") or "").strip() if isinstance(f.get("debate_name"), str) else str(f.get("debate_name") or "")
@@ -191,7 +208,7 @@ def render_sources(chunks: Sequence[RetrievedChunk], settings: Settings) -> Tupl
         per_source_limit = 1200
         excerpt = raw_text[:per_source_limit]
         if len(raw_text) > per_source_limit:
-            excerpt = excerpt.rstrip() + "…"
+            excerpt = excerpt.rstrip() + "\u2026"
 
         header = "[%d] %s | %s | %s | %s" % (i, date, debate_name, debate_section, speaker)
         block = header + "\n" + excerpt + "\n"
@@ -200,6 +217,7 @@ def render_sources(chunks: Sequence[RetrievedChunk], settings: Settings) -> Tupl
             block = block[:remaining].rstrip() + "\n"
         remaining -= len(block)
         lines.append(block)
+        included += 1
 
         citations.append(
             {
@@ -216,4 +234,12 @@ def render_sources(chunks: Sequence[RetrievedChunk], settings: Settings) -> Tupl
         if remaining <= 0:
             break
 
-    return ("\n".join(lines).strip(), citations)
+    metadata = SourcesMetadata(
+        total_sources=len(ranked),
+        included_sources=included,
+        excluded_sources=len(ranked) - included,
+        chars_used=budget - remaining,
+        chars_budget=budget,
+    )
+
+    return ("\n".join(lines).strip(), citations, metadata)

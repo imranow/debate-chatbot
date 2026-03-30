@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 from backend.config import Settings, get_settings
 from backend.rag.anthropic_client import make_anthropic
+from backend.rag.exceptions import LLMError, RetrievalError
 from backend.rag.pinecone_client import make_pinecone
 from backend.rag.rag import answer_question
 
@@ -32,9 +33,18 @@ class Citation(BaseModel):
     text: str
 
 
+class SourcesMeta(BaseModel):
+    total_sources: int
+    included_sources: int
+    excluded_sources: int
+    chars_used: int
+    chars_budget: int
+
+
 class ChatResponse(BaseModel):
     answer: str
     citations: List[Citation]
+    sources_metadata: Optional[SourcesMeta] = None
 
 
 @asynccontextmanager
@@ -98,7 +108,7 @@ def health() -> Dict[str, str]:
 def chat(req: ChatRequest) -> Dict[str, Any]:
     try:
         settings: Settings = app.state.settings
-        answer, citations = answer_question(
+        answer, citations, sources_metadata = answer_question(
             index=app.state.index,
             anthropic_client=app.state.anthropic_client,
             settings=settings,
@@ -107,6 +117,32 @@ def chat(req: ChatRequest) -> Dict[str, Any]:
             bm25_index=app.state.bm25_index,
             knowledge_graph=app.state.knowledge_graph,
         )
-        return {"answer": answer, "citations": citations}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "answer": answer,
+            "citations": citations,
+            "sources_metadata": {
+                "total_sources": sources_metadata.total_sources,
+                "included_sources": sources_metadata.included_sources,
+                "excluded_sources": sources_metadata.excluded_sources,
+                "chars_used": sources_metadata.chars_used,
+                "chars_budget": sources_metadata.chars_budget,
+            },
+        }
+    except RetrievalError:
+        raise HTTPException(
+            status_code=502,
+            detail="Unable to retrieve relevant sources. Please try again later.",
+        )
+    except LLMError:
+        raise HTTPException(
+            status_code=502,
+            detail="Language model is temporarily unavailable. Please try again later.",
+        )
+    except HTTPException:
+        raise
+    except Exception:
+        logger.exception("Unexpected error in /chat")
+        raise HTTPException(
+            status_code=500,
+            detail="An unexpected error occurred. Please try again later.",
+        )
