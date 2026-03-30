@@ -38,7 +38,7 @@ def judge():
 
 def run_rag_pipeline(question, settings, index, anthropic_client):
     """Call the live RAG pipeline. Returns (answer, retrieval_context_list)."""
-    answer, citations = answer_question(
+    answer, citations, _ = answer_question(
         index=index,
         anthropic_client=anthropic_client,
         settings=settings,

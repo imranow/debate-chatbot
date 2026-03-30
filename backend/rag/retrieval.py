@@ -6,6 +6,9 @@ from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, TYPE_CHECKIN
 
 from backend.config import Settings
 
+# RRF damping constant — algorithm parameter, not a deployment tuning knob.
+_RRF_K = 60
+
 if TYPE_CHECKING:
     from backend.rag.bm25_index import BM25Index
     from backend.rag.knowledge_graph import KnowledgeGraph
@@ -61,11 +64,18 @@ async def search_pinecone_records(index: Any, settings: Settings, question: str,
     return chunks
 
 
+def _coerce_str(val: Any) -> str:
+    """Coerce a metadata field value to a clean string."""
+    if isinstance(val, str):
+        return val.strip()
+    return str(val) if val is not None else ""
+
+
 def merge_rrf(
     semantic_chunks: List[RetrievedChunk],
     bm25_chunks: List[RetrievedChunk],
     top_k: int,
-    k: int = 60,
+    k: int = _RRF_K,
     alpha: float = 0.5,
 ) -> List[RetrievedChunk]:
     """Reciprocal Rank Fusion: combine semantic and BM25 rankings."""
@@ -160,25 +170,22 @@ def render_sources(
     citations: List[Dict[str, Any]] = []
     included = 0
 
+    per_source_limit = settings.per_source_limit
+
     for i, c in enumerate(ranked, start=1):
         f = c.fields
-        date = (f.get("date") or "").strip() if isinstance(f.get("date"), str) else str(f.get("date") or "")
-        debate_name = (f.get("debate_name") or "").strip() if isinstance(f.get("debate_name"), str) else str(f.get("debate_name") or "")
-        debate_section = (f.get("debate_section") or "").strip() if isinstance(f.get("debate_section"), str) else str(f.get("debate_section") or "")
-        speaker = (f.get("speaker") or "").strip() if isinstance(f.get("speaker"), str) else str(f.get("speaker") or "")
+        date = _coerce_str(f.get("date"))
+        debate_name = _coerce_str(f.get("debate_name"))
+        debate_section = _coerce_str(f.get("debate_section"))
+        speaker = _coerce_str(f.get("speaker"))
 
         # Prefer the raw speech for quoting; fall back to the embedded field.
-        raw_text = f.get("speech")
-        if not raw_text:
-            raw_text = f.get(settings.pinecone_embed_field)
-        if raw_text is None:
-            raw_text = ""
+        raw_text = f.get("speech") or f.get(settings.pinecone_embed_field) or ""
         if not isinstance(raw_text, str):
             raw_text = str(raw_text)
         raw_text = raw_text.strip()
 
         # Per-source truncation so one huge turn doesn't crowd out everything.
-        per_source_limit = 1200
         excerpt = raw_text[:per_source_limit]
         if len(raw_text) > per_source_limit:
             excerpt = excerpt.rstrip() + "\u2026"
@@ -186,8 +193,10 @@ def render_sources(
         header = "[%d] %s | %s | %s | %s" % (i, date, debate_name, debate_section, speaker)
         block = header + "\n" + excerpt + "\n"
 
+        # Only include this source if its full block fits in the remaining budget.
+        # A partially-truncated source would diverge from what the LLM actually sees.
         if len(block) > remaining:
-            block = block[:remaining].rstrip() + "\n"
+            break
         remaining -= len(block)
         lines.append(block)
         included += 1
@@ -203,9 +212,6 @@ def render_sources(
                 "text": excerpt,
             }
         )
-
-        if remaining <= 0:
-            break
 
     metadata = SourcesMetadata(
         total_sources=len(ranked),

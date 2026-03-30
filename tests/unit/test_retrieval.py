@@ -24,6 +24,9 @@ def _make_settings(**overrides) -> Settings:
         bm25_index_path="test.pkl",
         knowledge_graph_path="test.json",
         api_key=None,
+        per_source_limit=1200,
+        max_tokens=900,
+        llm_temperature=0.2,
     )
     defaults.update(overrides)
     return Settings(**defaults)

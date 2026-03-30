@@ -95,8 +95,8 @@ async def answer_question(
     try:
         msg = await anthropic_client.messages.create(
             model=settings.anthropic_model,
-            max_tokens=900,
-            temperature=0.2,
+            max_tokens=settings.max_tokens,
+            temperature=settings.llm_temperature,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_prompt}],
         )

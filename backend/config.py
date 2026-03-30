@@ -35,6 +35,9 @@ class Settings:
     bm25_index_path: str
     knowledge_graph_path: str
     api_key: Optional[str]
+    per_source_limit: int
+    max_tokens: int
+    llm_temperature: float
 
 
 def _require(name: str) -> str:
@@ -91,5 +94,8 @@ def get_settings() -> Settings:
         bm25_index_path=os.getenv("BM25_INDEX_PATH", "data/bm25_index.pkl"),
         knowledge_graph_path=os.getenv("KNOWLEDGE_GRAPH_PATH", "data/knowledge_graph.json"),
         api_key=os.getenv("API_KEY") or None,
+        per_source_limit=_get_int("PER_SOURCE_LIMIT", 1200),
+        max_tokens=_get_int("LLM_MAX_TOKENS", 900),
+        llm_temperature=_get_float("LLM_TEMPERATURE", 0.2),
     )
 
