@@ -163,8 +163,7 @@ class TestEnrichWithGraph:
 
     def _make_kg(self, row_ids, graph_context="Graph context text"):
         kg = MagicMock()
-        kg.format_graph_context = MagicMock(return_value=graph_context)
-        kg.get_enrichment_row_ids = MagicMock(return_value=row_ids)
+        kg.get_context_and_row_ids = MagicMock(return_value=(graph_context, row_ids))
         return kg
 
     def _make_bm25(self, doc_map):

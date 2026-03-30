@@ -1,7 +1,13 @@
 from __future__ import annotations
 
 import logging
+from collections import OrderedDict
 from typing import Any, Dict, List, Optional, Tuple, TYPE_CHECKING
+
+# Simple async-safe LRU cache keyed by (question, top_k).
+# asyncio runs in a single thread so plain dict access is atomic.
+_answer_cache: OrderedDict = OrderedDict()
+_CACHE_MAX_SIZE = 256
 
 from backend.config import Settings
 from backend.rag.anthropic_client import extract_text
@@ -68,6 +74,12 @@ async def answer_question(
     if k > 50:
         k = 50
 
+    cache_key = (question, k)
+    if cache_key in _answer_cache:
+        # Move to end to mark as recently used (LRU eviction order).
+        _answer_cache.move_to_end(cache_key)
+        return _answer_cache[cache_key]
+
     # Retrieval with fallback chain
     chunks = await _retrieve_chunks(
         index=index, settings=settings, question=question, k=k,
@@ -106,4 +118,9 @@ async def answer_question(
     answer = extract_text(msg)
     if not answer:
         answer = "I don't know based on the provided transcripts."
-    return answer, citations, metadata
+
+    result = (answer, citations, metadata)
+    if len(_answer_cache) >= _CACHE_MAX_SIZE:
+        _answer_cache.popitem(last=False)  # evict least-recently-used entry
+    _answer_cache[cache_key] = result
+    return result

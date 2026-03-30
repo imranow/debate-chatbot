@@ -44,21 +44,16 @@ class KnowledgeGraph:
         matched.sort(key=lambda x: x[1], reverse=True)
         return [node_id for node_id, _ in matched]
 
-    def get_enrichment_row_ids(
+    def _row_ids_from_entities(
         self,
-        query: str,
-        max_results: int = 3,
+        entity_ids: List[str],
+        max_results: int,
     ) -> List[str]:
-        """Find source row IDs related to entities in the query via 1-hop traversal."""
-        entity_ids = self.find_entities(query)
-        if not entity_ids:
-            return []
-
+        """1-hop traversal from pre-computed entity IDs to source row IDs."""
         row_ids: List[str] = []
         seen: Set[str] = set()
 
         for entity_id in entity_ids[:5]:  # limit to top 5 matched entities
-            # Traverse outgoing and incoming edges
             for _src, _dst, edge_data in self.graph.edges(entity_id, data=True):
                 for rid in edge_data.get("source_row_ids", []):
                     if rid not in seen:
@@ -69,18 +64,13 @@ class KnowledgeGraph:
                     if rid not in seen:
                         seen.add(rid)
                         row_ids.append(rid)
-
             if len(row_ids) >= max_results:
                 break
 
         return row_ids[:max_results]
 
-    def format_graph_context(self, query: str) -> Optional[str]:
-        """Return a short summary of entity relationships relevant to the query."""
-        entity_ids = self.find_entities(query)
-        if not entity_ids:
-            return None
-
+    def _context_from_entities(self, entity_ids: List[str]) -> Optional[str]:
+        """Format graph context text from pre-computed entity IDs."""
         lines: List[str] = []
         for entity_id in entity_ids[:3]:
             node_data = self.graph.nodes.get(entity_id, {})
@@ -88,12 +78,10 @@ class KnowledgeGraph:
             entity_type = node_data.get("type", "entity")
 
             relations: Dict[str, List[str]] = defaultdict(list)
-            # Outgoing edges: this entity -> target
             for _src, dst, edge_data in self.graph.edges(entity_id, data=True):
                 rel_type = edge_data.get("type", "related_to")
                 dst_name = self.graph.nodes.get(dst, {}).get("name", dst)
                 relations[rel_type].append(dst_name)
-            # Incoming edges: source -> this entity
             for src, _dst, edge_data in self.graph.in_edges(entity_id, data=True):
                 rel_type = edge_data.get("type", "related_to")
                 src_name = self.graph.nodes.get(src, {}).get("name", src)
@@ -104,14 +92,38 @@ class KnowledgeGraph:
 
             parts = []
             for rel_type, targets in relations.items():
-                display_targets = targets[:4]
-                parts.append("%s: %s" % (rel_type, ", ".join(display_targets)))
+                parts.append("%s: %s" % (rel_type, ", ".join(targets[:4])))
 
             lines.append("%s (%s) - %s" % (entity_name, entity_type, "; ".join(parts)))
 
-        if not lines:
-            return None
-        return "\n".join(lines)
+        return "\n".join(lines) if lines else None
+
+    def get_context_and_row_ids(
+        self,
+        query: str,
+        max_results: int = 3,
+    ) -> Tuple[Optional[str], List[str]]:
+        """Compute entity matches once, return both graph context and row IDs.
+
+        Use this instead of calling format_graph_context + get_enrichment_row_ids
+        separately to avoid the double find_entities scan.
+        """
+        entity_ids = self.find_entities(query)
+        if not entity_ids:
+            return None, []
+        context = self._context_from_entities(entity_ids)
+        row_ids = self._row_ids_from_entities(entity_ids, max_results)
+        return context, row_ids
+
+    # --- Convenience single-purpose methods (delegate to shared helpers) ---
+
+    def get_enrichment_row_ids(self, query: str, max_results: int = 3) -> List[str]:
+        """Find source row IDs related to entities in the query via 1-hop traversal."""
+        return self._row_ids_from_entities(self.find_entities(query), max_results)
+
+    def format_graph_context(self, query: str) -> Optional[str]:
+        """Return a short summary of entity relationships relevant to the query."""
+        return self._context_from_entities(self.find_entities(query))
 
     @property
     def num_nodes(self) -> int:

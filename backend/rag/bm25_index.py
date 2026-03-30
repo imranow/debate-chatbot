@@ -1,4 +1,5 @@
 import csv
+import heapq
 import os
 import pickle
 import re
@@ -100,8 +101,8 @@ class BM25Index:
         if max_score <= 0:
             return []
 
-        # Get top_k indices by score
-        top_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:top_k]
+        # O(n log k) heap selection — faster than O(n log n) full sort for small top_k
+        top_indices = heapq.nlargest(top_k, range(len(scores)), key=lambda i: scores[i])
 
         results: List[RetrievedChunk] = []
         for idx in top_indices:

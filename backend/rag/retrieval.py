@@ -111,12 +111,14 @@ async def hybrid_search(
     """Run semantic + optional BM25 search, merge with RRF."""
     fetch_k = min(top_k * 3, 50)
 
-    semantic_chunks = await search_pinecone_records(index, settings, question, fetch_k)
-
     if bm25_index is None:
-        return semantic_chunks[:top_k]
+        return (await search_pinecone_records(index, settings, question, fetch_k))[:top_k]
 
-    bm25_chunks = await asyncio.to_thread(bm25_index.search, question, top_k=fetch_k)
+    # Run Pinecone (network I/O) and BM25 (CPU) concurrently — they are independent.
+    semantic_chunks, bm25_chunks = await asyncio.gather(
+        search_pinecone_records(index, settings, question, fetch_k),
+        asyncio.to_thread(bm25_index.search, question, top_k=fetch_k),
+    )
     return merge_rrf(
         semantic_chunks, bm25_chunks,
         top_k=top_k, alpha=settings.hybrid_alpha,
@@ -134,10 +136,10 @@ async def enrich_with_graph(
     if knowledge_graph is None:
         return chunks, None
 
-    graph_context = knowledge_graph.format_graph_context(query)
-
-    # Find related row IDs from graph
-    row_ids = knowledge_graph.get_enrichment_row_ids(query, max_results=max_graph_additions)
+    # Single find_entities pass for both context and row IDs.
+    graph_context, row_ids = knowledge_graph.get_context_and_row_ids(
+        query, max_results=max_graph_additions,
+    )
     existing_ids: Set[str] = {c.id for c in chunks}
     new_ids = [rid for rid in row_ids if rid not in existing_ids]
 
