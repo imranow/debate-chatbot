@@ -1,7 +1,9 @@
-"""Unit tests for retrieval functions: RRF merge and render_sources."""
+"""Unit tests for retrieval functions: RRF merge, render_sources, _coerce_str, enrich_with_graph."""
+
+from unittest.mock import MagicMock
 
 from backend.config import Settings
-from backend.rag.retrieval import RetrievedChunk, merge_rrf, render_sources
+from backend.rag.retrieval import RetrievedChunk, _coerce_str, enrich_with_graph, merge_rrf, render_sources
 
 
 def _make_settings(**overrides) -> Settings:
@@ -137,3 +139,101 @@ class TestRenderSourcesTruncation:
         _, citations, _ = render_sources([huge], settings)
         # The excerpt should be capped around 1200 chars + ellipsis
         assert len(citations[0]["text"]) <= 1201
+
+
+class TestCoerceStr:
+
+    def test_none_returns_empty_string(self):
+        assert _coerce_str(None) == ""
+
+    def test_integer_converted_to_string(self):
+        assert _coerce_str(2020) == "2020"
+
+    def test_empty_string_returns_empty(self):
+        assert _coerce_str("") == ""
+
+    def test_whitespace_stripped(self):
+        assert _coerce_str("  Biden  ") == "Biden"
+
+    def test_plain_string_unchanged(self):
+        assert _coerce_str("healthcare") == "healthcare"
+
+
+class TestEnrichWithGraph:
+
+    def _make_kg(self, row_ids, graph_context="Graph context text"):
+        kg = MagicMock()
+        kg.format_graph_context = MagicMock(return_value=graph_context)
+        kg.get_enrichment_row_ids = MagicMock(return_value=row_ids)
+        return kg
+
+    def _make_bm25(self, doc_map):
+        """doc_map: {row_id: BM25Document-like mock}"""
+        from backend.rag.bm25_index import BM25Document, _tokenize
+        bm25 = MagicMock()
+        def get_doc(rid):
+            if rid in doc_map:
+                return BM25Document(id=rid, tokens=["test"], fields={"speech": doc_map[rid]})
+            return None
+        bm25.get_document_by_id = MagicMock(side_effect=get_doc)
+        return bm25
+
+    async def _enrich(self, chunks, kg, bm25):
+        return await enrich_with_graph(chunks, kg, bm25, query="test query")
+
+    def test_none_graph_returns_unchanged(self):
+        import asyncio
+        chunks = [_chunk("a", 0.9)]
+        result_chunks, context = asyncio.get_event_loop().run_until_complete(
+            enrich_with_graph(chunks, None, None, "test")
+        )
+        assert result_chunks == chunks
+        assert context is None
+
+    def test_graph_docs_appended_to_chunks(self):
+        import asyncio
+        existing = [_chunk("existing", 0.9)]
+        kg = self._make_kg(row_ids=["row-99"])
+        bm25 = self._make_bm25({"row-99": "new speech text"})
+
+        result_chunks, _ = asyncio.get_event_loop().run_until_complete(
+            enrich_with_graph(existing, kg, bm25, "test")
+        )
+        ids = [c.id for c in result_chunks]
+        assert "existing" in ids
+        assert "row-99" in ids
+
+    def test_existing_ids_not_duplicated(self):
+        """Row IDs already in chunks should not be appended again."""
+        import asyncio
+        existing = [_chunk("row-1", 0.9)]
+        kg = self._make_kg(row_ids=["row-1"])  # same ID as existing chunk
+        bm25 = self._make_bm25({"row-1": "speech"})
+
+        result_chunks, _ = asyncio.get_event_loop().run_until_complete(
+            enrich_with_graph(existing, kg, bm25, "test")
+        )
+        assert len([c for c in result_chunks if c.id == "row-1"]) == 1
+
+    def test_no_bm25_index_skips_doc_fetch(self):
+        """When bm25_index is None, graph row IDs are ignored (no docs to fetch)."""
+        import asyncio
+        existing = [_chunk("a", 0.9)]
+        kg = self._make_kg(row_ids=["row-99"])
+
+        result_chunks, context = asyncio.get_event_loop().run_until_complete(
+            enrich_with_graph(existing, kg, None, "test")
+        )
+        # No new chunk added since bm25 is None
+        assert len(result_chunks) == 1
+        # But graph context is still returned
+        assert context == "Graph context text"
+
+    def test_graph_context_returned(self):
+        import asyncio
+        existing = [_chunk("a", 0.9)]
+        kg = self._make_kg(row_ids=[], graph_context="Entity: Biden")
+        _, context = asyncio.get_event_loop().run_until_complete(
+            enrich_with_graph(existing, kg, None, "test")
+        )
+        assert context == "Entity: Biden"
