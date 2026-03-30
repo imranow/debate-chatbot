@@ -34,6 +34,7 @@ class Settings:
     csv_path: str
     bm25_index_path: str
     knowledge_graph_path: str
+    api_key: Optional[str]
 
 
 def _require(name: str) -> str:
@@ -89,5 +90,6 @@ def get_settings() -> Settings:
         csv_path=os.getenv("CSV_PATH", "debate_transcripts_v3_2020-02-26.csv"),
         bm25_index_path=os.getenv("BM25_INDEX_PATH", "data/bm25_index.pkl"),
         knowledge_graph_path=os.getenv("KNOWLEDGE_GRAPH_PATH", "data/knowledge_graph.json"),
+        api_key=os.getenv("API_KEY") or None,
     )
 

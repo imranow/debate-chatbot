@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, TYPE_CHECKING
 
@@ -26,27 +27,7 @@ class SourcesMetadata:
     chars_budget: int
 
 
-def _coerce_hits(resp: Any) -> List[Dict[str, Any]]:
-    # Pinecone SDKs have returned a few shapes over time; handle the common ones.
-    if resp is None:
-        return []
-    if isinstance(resp, dict):
-        if isinstance(resp.get("result"), dict) and isinstance(resp["result"].get("hits"), list):
-            return resp["result"]["hits"]
-        if isinstance(resp.get("hits"), list):
-            return resp["hits"]
-        if isinstance(resp.get("matches"), list):
-            return resp["matches"]
-        return []
-    # Some SDK versions return an object with .result.hits
-    result = getattr(resp, "result", None)
-    hits = getattr(result, "hits", None)
-    if isinstance(hits, list):
-        return hits
-    return []
-
-
-def search_pinecone_records(index: Any, settings: Settings, question: str, top_k: int) -> List[RetrievedChunk]:
+async def search_pinecone_records(index: Any, settings: Settings, question: str, top_k: int) -> List[RetrievedChunk]:
     fields = [
         settings.pinecone_embed_field,
         "speech",
@@ -58,30 +39,22 @@ def search_pinecone_records(index: Any, settings: Settings, question: str, top_k
     ]
     query = {"inputs": {"text": question}, "top_k": top_k}
 
-    # Newer Pinecone SDK: index.search(namespace=..., query=..., fields=[...])
-    try:
-        if hasattr(index, "search"):
-            resp = index.search(namespace=settings.pinecone_namespace, query=query, fields=fields)
-        elif hasattr(index, "search_records"):
-            resp = index.search_records(namespace=settings.pinecone_namespace, query=query, fields=fields)
-        else:
-            raise AttributeError("Pinecone Index is missing search/search_records (SDK too old?)")
-    except TypeError:
-        # Older signature: (namespace, query, fields)
-        if hasattr(index, "search"):
-            resp = index.search(settings.pinecone_namespace, query, fields)
-        else:
-            resp = index.search_records(settings.pinecone_namespace, query, fields)
+    resp = await asyncio.to_thread(
+        index.search,
+        namespace=settings.pinecone_namespace,
+        query=query,
+        fields=fields,
+    )
 
     chunks: List[RetrievedChunk] = []
-    for h in _coerce_hits(resp):
-        rid = h.get("_id") or h.get("id") or ""
-        score = h.get("_score") or h.get("score") or 0.0
+    for hit in resp.result.hits:
+        rid = getattr(hit, "_id", "") or ""
+        score = getattr(hit, "_score", 0.0) or 0.0
         try:
             score_f = float(score)
         except Exception:
             score_f = 0.0
-        f = h.get("fields") or h.get("metadata") or {}
+        f = getattr(hit, "fields", {}) or {}
         if not isinstance(f, dict):
             f = {}
         chunks.append(RetrievedChunk(id=str(rid), score=score_f, fields=f))
@@ -118,7 +91,7 @@ def merge_rrf(
     ]
 
 
-def hybrid_search(
+async def hybrid_search(
     index: Any,
     settings: Settings,
     question: str,
@@ -128,19 +101,19 @@ def hybrid_search(
     """Run semantic + optional BM25 search, merge with RRF."""
     fetch_k = min(top_k * 3, 50)
 
-    semantic_chunks = search_pinecone_records(index, settings, question, fetch_k)
+    semantic_chunks = await search_pinecone_records(index, settings, question, fetch_k)
 
     if bm25_index is None:
         return semantic_chunks[:top_k]
 
-    bm25_chunks = bm25_index.search(question, top_k=fetch_k)
+    bm25_chunks = await asyncio.to_thread(bm25_index.search, question, top_k=fetch_k)
     return merge_rrf(
         semantic_chunks, bm25_chunks,
         top_k=top_k, alpha=settings.hybrid_alpha,
     )
 
 
-def enrich_with_graph(
+async def enrich_with_graph(
     chunks: List[RetrievedChunk],
     knowledge_graph: Optional[KnowledgeGraph],
     bm25_index: Optional[BM25Index],

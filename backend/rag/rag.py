@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-def _retrieve_chunks(
+async def _retrieve_chunks(
     *,
     index: Any,
     settings: Settings,
@@ -32,26 +32,27 @@ def _retrieve_chunks(
 ) -> list:
     """Try hybrid search with fallbacks: hybrid -> BM25-only -> semantic-only."""
     try:
-        return hybrid_search(index, settings, question, k, bm25_index=bm25_index)
+        return await hybrid_search(index, settings, question, k, bm25_index=bm25_index)
     except Exception as exc:
         logger.warning("Hybrid/Pinecone search failed, trying BM25-only: %s", exc)
 
     # Fallback 1: BM25-only
     if bm25_index is not None:
         try:
-            return bm25_index.search(question, top_k=k)
+            import asyncio
+            return await asyncio.to_thread(bm25_index.search, question, top_k=k)
         except Exception as exc:
             logger.warning("BM25 fallback failed, trying semantic-only: %s", exc)
 
     # Fallback 2: semantic-only (no BM25 merge)
     try:
-        return search_pinecone_records(index, settings, question, k)
+        return await search_pinecone_records(index, settings, question, k)
     except Exception as exc:
         logger.error("All retrieval methods failed: %s", exc)
         raise RetrievalError("All retrieval methods failed") from exc
 
 
-def answer_question(
+async def answer_question(
     *,
     index: Any,
     anthropic_client: Any,
@@ -68,7 +69,7 @@ def answer_question(
         k = 50
 
     # Retrieval with fallback chain
-    chunks = _retrieve_chunks(
+    chunks = await _retrieve_chunks(
         index=index, settings=settings, question=question, k=k,
         bm25_index=bm25_index,
     )
@@ -76,7 +77,7 @@ def answer_question(
     # Knowledge graph enrichment
     graph_context = None
     if knowledge_graph is not None:
-        chunks, graph_context = enrich_with_graph(
+        chunks, graph_context = await enrich_with_graph(
             chunks, knowledge_graph, bm25_index, question,
         )
 
@@ -92,7 +93,7 @@ def answer_question(
     user_prompt = build_user_prompt(question=question, sources_text=sources_text)
 
     try:
-        msg = anthropic_client.messages.create(
+        msg = await anthropic_client.messages.create(
             model=settings.anthropic_model,
             max_tokens=900,
             temperature=0.2,

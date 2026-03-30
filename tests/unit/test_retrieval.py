@@ -23,6 +23,7 @@ def _make_settings(**overrides) -> Settings:
         csv_path="test.csv",
         bm25_index_path="test.pkl",
         knowledge_graph_path="test.json",
+        api_key=None,
     )
     defaults.update(overrides)
     return Settings(**defaults)
