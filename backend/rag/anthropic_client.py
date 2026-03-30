@@ -7,7 +7,7 @@ def make_anthropic(settings: Settings) -> Any:
     # Lazily imported so module import doesn't hard-fail when deps aren't installed yet.
     import anthropic  # type: ignore
 
-    return anthropic.Anthropic(api_key=settings.anthropic_api_key)
+    return anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)
 
 
 def extract_text(message: Any) -> str:

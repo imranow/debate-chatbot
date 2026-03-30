@@ -6,6 +6,13 @@ const topkEl = document.getElementById("topk");
 
 let msgSeq = 0;
 
+const EXAMPLE_QUESTIONS = [
+  "What did candidates say about healthcare?",
+  "How did candidates differ on immigration?",
+  "What was said about climate change policy?",
+  "How did candidates address income inequality?",
+];
+
 function clampInt(value, min, max, fallback) {
   const n = Number.parseInt(String(value || ""), 10);
   if (Number.isNaN(n)) return fallback;
@@ -139,7 +146,25 @@ function renderMarkdownish(text) {
   return frag;
 }
 
-function addMessage({ role, text, citations, status }) {
+function isTruncated(text) {
+  if (!text) return false;
+  if (text.endsWith("\u2026")) return true;
+  // Check if text ends mid-sentence (no sentence-ending punctuation)
+  const trimmed = text.trimEnd();
+  if (!trimmed) return false;
+  const lastChar = trimmed[trimmed.length - 1];
+  return !/[.!?"'\u201d\u2019]/.test(lastChar);
+}
+
+function normalizeScore(score, allScores) {
+  if (!allScores || allScores.length === 0) return 0;
+  const max = Math.max(...allScores);
+  const min = Math.min(...allScores);
+  if (max === min) return 100;
+  return Math.round(((score - min) / (max - min)) * 100);
+}
+
+function addMessage({ role, text, citations, status, elapsed }) {
   const msgId = `m${++msgSeq}`;
   const msg = el("div", `msg ${role}`);
   msg.dataset.mid = msgId;
@@ -173,6 +198,7 @@ function addMessage({ role, text, citations, status }) {
 
     const cites = el("div", "citations");
     if (Array.isArray(citations)) {
+      const allScores = citations.map((c) => c.score).filter((s) => typeof s === "number");
       citations.forEach((c, idx) => {
         const cite = el("div", "cite");
         cite.dataset.cite = String(idx + 1);
@@ -180,6 +206,17 @@ function addMessage({ role, text, citations, status }) {
         const num = el("span", "cite-num");
         num.textContent = String(idx + 1);
         head.appendChild(num);
+
+        // Relevance score badge
+        if (typeof c.score === "number") {
+          const scoreBadge = el("span", "cite-score");
+          const pct = normalizeScore(c.score, allScores);
+          scoreBadge.textContent = `${pct}%`;
+          if (pct >= 80) scoreBadge.classList.add("high");
+          else if (pct >= 50) scoreBadge.classList.add("mid");
+          else scoreBadge.classList.add("low");
+          head.appendChild(scoreBadge);
+        }
 
         const parts = [];
         if (c.date) parts.push(c.date);
@@ -193,8 +230,18 @@ function addMessage({ role, text, citations, status }) {
         const excerpt = el("div", "cite-excerpt");
         excerpt.textContent = c.text || "";
 
-        cite.appendChild(head);
-        cite.appendChild(excerpt);
+        // Truncation indicator
+        if (isTruncated(c.text)) {
+          const trunc = el("div", "cite-truncated");
+          trunc.textContent = "Excerpt truncated";
+          cite.appendChild(head);
+          cite.appendChild(excerpt);
+          cite.appendChild(trunc);
+        } else {
+          cite.appendChild(head);
+          cite.appendChild(excerpt);
+        }
+
         cites.appendChild(cite);
       });
     }
@@ -220,6 +267,13 @@ function addMessage({ role, text, citations, status }) {
       }
     });
 
+    if (elapsed) {
+      const timePill = el("span", "elapsed-pill");
+      timePill.textContent = `${elapsed}s`;
+      left.appendChild(document.createTextNode(" "));
+      left.appendChild(timePill);
+    }
+
     meta.appendChild(left);
     meta.appendChild(toggle);
     bubble.appendChild(meta);
@@ -239,6 +293,17 @@ function addMessage({ role, text, citations, status }) {
   return { msg, body };
 }
 
+function renderStatusIndicator() {
+  const wrap = el("div", "status-indicator");
+  const text = el("span", "status-text");
+  text.textContent = "Searching debate transcripts...";
+  const timer = el("span", "status-timer");
+  timer.textContent = "";
+  wrap.appendChild(text);
+  wrap.appendChild(timer);
+  return { wrap, text, timer };
+}
+
 function setBusy(busy) {
   askEl.disabled = !!busy;
   questionEl.disabled = !!busy;
@@ -251,19 +316,38 @@ async function ask(question) {
   addMessage({ role: "user", text: question });
   const pending = addMessage({ role: "assistant", status: "typing", citations: [] });
 
+  // Add status indicator below the typing dots
+  const status = renderStatusIndicator();
+  pending.body.appendChild(status.wrap);
+
+  const startTime = performance.now();
+  let timerInterval = setInterval(() => {
+    const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+    status.timer.textContent = `${elapsed}s`;
+  }, 100);
+
   setBusy(true);
   try {
+    // Phase 1: searching
+    status.text.textContent = "Searching debate transcripts\u2026";
+
     const resp = await fetch("/chat", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ question, top_k }),
     });
+
+    // Phase 2: generating (response started coming back)
+    status.text.textContent = "Generating answer\u2026";
+
     if (!resp.ok) {
       const err = await resp.text();
       throw new Error(err || `HTTP ${resp.status}`);
     }
     const data = await resp.json();
-    pending.body.textContent = data.answer || "";
+
+    clearInterval(timerInterval);
+    const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
 
     // Re-render citations by replacing the assistant message element.
     pending.msg.remove();
@@ -271,9 +355,14 @@ async function ask(question) {
       role: "assistant",
       text: data.answer || "",
       citations: data.citations || [],
+      elapsed: elapsed,
     });
   } catch (e) {
-    pending.body.textContent = `Error: ${e && e.message ? e.message : String(e)}`;
+    clearInterval(timerInterval);
+    pending.body.innerHTML = "";
+    const errorText = el("span", "error-message");
+    errorText.textContent = "Service temporarily unavailable. Please try again.";
+    pending.body.appendChild(errorText);
   } finally {
     setBusy(false);
     questionEl.focus();
@@ -295,10 +384,23 @@ questionEl.addEventListener("keydown", (ev) => {
   }
 });
 
-// Seed with a minimal welcome message.
+// Seed with welcome message and example questions.
 addMessage({
   role: "assistant",
-  text:
-    "Ask a question about the 2019-2020 Democratic debates. I will answer using retrieved transcript sources.",
+  text: "Ask a question about the 2019-2020 Democratic primary debates. I will answer using retrieved transcript sources.\n\nTry one of these to get started:",
   citations: [],
 });
+
+// Add clickable example questions
+const examplesWrap = el("div", "example-questions");
+EXAMPLE_QUESTIONS.forEach((q) => {
+  const btn = el("button", "example-q");
+  btn.type = "button";
+  btn.textContent = q;
+  btn.addEventListener("click", () => {
+    questionEl.value = q;
+    formEl.requestSubmit();
+  });
+  examplesWrap.appendChild(btn);
+});
+threadEl.lastElementChild.querySelector(".bubble").appendChild(examplesWrap);
