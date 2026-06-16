@@ -119,7 +119,7 @@ Common:
 - `PINECONE_INDEX_HOST` (recommended if you already know it; avoids a control-plane lookup at startup)
 - `PINECONE_EMBED_MODEL` (default: `multilingual-e5-large`)
 - `PINECONE_EMBED_FIELD` (default: `chunk_text`)
-- `ANTHROPIC_MODEL` (default: `claude-sonnet-4-20250514`)
+- `ANTHROPIC_MODEL` (default: `claude-sonnet-4-6`)
 - `TOP_K` (default: `8`)
 - `MAX_CONTEXT_CHARS` (default: `12000`)
 

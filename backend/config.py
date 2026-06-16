@@ -85,7 +85,7 @@ def get_settings() -> Settings:
         pinecone_embed_model=os.getenv("PINECONE_EMBED_MODEL", "multilingual-e5-large"),
         pinecone_embed_field=os.getenv("PINECONE_EMBED_FIELD", "chunk_text"),
         anthropic_api_key=_require("ANTHROPIC_API_KEY"),
-        anthropic_model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
+        anthropic_model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6"),
         top_k=_get_int("TOP_K", 8),
         max_context_chars=_get_int("MAX_CONTEXT_CHARS", 12000),
         hybrid_alpha=_get_float("HYBRID_ALPHA", 0.5),

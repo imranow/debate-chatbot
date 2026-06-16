@@ -4,7 +4,7 @@ from deepeval.models import DeepEvalBaseLLM
 class AnthropicJudge(DeepEvalBaseLLM):
     """Custom DeepEval judge that uses Claude instead of OpenAI."""
 
-    def __init__(self, model_name: str = "claude-sonnet-4-20250514"):
+    def __init__(self, model_name: str = "claude-sonnet-4-6"):
         self._model_name = model_name
         self._client = None
 
