@@ -119,7 +119,7 @@ Common:
 - `PINECONE_INDEX_HOST` (recommended if you already know it; avoids a control-plane lookup at startup)
 - `PINECONE_EMBED_MODEL` (default: `multilingual-e5-large`)
 - `PINECONE_EMBED_FIELD` (default: `chunk_text`)
-- `ANTHROPIC_MODEL` (default: `claude-sonnet-4-20250514`)
+- `ANTHROPIC_MODEL` (default: `claude-sonnet-4-6`)
 - `TOP_K` (default: `8`)
 - `MAX_CONTEXT_CHARS` (default: `12000`)
 
@@ -170,6 +170,11 @@ In the AWS Console:
    - `PINECONE_API_KEY`
    - `ANTHROPIC_API_KEY`
    - Optional but recommended: `PINECONE_INDEX_HOST`
+   - Optional: `ANTHROPIC_MODEL` — leave unset to use the code default
+     (`claude-sonnet-4-6`). If you set it here, this value **overrides** the
+     code default, so keep it current: a retired model ID (e.g. the old
+     `claude-sonnet-4-20250514`) makes every `/chat` request fail with a 502.
+     Update it here when you change models, not just in code.
 5. Deploy and open the App Runner URL.
 
 ## Security / Cost Notes
