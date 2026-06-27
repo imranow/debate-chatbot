@@ -1,5 +1,7 @@
 # Debate Chatbot (RAG)
 
+Link: https://de-fafa3ceb88a24b38b241702b67d9b091.ecs.us-east-1.on.aws/
+
 Grounded Q&A over the 2019-2020 U.S. Democratic primary debate transcripts using:
 
 - **FastAPI** for the API + a minimal web UI
