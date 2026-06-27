@@ -137,50 +137,100 @@ Notes:
 - `backend/web/`: static web UI (HTML/CSS/JS)
 - `scripts/ingest.py`: ingest CSV into Pinecone as records
 
-## Deploy To AWS (App Runner)
+## Deploy To AWS (ECS Express Mode)
 
-This repo includes a `Dockerfile` that runs `uvicorn` on `0.0.0.0:$PORT` (default `8080`).
+The live deployment runs on [Amazon ECS Express Mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html),
+which turns a single container image into a Fargate service with an Application Load
+Balancer (HTTPS), auto-scaling, and a public `*.ecs.<region>.on.aws` URL. The repo's
+`Dockerfile` runs `uvicorn` on `0.0.0.0:$PORT` (default `8080`).
 
-### 1) Push Image To ECR (zsh-safe)
+> **Keep everything in one region.** Build/push the image **and** create the service in
+> the same region (this project uses `us-east-1`). A service in one region can't pull an
+> image from another without extra cross-region setup.
+
+### 1) Build & push the image to ECR
 
 ```bash
 REGION=us-east-1
 REPO=debate-chatbot
 
-aws sts get-caller-identity
-aws ecr create-repository --repository-name "$REPO" --region "$REGION" 2>/dev/null || true
-
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+aws ecr create-repository --repository-name "$REPO" --region "$REGION" 2>/dev/null || true
 aws ecr get-login-password --region "$REGION" | docker login --username AWS --password-stdin "$REGISTRY"
 
-IMAGE_URI="${REGISTRY}/${REPO}:latest"
-docker buildx build --platform linux/amd64 -t "$IMAGE_URI" --push .
-echo "$IMAGE_URI"
+# Run from the repo root (where the Dockerfile is). --platform matters on Apple Silicon.
+docker buildx build --platform linux/amd64 -t "${REGISTRY}/${REPO}:latest" --push .
 ```
 
-### 2) Create App Runner Service
+### 2) Create the service (first time: use the Console)
 
-In the AWS Console:
+The CLI (`aws ecs create-express-gateway-service`) needs an
+`ecsInfrastructureRoleForExpressServices` IAM role that does **not** exist on a fresh
+account — calling it first returns `Cannot assume role`. The **ECS Console → Create →
+Express** flow creates that role for you, so use the Console for the first service:
 
-1. App Runner → Create service → Source: **ECR**
-2. Select your image (`…/debate-chatbot:latest`)
-3. Set:
-   - Port: `8080`
-   - Health check path: `/health`
-4. Add environment variables:
-   - `PINECONE_API_KEY`
-   - `ANTHROPIC_API_KEY`
-   - Optional but recommended: `PINECONE_INDEX_HOST`
-   - Optional: `ANTHROPIC_MODEL` — leave unset to use the code default
-     (`claude-sonnet-4-6`). If you set it here, this value **overrides** the
-     code default, so keep it current: a retired model ID (e.g. the old
-     `claude-sonnet-4-20250514`) makes every `/chat` request fail with a 502.
-     Update it here when you change models, not just in code.
-5. Deploy and open the App Runner URL.
+- **Container image:** the ECR URI from step 1 (`…/debate-chatbot:latest`)
+- **Port:** `8080`
+- **Health check path:** `/health`
+- **Environment variables:**
+  - `PINECONE_API_KEY`, `PINECONE_INDEX_HOST`, `PINECONE_INDEX_NAME`, `PINECONE_NAMESPACE`
+  - `ANTHROPIC_API_KEY`
+  - `ANTHROPIC_MODEL` — **optional**. The image already defaults to `claude-sonnet-4-6`,
+    so leaving this unset avoids a hand-typed value. If you do set it, use the **exact**
+    hyphenated ID `claude-sonnet-4-6`. A typo (`claude_sonnet_4-6`) or a retired ID makes
+    Anthropic return 404, and every `/chat` request then fails with a 502
+    (`"Language model is temporarily unavailable"`).
+
+Once that first service (and its IAM role) exists, later deploys can use the CLI.
+
+### 3) Redeploy / update env vars (CLI)
+
+Put the container config in a file to avoid shell-quoting issues, then update by service ARN:
+
+```bash
+cat > container.json <<'JSON'
+{
+  "image": "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/debate-chatbot:latest",
+  "containerPort": 8080,
+  "environment": [
+    {"name": "ANTHROPIC_API_KEY", "value": "<key>"},
+    {"name": "PINECONE_API_KEY", "value": "<key>"},
+    {"name": "PINECONE_INDEX_HOST", "value": "<host>"},
+    {"name": "PINECONE_INDEX_NAME", "value": "dem-debates-transcripts"},
+    {"name": "PINECONE_NAMESPACE", "value": "debates"}
+  ]
+}
+JSON
+
+aws ecs update-express-gateway-service \
+  --region us-east-1 \
+  --service-arn <your-service-arn> \
+  --primary-container file://container.json
+```
+
+Updating the container triggers a new deployment. Watch it roll out, then verify:
+
+```bash
+# wait until one deployment shows rollout COMPLETED, running == desired, none IN_PROGRESS
+aws ecs describe-services --cluster default --services <service-name> --region us-east-1 \
+  --query "services[0].deployments[].{rollout:rolloutState,running:runningCount,desired:desiredCount}"
+
+curl -s -X POST "https://<your-service-url>/chat" \
+  -H 'content-type: application/json' \
+  -d '{"question":"What did candidates say about healthcare?"}'
+```
+
+A JSON `answer` with `[n]` citations means it's live. Per-request errors that don't crash
+the container are logged to CloudWatch (`/aws/ecs/default/<service>`); the app also returns
+a specific `detail` (retrieval vs. language-model failure) in the 502 body.
 
 ## Security / Cost Notes
 
 - Do **not** commit API keys. If you pasted a key into chat or a public place, rotate it.
-- This service is effectively “pay-per-request” (Anthropic + Pinecone usage). Add auth/rate limiting before making it publicly accessible.
+- Set keys as service environment variables (or AWS Secrets Manager), never in the image.
+- ECS Express has a baseline cost: the Fargate task runs continuously and the shared
+  Application Load Balancer is billed even when idle — it is **not** purely pay-per-request.
+  On top of that you pay per-use for Anthropic + Pinecone. Add auth/rate limiting before
+  exposing it publicly, and delete the service when you're done to stop the baseline charges.
 
