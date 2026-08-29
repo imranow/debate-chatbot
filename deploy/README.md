@@ -69,6 +69,16 @@ billing account's own currency. The API rejects a budget whose currency differs
 from the billing account's, so only set `CURRENCY=GBP` once you know the
 account is in sterling.
 
+## API enablement
+
+`gcloud services enable` returns before the APIs it enabled are actually
+usable. Calling one immediately afterwards fails with "API [...] not enabled",
+and gcloud then offers an interactive enable-and-retry prompt. That is
+survivable at a terminal and hangs forever anywhere without a TTY. Both
+occurrences bit during the real deploy, once for Artifact Registry and once for
+Billing Budgets. `setup-gcp.sh` now polls until every API is listed as enabled
+before continuing.
+
 ## Flags
 
 Every gcloud flag in these scripts was checked against the current reference

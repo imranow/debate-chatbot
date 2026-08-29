@@ -29,12 +29,35 @@ if ! gcloud billing projects describe "${PROJECT_ID}" \
   exit 1
 fi
 
-echo "Enabling APIs..."
-gcloud services enable \
-  run.googleapis.com \
-  artifactregistry.googleapis.com \
-  secretmanager.googleapis.com \
+APIS=(
+  run.googleapis.com
+  artifactregistry.googleapis.com
+  secretmanager.googleapis.com
   cloudbuild.googleapis.com
+  billingbudgets.googleapis.com
+)
+
+echo "Enabling APIs..."
+gcloud services enable "${APIS[@]}"
+
+# `gcloud services enable` returns before the APIs are actually usable. Without
+# this wait the very next call fails with "API [...] not enabled" and gcloud
+# falls back to an interactive enable-and-retry prompt, which works at a
+# terminal and hangs forever in CI. Poll until each one is really listed.
+echo "Waiting for APIs to become available..."
+for _ in $(seq 1 30); do
+  ENABLED="$(gcloud services list --enabled --format='value(config.name)')"
+  MISSING=0
+  for api in "${APIS[@]}"; do
+    grep -qx "${api}" <<< "${ENABLED}" || MISSING=1
+  done
+  [ "${MISSING}" -eq 0 ] && break
+  sleep 5
+done
+if [ "${MISSING}" -ne 0 ]; then
+  echo "WARNING: some APIs are still not listed as enabled after 150s." >&2
+  echo "         Re-run this script; enablement is idempotent." >&2
+fi
 
 echo "Creating Artifact Registry repository (if absent)..."
 gcloud artifacts repositories describe "${REPO}" --location="${REGION}" >/dev/null 2>&1 || \
