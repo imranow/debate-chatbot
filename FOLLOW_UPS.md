@@ -219,3 +219,69 @@ covered in `deploy/aws-teardown.md`.
 
 Cloud Logging has its own 30-day default retention, so this does not carry over
 to the new deployment.
+
+---
+
+## 5. Runtime dependencies are unpinned
+
+**Status:** caused a live outage during this migration. Partially fixed.
+
+### What happened
+
+`requirements.txt` specified `anthropic>=0.40.0` with no upper bound. The ECS
+image was built in February 2026 and froze whatever 0.x version was current.
+Cloud Build, running the same `Dockerfile` against the same commit in August,
+resolved `anthropic==1.2.0`, in which `temperature` has been removed from
+`messages.create()`:
+
+```
+TypeError: AsyncMessages.create() got an unexpected keyword argument 'temperature'
+```
+
+Every `/chat` request returned 502. Retrieval worked, so it looked like an
+Anthropic credential problem, and roughly half an hour went into re-entering a
+key that was correct all along.
+
+The general statement is worth being blunt about: **rebuilding the same commit
+six months later produced a different application.** ECS was not working
+because it was correct, it was working because its image was frozen. Any
+redeploy of ECS would have broken in exactly the same way. The migration did
+not cause this, it revealed it.
+
+### What was fixed
+
+`anthropic` is pinned to `<1.0`, which preserves behaviour exactly. Dropping
+`temperature` instead would have changed sampling from 0.2 to the SDK default
+in the middle of an infrastructure migration, making any output difference
+impossible to attribute.
+
+### What is still open
+
+Every other runtime dependency has the same shape. `fastapi>=0.110.0`,
+`uvicorn[standard]>=0.27.0`, `rank-bm25>=0.2.2` and `networkx>=3.0` are all
+unbounded above; only `pinecone>=6.0.0,<7.0.0` has a ceiling. The next major
+release of any of them lands in production at the next build, with no code
+change to blame it on.
+
+Options, cheapest first:
+
+- **Add upper bounds** to each direct dependency. One line each, catches major
+  version breaks, does nothing about a bad minor release.
+- **Generate a lock file** (`pip-compile` from `pip-tools`, or `uv pip compile`)
+  producing a fully pinned `requirements.lock` with hashes, and install from
+  that in the Dockerfile. Builds become reproducible: the same commit gives the
+  same image. This is the real fix.
+- **Dependabot or Renovate** on top, so upgrades arrive as reviewable pull
+  requests that CI runs against, rather than silently at build time.
+
+The CI workflow added in this branch would not have caught this on its own,
+because it installs fresh too and would have failed identically. It would,
+however, have failed *loudly and before deployment*, which is most of the value.
+
+### On lifting the pin
+
+Moving to `anthropic` 1.x is a real upgrade, not just a version bump. The
+parameter list changed substantially: `output_config`, `thinking`,
+`service_tier`, `cache_control` and `inference_geo` are new, and `temperature`
+is gone from the type definitions entirely. Treat it as a small piece of work
+with the eval suite run before and after, not a one-line edit.

@@ -1,7 +1,9 @@
 # Runtime dependencies only. Everything here ships in the production image.
 # Development and evaluation tooling lives in requirements-dev.txt so that it
 # does not inflate the image or the Cloud Run cold start.
-anthropic>=0.40.0
+# Pinned below 1.0: the 1.x SDK removed `temperature` from messages.create().
+# See FOLLOW_UPS.md item 5 before lifting this bound.
+anthropic>=0.40.0,<1.0
 fastapi>=0.110.0
 pinecone>=6.0.0,<7.0.0
 python-dotenv>=1.0.0

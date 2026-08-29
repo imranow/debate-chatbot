@@ -137,6 +137,10 @@ async def chat(req: ChatRequest) -> Dict[str, Any]:
             detail="Unable to retrieve relevant sources. Please try again later.",
         )
     except LLMError:
+        # Logged with the traceback: LLMError wraps the underlying exception,
+        # so an auth failure, a retired model and a client-side TypeError all
+        # produce the same 502 and are otherwise indistinguishable.
+        logger.exception("LLM call failed")
         raise HTTPException(
             status_code=502,
             detail="Language model is temporarily unavailable. Please try again later.",
