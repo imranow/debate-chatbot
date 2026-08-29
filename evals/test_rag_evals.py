@@ -1,5 +1,6 @@
+import os
+
 import pytest
-from deepeval import assert_test
 from deepeval.metrics import (
     AnswerRelevancyMetric,
     ContextualRelevancyMetric,
@@ -10,10 +11,10 @@ from deepeval.test_case import LLMTestCase
 from backend.config import get_settings
 from backend.rag.anthropic_client import make_anthropic
 from backend.rag.pinecone_client import make_pinecone
-from backend.rag.rag import answer_question
 
 from evals.eval_dataset import EVAL_QUESTIONS
 from evals.judge import AnthropicJudge
+from evals.target import run_rag_pipeline, target_label
 
 
 # --- Shared fixtures ---
@@ -21,7 +22,13 @@ from evals.judge import AnthropicJudge
 
 @pytest.fixture(scope="session")
 def rag_clients():
-    """Initialize Pinecone index and Anthropic client once per test session."""
+    """Pinecone index and Anthropic client for the in-process target.
+
+    Not built when EVAL_TARGET_URL is set: in HTTP mode the service under test
+    owns those clients, and the suite needs no Pinecone credentials of its own.
+    """
+    if os.getenv("EVAL_TARGET_URL"):
+        return None, None, None
     settings = get_settings()
     _pc, index = make_pinecone(settings)
     anthropic_client = make_anthropic(settings)
@@ -33,21 +40,6 @@ def judge():
     return AnthropicJudge()
 
 
-# --- Helper ---
-
-
-def run_rag_pipeline(question, settings, index, anthropic_client):
-    """Call the live RAG pipeline. Returns (answer, retrieval_context_list)."""
-    answer, citations, _ = answer_question(
-        index=index,
-        anthropic_client=anthropic_client,
-        settings=settings,
-        question=question,
-    )
-    retrieval_context = [c["text"] for c in citations if c.get("text")]
-    return answer, retrieval_context
-
-
 # --- Parametrized test ---
 
 
@@ -56,7 +48,7 @@ def run_rag_pipeline(question, settings, index, anthropic_client):
     EVAL_QUESTIONS,
     ids=[q["question"][:60] for q in EVAL_QUESTIONS],
 )
-def test_rag_eval(eval_case, rag_clients, judge):
+def test_rag_eval(eval_case, rag_clients, judge, record_eval_result):
     settings, index, anthropic_client = rag_clients
 
     question = eval_case["question"]
@@ -79,4 +71,29 @@ def test_rag_eval(eval_case, rag_clients, judge):
         ContextualRelevancyMetric(threshold=0.5, model=judge),
     ]
 
-    assert_test(test_case, metrics)
+    # Measured explicitly rather than via assert_test so the scores can be
+    # recorded and diffed across deployments, not just asserted against.
+    scores = {}
+    failures = []
+    for metric in metrics:
+        metric.measure(test_case)
+        name = type(metric).__name__
+        scores[name] = {
+            "score": metric.score,
+            "threshold": metric.threshold,
+            "reason": metric.reason,
+        }
+        if metric.score is None or metric.score < metric.threshold:
+            failures.append("%s scored %s, threshold %s" % (name, metric.score, metric.threshold))
+
+    record_eval_result(
+        {
+            "target": target_label(),
+            "question": question,
+            "retrieved_chunks": len(retrieval_context),
+            "answer_chars": len(actual_output),
+            "metrics": scores,
+        }
+    )
+
+    assert not failures, "; ".join(failures)

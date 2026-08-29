@@ -183,7 +183,7 @@ class TestEnrichWithGraph:
     def test_none_graph_returns_unchanged(self):
         import asyncio
         chunks = [_chunk("a", 0.9)]
-        result_chunks, context = asyncio.get_event_loop().run_until_complete(
+        result_chunks, context = asyncio.run(
             enrich_with_graph(chunks, None, None, "test")
         )
         assert result_chunks == chunks
@@ -195,7 +195,7 @@ class TestEnrichWithGraph:
         kg = self._make_kg(row_ids=["row-99"])
         bm25 = self._make_bm25({"row-99": "new speech text"})
 
-        result_chunks, _ = asyncio.get_event_loop().run_until_complete(
+        result_chunks, _ = asyncio.run(
             enrich_with_graph(existing, kg, bm25, "test")
         )
         ids = [c.id for c in result_chunks]
@@ -209,7 +209,7 @@ class TestEnrichWithGraph:
         kg = self._make_kg(row_ids=["row-1"])  # same ID as existing chunk
         bm25 = self._make_bm25({"row-1": "speech"})
 
-        result_chunks, _ = asyncio.get_event_loop().run_until_complete(
+        result_chunks, _ = asyncio.run(
             enrich_with_graph(existing, kg, bm25, "test")
         )
         assert len([c for c in result_chunks if c.id == "row-1"]) == 1
@@ -220,7 +220,7 @@ class TestEnrichWithGraph:
         existing = [_chunk("a", 0.9)]
         kg = self._make_kg(row_ids=["row-99"])
 
-        result_chunks, context = asyncio.get_event_loop().run_until_complete(
+        result_chunks, context = asyncio.run(
             enrich_with_graph(existing, kg, None, "test")
         )
         # No new chunk added since bm25 is None
@@ -232,7 +232,7 @@ class TestEnrichWithGraph:
         import asyncio
         existing = [_chunk("a", 0.9)]
         kg = self._make_kg(row_ids=[], graph_context="Entity: Biden")
-        _, context = asyncio.get_event_loop().run_until_complete(
+        _, context = asyncio.run(
             enrich_with_graph(existing, kg, None, "test")
         )
         assert context == "Entity: Biden"
