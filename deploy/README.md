@@ -9,7 +9,7 @@ export REGION=europe-west1
 ./deploy/setup-gcp.sh        # APIs, Artifact Registry, runtime service account
 ./deploy/create-secrets.sh   # you run this: it prompts for the two API keys
 ./deploy/deploy.sh           # Cloud Build, then deploy with explicit runtime config
-./deploy/set-budget.sh       # £5 budget alert
+./deploy/set-budget.sh       # 5 GBP budget alert at 50/90/100%
 ```
 
 ## Prerequisites you have to do by hand
@@ -58,3 +58,17 @@ EVAL_TARGET_URL=https://<url> EVAL_REPORT_PATH=evals/run.json \
 The parity harness is the sharper of the two for a migration. An LLM judge
 moves a few points between runs on identical input; retrieval does not. If the
 citation IDs match across both deployments, retrieval is provably unchanged.
+
+## A note on the budget currency
+
+`set-budget.sh` leaves `CURRENCY` empty by default, so the budget uses the
+billing account's own currency. The API rejects a budget whose currency differs
+from the billing account's, so only set `CURRENCY=GBP` once you know the
+account is in sterling.
+
+## Flags
+
+Every gcloud flag in these scripts was checked against the current reference
+rather than written from memory. Two things that are easy to get wrong:
+`--filter-projects` takes `projects/{project_id}`, not the project number, and
+threshold percentages are 1.0-based, so `percent=0.50` means fifty percent.

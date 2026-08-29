@@ -22,7 +22,7 @@ gcloud config set project "${PROJECT_ID}" >/dev/null
 
 # Fail early and clearly if billing is not linked. Every API enable below
 # fails with a much less obvious error otherwise.
-if ! gcloud beta billing projects describe "${PROJECT_ID}" \
+if ! gcloud billing projects describe "${PROJECT_ID}" \
      --format='value(billingEnabled)' 2>/dev/null | grep -qi true; then
   echo "ERROR: no billing account is linked to ${PROJECT_ID}." >&2
   echo "Link one at https://console.cloud.google.com/billing then re-run." >&2
