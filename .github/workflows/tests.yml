@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches: [main, "migrate/**"]
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install runtime and dev dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Unit tests
+        run: python -m pytest tests/unit/ -q
+
+      # Not run: evals/ needs live Pinecone and Anthropic credentials and
+      # spends tokens on every invocation. Import-checking them still catches
+      # the class of bug that left the suite broken and silent for months.
+      - name: Import-check the eval suite
+        run: python -m pytest evals/ --collect-only -q
