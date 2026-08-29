@@ -269,10 +269,50 @@ image (see Known limitations), so the lifespan handler does almost no work.
 `PINECONE_INDEX_HOST` is set in the deployment, which keeps the Pinecone client
 from making a control-plane lookup on the startup path.
 
-<!-- FILL IN AFTER CUTOVER -->
-Measured Cloud Run cold start, first request after 20 minutes idle: TBD
-Measured warm request latency: TBD
-Median latency comparison against the ECS baseline: TBD, see evals/parity.json
+Measured on Cloud Run, revision `debate-chatbot-00005-4jz`:
+
+| | |
+|---|---|
+| Container start to accepting traffic | **4s** |
+| First `GET /health` after start | 8s from process start, including the probe interval |
+| Warm `GET /health` | 0.47 to 0.90s |
+| End to end `POST /chat` | 9.9 to 11.6s |
+| Same on ECS, for comparison | 8.0 to 10.3s |
+
+The 4 second figure is from the container logs and was identical across two
+separate revisions deployed 40 minutes apart:
+
+```
+14:57:06  Started server process [1]
+14:57:10  Application startup complete.
+```
+
+That is the number the earlier local measurement predicted, once it was
+corrected to measure a cold page cache rather than a warm one. Well inside the
+10 second threshold, and there is little left to cut: the image is a slim base
+plus 184 MB of site-packages, most of which is numpy, the Pinecone client and
+uvicorn.
+
+`POST /chat` is one to two seconds slower than ECS. That is the transatlantic
+hop: the service now runs in Belgium while Pinecone is in `us-east-1` and
+Anthropic is US-hosted, so each request makes two crossings that it previously
+made from inside us-east-1. The user's own connection is correspondingly
+faster. For a demo where the answer takes ten seconds regardless, this is not a
+trade worth optimising.
+
+### One thing that did not behave as expected
+
+The service did not scale to zero after 22 minutes of no traffic. The first
+request after that idle period returned in 0.47s, faster than some warm
+requests, which means the instance was still alive. Cloud Run does not
+guarantee a fixed idle timeout before reclaiming an instance.
+
+Two consequences. The user-visible cold start is rarer than `min-instances 0`
+implies, which is good. And the honest way to measure a cold start is to deploy
+a new revision and read the container logs, rather than waiting and timing a
+request, which is what the numbers above do. Worth checking the first month's
+bill against the free tier rather than assuming zero on the strength of the
+configuration alone.
 
 **The real trade is not cold start. It is the answer cache.**
 
