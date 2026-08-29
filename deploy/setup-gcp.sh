@@ -50,6 +50,34 @@ gcloud iam service-accounts describe "${SA_EMAIL}" >/dev/null 2>&1 || \
 gcloud iam service-accounts create "${SA_NAME}" \
   --display-name="Debate Chatbot Cloud Run runtime"
 
+# Cloud Build needs to push into the repository we just made. Which identity it
+# runs as depends on the organisation's settings: newer projects use the
+# Compute Engine default service account, older ones the legacy Cloud Build
+# account. Google's own docs say it "depends on your organization's settings"
+# rather than naming one, so grant both and let the non-existent one fail
+# quietly. Without this the first `gcloud builds submit` fails on the push,
+# after the build has already succeeded, which is a confusing place to land.
+PROJECT_NUMBER="$(gcloud projects describe "${PROJECT_ID}" --format='value(projectNumber)')"
+echo "Granting Cloud Build permission to push images..."
+for CB_SA in \
+  "${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" \
+  "${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+do
+  if gcloud iam service-accounts describe "${CB_SA}" >/dev/null 2>&1; then
+    gcloud artifacts repositories add-iam-policy-binding "${REPO}" \
+      --location="${REGION}" \
+      --member="serviceAccount:${CB_SA}" \
+      --role=roles/artifactregistry.writer \
+      --condition=None >/dev/null 2>&1 && echo "  artifactregistry.writer -> ${CB_SA}"
+    # The Compute default account also needs to write build logs when it is
+    # the build identity. Harmless if already held.
+    gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+      --member="serviceAccount:${CB_SA}" \
+      --role=roles/logging.logWriter \
+      --condition=None >/dev/null 2>&1 && echo "  logging.logWriter        -> ${CB_SA}"
+  fi
+done
+
 echo
 echo "Done."
 echo "Service account: ${SA_EMAIL}"
