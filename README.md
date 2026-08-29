@@ -255,7 +255,15 @@ instance. The platform default of 300s is looser than this service needs.
 ### Cold start, and the trade that was accepted
 
 Startup work is close to nothing. Timed from process start to the first 200 on
-`/health`, three runs with the production dependency set: 1.00s, 0.94s, 0.95s.
+`/health` with the production dependency set: 0.88 to 1.18s across five runs
+with a warm page cache, and 4.40s on the first run after a fresh checkout with
+nothing cached.
+
+The cold figure is the honest one for Cloud Run. Every cold start there begins
+with freshly pulled layers and an empty page cache, so 4s is the number to
+expect and 1s is the number you get once an instance is warm. Measuring only
+the warm case is how a cold start estimate ends up three or four times too
+optimistic.
 There is no embedding model to load, and the BM25 index is absent from the
 image (see Known limitations), so the lifespan handler does almost no work.
 `PINECONE_INDEX_HOST` is set in the deployment, which keeps the Pinecone client

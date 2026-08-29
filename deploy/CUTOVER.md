@@ -50,11 +50,24 @@ curl -s -o /dev/null -w "cold start to first byte: %{time_starttransfer}s\n" "${
 curl -s -o /dev/null -w "warm:                     %{time_starttransfer}s\n" "${RUN_URL}/health"
 ```
 
-The ECS baseline for a warm `/health` was 0.24 to 0.51s. Local process startup
-with the production dependency set was 0.94 to 1.30s, so a cold start much
-above about 3s means image pull is dominating and the image is worth another
-look. Above 10s, go back and cut image size or move startup work to lazy
-initialisation, as the brief says.
+Yardsticks, measured rather than assumed:
+
+| | |
+|---|---|
+| ECS warm `/health` | 0.24 to 0.51s |
+| Local process start, warm page cache | 0.88 to 1.18s over five runs |
+| Local process start, cold page cache | 4.40s, first run after checkout |
+
+That last row is the one that matters, and it is easy to get wrong. Every
+Cloud Run cold start is a cold filesystem: the image layers have just been
+pulled and nothing is in page cache. So the realistic expectation is the 4s
+figure, not the 1s one, and something in the 3 to 6 second range is normal
+rather than a sign of a bloated image.
+
+Only go back to Phase 1 above about 10s, which is the threshold the brief
+sets. Below that, cutting image size further is chasing a number that will not
+move much: the container is 184 MB of site-packages on a slim base, and what
+remains is numpy, the Pinecone client and uvicorn.
 
 ## 4. Prove retrieval did not change
 
