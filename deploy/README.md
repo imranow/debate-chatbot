@@ -12,6 +12,9 @@ export REGION=europe-west1
 ./deploy/set-budget.sh       # 5 GBP budget alert at 50/90/100%
 ```
 
+For the ordered end-to-end procedure, including verification and
+teardown, see `CUTOVER.md`.
+
 ## Prerequisites you have to do by hand
 
 A billing account linked to the project. Cloud Run needs one even when usage

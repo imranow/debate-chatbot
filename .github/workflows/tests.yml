@@ -5,6 +5,10 @@ on:
     branches: [main, "migrate/**"]
   pull_request:
 
+env:
+  # deepeval phones home on import unless told not to.
+  DEEPEVAL_TELEMETRY_OPT_OUT: "YES"
+
 jobs:
   unit:
     runs-on: ubuntu-latest
