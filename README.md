@@ -1,6 +1,6 @@
 # Debate Chatbot (RAG)
 
-Link: https://de-fafa3ceb88a24b38b241702b67d9b091.ecs.us-east-1.on.aws/
+Link: https://debate-chatbot-820693244750.europe-west1.run.app/
 
 Grounded Q&A over the 2019-2020 U.S. Democratic primary debate transcripts using:
 
@@ -304,6 +304,22 @@ with the same scores.
 compares retrieved citation IDs. Identical IDs in identical order means
 retrieval is provably unchanged, and any difference in wording is the language
 model sampling at temperature 0.2.
+
+**This comparison was not run, and that is worth stating plainly rather than
+leaving implied.** The Pinecone key was rotated mid-migration, which left the
+ECS deployment failing on retrieval, so there was no working baseline to
+compare against at cutover. Restoring ECS purely to generate one was judged not
+worth the cost and the delay.
+
+The argument for accepting that: retrieval is deterministic, both deployments
+run identical code against the same Pinecone index, and the only variable that
+changed is where the container runs. Verification was therefore by smoke test
+against real debate questions, checking citation count, source metadata and
+answer content.
+
+The honest caveat: near-certain is not verified, and the harness exists and
+works. If retrieval quality ever comes into question, that is the tool, and it
+needs two live deployments.
 
 ### Known limitations found during the migration
 
