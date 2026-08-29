@@ -14,3 +14,10 @@ build/
 
 .git/
 .DS_Store
+
+# Test and evaluation code: not needed at runtime.
+tests/
+evals/
+requirements-dev.txt
+CLAUDE.md
+.claude/
