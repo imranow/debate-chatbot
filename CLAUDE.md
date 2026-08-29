@@ -42,14 +42,29 @@ Built with a production-grade RAG pipeline: hybrid search (BM25 + Pinecone seman
 - Relevance score badges on citations (green/amber/gray)
 - Truncation indicators on cut-off source excerpts
 - Typed exceptions + fallback chain in RAG pipeline
-- 21 unit tests (all passing)
+- 21 unit tests added in that PR; the suite is now 60 and all pass
+
+## Testing
+- Unit tests: `python -m pytest tests/unit/ -v` (60 passing)
+- Evals in-process: `pytest evals/ -q` (needs live Pinecone and Anthropic)
+- Evals against a deployment: `EVAL_TARGET_URL=https://... pytest evals/ -q`
+- Deployment parity: `python -m evals.compare_deployments --baseline URL --candidate URL`
 
 ## Known Issues / Tech Debt
+
+See `FOLLOW_UPS.md` for the two that matter, with root cause and fix options.
+
+- **BM25 is not running in production.** The pickle is not in the image and the
+  CSV is dockerignored, so `bm25_index` is always `None` and `hybrid_search`
+  silently returns dense-only results. The hybrid/RRF code is correct and
+  tested; it has never had an index to work with in a container.
+- **The answer cache does not survive scale to zero.** It is a per-process LRU,
+  so on Cloud Run at `min-instances 0` it dies with the instance. Accepted
+  trade, not a defect.
 - Knowledge graph entity matching is naive (substring, no NER/lemmatization)
 - No citation accuracy validation (Claude could hallucinate citation indices)
 - BM25 index is in-memory/pickled — not suitable for >1M docs
-- No query/response logging or latency tracking
-- Eval dataset (`EVAL_QUESTIONS`) not checked in
+- No query/response logging or latency tracking, so the answer cache hit rate is unknown
 
 ## Conventions
 - Type hints throughout; Pydantic models for API contracts
