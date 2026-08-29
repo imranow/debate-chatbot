@@ -1,0 +1,6 @@
+# Development, test and evaluation dependencies.
+# Install with: pip install -r requirements-dev.txt
+-r requirements.txt
+
+pytest>=8.0.0
+deepeval>=2.0.0
