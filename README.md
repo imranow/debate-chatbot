@@ -273,46 +273,62 @@ Measured on Cloud Run, revision `debate-chatbot-00005-4jz`:
 
 | | |
 |---|---|
-| Container start to accepting traffic | **4s** |
-| First `GET /health` after start | 8s from process start, including the probe interval |
-| Warm `GET /health` | 0.47 to 0.90s |
-| End to end `POST /chat` | 9.9 to 11.6s |
+| **Cold start, first request after ~20 hours idle** | **11.6s** |
+| Warm `GET /health` | 0.64 to 0.83s |
+| End to end `POST /chat`, warm | 9.9 to 11.8s |
 | Same on ECS, for comparison | 8.0 to 10.3s |
 
+Decomposed, because the total is not where the intuition points:
+
+| | |
+|---|---|
+| Scheduling and image pull | ~7.6s |
+| Container start to accepting traffic | 4.0s |
+
 The 4 second figure is from the container logs and was identical across two
-separate revisions deployed 40 minutes apart:
+revisions deployed 40 minutes apart:
 
 ```
 14:57:06  Started server process [1]
 14:57:10  Application startup complete.
 ```
 
-That is the number the earlier local measurement predicted, once it was
-corrected to measure a cold page cache rather than a warm one. Well inside the
-10 second threshold, and there is little left to cut: the image is a slim base
-plus 184 MB of site-packages, most of which is numpy, the Pinecone client and
-uvicorn.
+So **two thirds of the cold start is Cloud Run finding a node and pulling
+roughly 315 MB of image onto it**, and only one third is the application
+starting. That matters for what to do about it: the brief's advice for a slow
+cold start is to move startup work to lazy initialisation, and here that would
+buy almost nothing. There is no model to load, no index to build, and the
+Pinecone client is constructed from `PINECONE_INDEX_HOST` without a
+control-plane call. Startup work is already close to the floor.
 
-`POST /chat` is one to two seconds slower than ECS. That is the transatlantic
-hop: the service now runs in Belgium while Pinecone is in `us-east-1` and
-Anthropic is US-hosted, so each request makes two crossings that it previously
-made from inside us-east-1. The user's own connection is correspondingly
-faster. For a demo where the answer takes ten seconds regardless, this is not a
-trade worth optimising.
+Cutting the image is the lever that would actually move it, and there is not
+much left to cut. 184 MB of site-packages, of which numpy is 73 MB and required
+by both `rank_bm25` and the Pinecone client. `networkx` is 19 MB and only
+imported when `ENABLE_KNOWLEDGE_GRAPH` is set, so it could become an optional
+dependency, but that is half a second at best.
 
-### One thing that did not behave as expected
+**11.6s is over the 10 second threshold this migration set itself**, and the
+trade was accepted rather than engineered away. For a demo where the answer
+itself takes ten seconds, a first visitor waiting eleven and a half is not the
+thing standing between this project and its purpose. Recording it honestly is
+worth more than a number that flatters the setup.
 
-The service did not scale to zero after 22 minutes of no traffic. The first
-request after that idle period returned in 0.47s, faster than some warm
-requests, which means the instance was still alive. Cloud Run does not
-guarantee a fixed idle timeout before reclaiming an instance.
+### How this was nearly measured wrong
 
-Two consequences. The user-visible cold start is rarer than `min-instances 0`
-implies, which is good. And the honest way to measure a cold start is to deploy
-a new revision and read the container logs, rather than waiting and timing a
-request, which is what the numbers above do. Worth checking the first month's
-bill against the free tier rather than assuming zero on the strength of the
-configuration alone.
+The first attempt waited 20 minutes and timed a request: 0.47s, faster than
+some warm requests, because the instance had not been reclaimed. It is easy to
+conclude from that either that cold starts are negligible or that scale to zero
+is not working. Neither is true; 20 minutes is simply not long enough, and
+Cloud Run publishes no fixed idle timeout.
+
+The figure that replaced it, 4 seconds from the container logs, was also
+misleading in the other direction. Logs measure the application starting, which
+begins only after the image is on the node. Immediately after a deploy the
+image is already resident, so the pull cost is invisible.
+
+Only a genuine overnight idle produced the real number. The lesson generalises:
+a cold start measured right after deploying is not a cold start, and an idle
+period you chose because it felt long enough is not evidence.
 
 **The real trade is not cold start. It is the answer cache.**
 
