@@ -1,0 +1,6 @@
+# Dependencies for the stock screener (stocks/). Installed separately from the
+# chatbot so the API image stays slim.
+pandas>=2.0
+numpy>=1.24
+requests>=2.31
+yfinance>=0.2.40

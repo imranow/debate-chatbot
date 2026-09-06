@@ -27,7 +27,9 @@ Built with a production-grade RAG pipeline: hybrid search (BM25 + Pinecone seman
 | `backend/rag/exceptions.py` | Typed exceptions: `RetrievalError`, `LLMError` |
 | `backend/web/app.js` | Frontend chat logic, citation rendering, loading states |
 | `evals/test_rag_evals.py` | DeepEval integration tests |
-| `tests/unit/` | Unit tests for RRF, truncation, graph enrichment |
+| `tests/unit/` | Unit tests for RRF, truncation, graph enrichment, stock screener |
+| `stocks/` | Stock screener: universe → prices → metrics → Top-100 + breakout watchlist → reports |
+| `.github/workflows/stock-screener.yml` | Weekday cron that reruns the screener and commits `reports/stocks/` |
 
 ## Architecture Decisions
 - **Hybrid alpha = 0.5** (configurable): balances semantic vs keyword retrieval
@@ -43,6 +45,13 @@ Built with a production-grade RAG pipeline: hybrid search (BM25 + Pinecone seman
 - Truncation indicators on cut-off source excerpts
 - Typed exceptions + fallback chain in RAG pipeline
 - 21 unit tests (all passing)
+
+## Stock Screener (`stocks/`)
+- Independent of the chatbot; deps in `requirements-stocks.txt` (pandas, numpy, yfinance, requests)
+- Data providers with fallback: yfinance → stooq → local CSV cache (`.cache/stocks/`)
+- Scores are cross-sectional percentile composites (see `stocks/screener.py` weights)
+- Reports: `reports/stocks/latest.{md,json}` + `history/<date>.json`; diffs show entrants/dropouts
+- Market-data hosts are blocked in the Claude web sandbox — real runs happen locally or in Actions
 
 ## Known Issues / Tech Debt
 - Knowledge graph entity matching is naive (substring, no NER/lemmatization)

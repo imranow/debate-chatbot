@@ -234,3 +234,23 @@ a specific `detail` (retrieval vs. language-model failure) in the 502 body.
   On top of that you pay per-use for Anthropic + Pinecone. Add auth/rate limiting before
   exposing it publicly, and delete the service when you're done to stop the baseline charges.
 
+
+## Stock screener (`stocks/`)
+
+A separate, self-contained module that ranks the S&P 500 (plus any extra
+tickers) by performance and flags names showing breakout momentum. It reruns
+every weekday via the `stock-screener` GitHub Actions workflow and commits
+`reports/stocks/latest.md`, with a per-run snapshot in `reports/stocks/history/`
+so each report lists what entered or left the Top 100 and the watchlist.
+
+```bash
+pip install -r requirements-stocks.txt
+python -m stocks.cli --out reports/stocks --extra TSLA,PLTR   # live data via yfinance (stooq fallback)
+python -m stocks.cli --offline                                # rerun from the last cached prices
+python -m pytest tests/unit/test_stock_*.py -v
+```
+
+Outputs: **Top 100 performers** (composite of 3m / 6m / 12-1 momentum,
+risk-adjusted return, distance from 52-week high) and a **breakout watchlist**
+(1-month acceleration, volume expansion, new 52-week highs, trend confirmation).
+Price action only; not investment advice.
