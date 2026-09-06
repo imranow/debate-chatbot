@@ -22,7 +22,9 @@ concurrency:
 jobs:
   screen:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -46,6 +48,10 @@ jobs:
           EXTRA: ${{ github.event.inputs.extra }}
         run: python -m stocks.cli --out reports/stocks --extra "$EXTRA" -v
 
+      - name: Catalyst scan (Claude web search)
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: python -m stocks.catalysts --out reports/stocks -v
+
       - name: Commit reports
         run: |
           git config user.name "github-actions[bot]"
@@ -63,4 +69,7 @@ jobs:
           {
             echo "## Stock screener"
             sed -n '1,60p' reports/stocks/latest.md
+            if [ -f reports/stocks/catalysts/latest.md ]; then
+              echo; echo "## Catalyst scan"; sed -n '1,40p' reports/stocks/catalysts/latest.md
+            fi
           } >> "$GITHUB_STEP_SUMMARY"

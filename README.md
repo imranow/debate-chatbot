@@ -254,3 +254,14 @@ Outputs: **Top 100 performers** (composite of 3m / 6m / 12-1 momentum,
 risk-adjusted return, distance from 52-week high) and a **breakout watchlist**
 (1-month acceleration, volume expansion, new 52-week highs, trend confirmation).
 Price action only; not investment advice.
+
+`stocks/catalysts.py` is the forward-looking half: Claude with web search sweeps
+five "pre-boom" signatures (sold-out capacity, second-tier suppliers raising
+guidance, contract price hikes, dated binary events, cluster insider buying),
+writes `reports/stocks/catalysts/latest.md`, and cross-references each candidate
+against the price screen. It runs in the same workflow when the
+`ANTHROPIC_API_KEY` secret is set:
+
+```bash
+ANTHROPIC_API_KEY=... python -m stocks.catalysts --out reports/stocks -v
+```

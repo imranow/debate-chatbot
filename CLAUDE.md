@@ -51,6 +51,7 @@ Built with a production-grade RAG pipeline: hybrid search (BM25 + Pinecone seman
 - Data providers with fallback: yfinance → stooq → local CSV cache (`.cache/stocks/`)
 - Scores are cross-sectional percentile composites (see `stocks/screener.py` weights)
 - Reports: `reports/stocks/latest.{md,json}` + `history/<date>.json`; diffs show entrants/dropouts
+- `stocks/catalysts.py`: Claude (`claude-opus-5`) + `web_search_20260209` scan of pre-boom signatures → `reports/stocks/catalysts/`; uses server-side refusal fallbacks; resumes on `pause_turn`
 - Market-data hosts are blocked in the Claude web sandbox — real runs happen locally or in Actions
 
 ## Known Issues / Tech Debt
