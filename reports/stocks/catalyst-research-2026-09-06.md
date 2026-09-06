@@ -76,7 +76,7 @@ The signatures to search for weekly, in order of reliability:
 4. **Dated binary events on washed-out charts** with high short interest.
 5. **Cluster insider buying** in the same sectors as 1 to 3.
 
-The `stocks/catalysts.py` scanner automates searches 1 to 5 with Claude web search and writes `reports/stocks/catalysts-latest.md` on each scheduled run. The price screener then confirms which candidates are starting to move.
+The `stocks/catalysts.py` scanner automates searches 1 to 5 with Claude web search and writes `reports/stocks/catalysts/latest.md` on each scheduled run. The price screener then confirms which candidates are starting to move.
 
 ## Sources
 
