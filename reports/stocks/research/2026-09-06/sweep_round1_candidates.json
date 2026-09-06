@@ -1,0 +1,1150 @@
+[
+ {
+  "ticker": "042700.KS",
+  "name": "Hanmi Semiconductor",
+  "exchange": "Korea Exchange (KOSPI)",
+  "theme": "HBM TC bonders (memory-adjacent equipment; washed-out leader)",
+  "thesis": "Classic washed-out-stock setup inside the hottest supply chain: Hanmi is the incumbent thermal-compression bonder supplier for HBM stacking, yet the shares roughly halved over the past year (192,300 KRW on 7 Aug vs a 426,000 KRW 52-week high) on fears that Hanwha Semitech and ASMPT would erode its SK hynix franchise. The fundamentals have gone the other way: Q2 2026 was a record (revenue 251.1bn KRW, operating profit 130.3bn KRW, 51.9% operating margin), Micron became the largest customer at 46% of Q2 revenue, and SK hynix placed its first HBM4 'Griffin' TC bonder order (44.2bn KRW, ~15 tools) in June with Digitimes reporting HBM4 orders 'rebounding' to Hanmi over Hanwha. The binary that was feared -- hybrid bonding replacing TC bonding -- has been pushed out: at Hot Chips 2026 SK hynix said hybrid bonding will not be ready for HBM4E and extended MR-MUF/TC bonding through Nvidia Rubin, lengthening the TC bonder cycle. Add HBF (high-bandwidth flash) bonder deliveries from 2H26 and a second-gen hybrid bonder due by end-2026 as free options. Confirmed facts: Q2 numbers, Micron share, SK hynix order. Rumour/analysis: 'pulls ahead of Hanwha' is trade-press reporting, not a company disclosure. Risk: Hanwha patent litigation, customer concentration, and a trailing multiple that still screens high on stale estimates.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/a22e4e5e-597b-4744-b0e9-e755d125ece5",
+    "claim": "Operating margin ~52% but the stock has halved; 'fair value debate' intensifying -- supports the washed-out setup."
+   },
+   {
+    "url": "https://www.rttnews.com/3680789/hanmi-semiconductor-posts-strong-revenue-growth-in-q2.aspx",
+    "claim": "Q2 2026 record revenue 251.1bn KRW and operating profit 130.3bn KRW (+39.5% / +51.0% YoY), 51.9% operating margin; Micron 46% of Q2 revenue."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2026/06/09/news-sk-hynix-reportedly-places-44-2bn-won-tc-bonder-order-with-hanmi-accelerating-hbm4-ramp-up/",
+    "claim": "SK hynix placed a 44.2bn KRW order for TC Bonder 4.5 Griffin HBM4 tools with Hanmi in June 2026 (~15 units)."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260813VL208/hbm4-hanwha-hanmi-sk-hynix-equipment.html",
+    "claim": "Digitimes (13 Aug 2026): Hanmi pulls ahead of Hanwha as HBM4 orders rebound."
+   },
+   {
+    "url": "https://www.tomshardware.com/tech-industry/semiconductors/sk-hynix-says-hybrid-bonding-wont-be-ready-for-hbm4e-as-ai-memory-runs-into-a-775-micron-ceiling",
+    "claim": "At Hot Chips 2026 SK hynix said hybrid bonding won't be ready for HBM4E (HBM5 at earliest) and extends MR-MUF/TC bonding through Rubin -- lengthens TC bonder demand."
+   },
+   {
+    "url": "https://stockanalysis.com/quote/krx/042700/statistics/",
+    "claim": "Trailing P/E ~68 / forward ~53 per stockanalysis; 52-week range 81,400-426,000 KRW, price 192,300 KRW on 7 Aug 2026."
+   }
+  ],
+  "already_run": "Down ~54% over the past year; ~55% below the 426,000 KRW 52-week high at 192,300 KRW (7 Aug 2026); stock retreated to pre-earnings levels despite record Q2.",
+  "confidence": "high",
+  "angle": "?"
+ },
+ {
+  "ticker": "IMOS",
+  "name": "ChipMOS Technologies (also 8150.TW)",
+  "exchange": "Nasdaq (ADR) / Taiwan Stock Exchange",
+  "theme": "Memory test & assembly OSAT (DDR4/DDR5, NAND, drivers)",
+  "thesis": "Volume-and-price beneficiary on a still-modest base: ChipMOS is the outsourced test/assembly shop that Taiwanese and Korean memory makers lean on when their own back-end is prioritised for HBM. Q2 2026 revenue of NT$7.38bn was the highest since 2014 (+28.7% YoY), gross margin nearly tripled YoY to 18% from 6.6%, memory revenue rose >46% and DRAM revenue >70%, and management expects DDR4/DDR5 momentum to outpace driver-IC growth in 2H26 while spending >25% of revenue on capex (memory test, automation) and opening a Tainan site for 2027. The Dell-style angle: operating leverage on an OSAT cost base that was loss-adjacent in 2025, so earnings can multiply even without further memory price gains. The stock has already re-rated off the low (+266% from the 52-week low) but sits ~29% below its 52-week high of $78.35 at $55.46 (28 Aug), and the trailing P/E (~74x) is on a depressed base. Confirmed facts: SEC 6-K results and call commentary. Risk: driver-IC/display exposure, Taiwan capex intensity, and the trailing multiple already discounting a good 2H.",
+  "evidence": [
+   {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001123134/000119312526343297/imos-ex99_1.htm",
+    "claim": "6-K: Q2 2026 revenue NT$7,383.1m (+6.5% QoQ, +28.7% YoY), gross margin 18% vs 13.8% in Q1 and 6.6% a year earlier."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/chipmos-technologies-q2-earnings-call-140505933.html",
+    "claim": "Q2 call: memory revenue +46% YoY, DRAM +70%; DDR4/DDR5 expected to outpace driver ICs in 2H; 2026 capex >25% of revenue; Tainan facility for 2027 capacity."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260513PD200/chipmos-demand-packaging-testing-earnings.html",
+    "claim": "1Q26 earnings jumped 186% on packaging and testing demand."
+   },
+   {
+    "url": "https://stockinvest.us/stock/IMOS",
+    "claim": "IMOS $55.46 on 28 Aug 2026; 52-week range $15.06-$78.35; -29% from high, +266% from low; trailing P/E ~74."
+   }
+  ],
+  "already_run": "+266% from 52-week low but ~29% below the $78.35 52-week high at $55.46 (28 Aug 2026); highest quarterly revenue since 2014.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "6239.TW",
+  "name": "Powertech Technology (PTI)",
+  "exchange": "Taiwan Stock Exchange",
+  "theme": "Memory packaging & test OSAT (DRAM/NAND modules, TSV DDR5, FOPLP)",
+  "thesis": "The largest memory-focused OSAT in Taiwan, and a Dell-style volume beneficiary on a low starting multiple: H1 2026 revenue rose 32% YoY to NT$44.4bn with EPS up 91% to NT$5.5, Q2 EPS of NT$3.0 was a four-year high, gross margin topped 19%, and full-year revenue is guided to exceed the 2022 record of NT$83.9bn. Two step-ups sit in front of it: mass production of TSV-based DDR5 packaging from Q4 2026 (the technical on-ramp to HBM-class stacking) and the world's first FOPLP AI packaging line by mid-2027. Because customers (Micron, Kioxia, Taiwanese DRAM makers) are diverting internal back-end capacity to HBM, outsourced memory assembly/test is structurally tight, and PTI's earnings compound on volume even if bit prices flatten. Shares at NT$288 (1 Sep) are ~26% below the NT$387 May record, so the market has partially -- not fully -- repriced a record year. Confirmed: results/guidance from the Q2 call. Risk: management transition after the CEO retired, capital intensity, and that memory OSAT is lower-margin than the IDMs' own lines.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/TW_6239.TW_2026-07-28",
+    "claim": "Q2 2026 revenue NT$23.1bn (+28% YoY), EPS NT$3.0 (four-year high); H1 revenue NT$44.4bn (+32%), EPS NT$5.5 (+91%); TSV DDR5 packaging mass production from Q4; FOPLP AI packaging by mid-2027; 2026 revenue to exceed 2022 record NT$83.9bn."
+   },
+   {
+    "url": "https://finance.biggo.com/news/TW_6239.TW_2026-04-28",
+    "claim": "Q1 2026 call: gross margin above 19%, EPS +58% YoY; CEO retirement and shift to collective leadership."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260128PD200/pti-memory-testing-packaging-revenue.html",
+    "claim": "Powertech posted a 4Q25 profit high and eyed growth momentum into 2026 on memory testing/packaging."
+   },
+   {
+    "url": "https://finance.yahoo.com/quote/6239.TW/",
+    "claim": "All-time high NT$387 on 29 May 2026; NT$288 on 1 Sep 2026; market cap ~NT$212bn."
+   }
+  ],
+  "already_run": "Hit an all-time high of NT$387 on 29 May 2026; trading ~26% below that at NT$288 (1 Sep 2026).",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "089030.KQ",
+  "name": "Techwing",
+  "exchange": "KOSDAQ",
+  "theme": "HBM die-level test (Cube Prober) and memory handlers",
+  "thesis": "A binary on HBM test intensity with a washed-out P&L: Techwing's Cube Prober tests 256 individual HBM dies in parallel, a step HBM4's higher stack count makes near-mandatory. It already supplies Samsung, won its first SK hynix Cube Prober order on 17 June 2026 after passing qualification in March, booked a 10.67bn KRW test-equipment order for Micron Malaysia in July, and has qualification units at Micron with results due this year -- a three-customer sweep would be the re-rating trigger. The starting point is depressed: Q1 2026 revenue fell 67% YoY with a net loss, FY2025 revenue was down 14%, and the stock at 50,600 KRW (25 Aug) is ~32% below its 74,000 KRW 52-week high, so the setup resembles Moderna-style 'washed-out stock, catalyst ahead' more than a momentum trade. Confirmed: The Elec order disclosures. Unverified: Q2 2026 results were not found; sole-analyst 80,000 KRW target. Risks: customer concentration, lumpy equipment recognition, Korean small-cap liquidity.",
+  "evidence": [
+   {
+    "url": "https://www.thelec.net/news/articleView.html?idxno=11441",
+    "claim": "Techwing won its first SK hynix Cube Prober order (17 June 2026) after passing qualification in March; already supplies Samsung; Micron qualification results expected this year; 256-die parallelism."
+   },
+   {
+    "url": "https://www.thelec.net/news/articleView.html?idxno=12340",
+    "claim": "Techwing won a 10.668bn KRW semiconductor test equipment order from Micron's Malaysia operations (disclosed 20 July 2026)."
+   },
+   {
+    "url": "https://www.marketscreener.com/news/techwing-inc-reports-earnings-results-for-the-first-quarter-ended-march-31-2026-ce7f5ad3d08df726",
+    "claim": "Q1 2026: revenue down ~67% YoY with a net loss; FY2025 revenue 159.1bn KRW (-14%)."
+   },
+   {
+    "url": "https://www.investing.com/equities/techwing-inc",
+    "claim": "Price 50,600 KRW on 25 Aug 2026; 52-week range 29,700-74,000 KRW; consensus target 80,000 KRW."
+   }
+  ],
+  "already_run": "~32% below the 74,000 KRW 52-week high at 50,600 KRW (25 Aug 2026); +70% from the 29,700 KRW 52-week low.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "086390.KQ",
+  "name": "UniTest",
+  "exchange": "KOSDAQ",
+  "theme": "HBM4 wafer burn-in testers and memory/module testers",
+  "thesis": "Small-cap burn-in/test binary: SK hynix is building out an HBM4 test supply chain with Korean vendors instead of relying solely on Advantest, and UniTest has disclosed HBM4 wafer-tester (high-temperature/high-voltage burn-in) contracts of 29.5bn KRW (May) and 22.38bn KRW (July) -- the latter alone equals 20% of 2025 revenue of 110.2bn KRW -- while Digitimes reports four HBM4 wafer-tester orders worth 247.84bn KRW split between UniTest and privately held Digital Frontier. Management guided a return to profitability this year off a Q1 2026 operating loss (revenue 22.4bn KRW, OP -2.5bn KRW) with ~50bn KRW domestic backlog. If 2H26 deliveries land, revenue could double against a loss-making base -- the SanDisk/Micron 'earnings multiply first, multiple second' shape in miniature. Price data is stale/conflicting: 17,440 KRW in Feb 2026 (52-week range 8,570-22,300), and a TradingView snippet showing 11,530 KRW of uncertain date; if the latter is current the stock is roughly half its high despite the orders. Ticker is confirmed (KOSDAQ 086390); confidence is low-to-medium mainly because of price uncertainty and the risk that DF took the larger share of the 247.84bn KRW.",
+  "evidence": [
+   {
+    "url": "https://www.thelec.net/news/articleView.html?idxno=12491",
+    "claim": "UniTest signed a 22.38bn KRW HBM4 wafer-tester contract with SK hynix (20.31% of 2025 revenue of 110.195bn KRW); with the May 29.5bn KRW contract, total >51.8bn KRW."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260730VL224/sk-hynix-hbm-tester-wafer-advantest.html",
+    "claim": "Digital Frontier and UniTest secured four HBM4 wafer-tester orders from SK hynix worth a combined 247.84bn KRW in 2026."
+   },
+   {
+    "url": "https://www.thelec.net/news/articleView.html?idxno=11956",
+    "claim": "UniTest targets a return to profitability in 2026; Q1 2026 revenue 22.4bn KRW, operating loss 2.5bn KRW; ~50bn KRW domestic order backlog."
+   },
+   {
+    "url": "https://stockanalysis.com/quote/kosdaq/086390/",
+    "claim": "Product set: wafer testers, memory burn-in/component/module testers, storage and logic burn-in testers; 52-week range 8,570-22,300 KRW (17,440 KRW on 7 Feb 2026)."
+   }
+  ],
+  "already_run": "Unclear: 17,440 KRW in Feb 2026 vs 52-week high 22,300 KRW; a later TradingView snippet shows 11,530 KRW (date unverified), which would be ~48% below the high. Treat as unknown-to-not-run.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "6855.T",
+  "name": "Japan Electronic Materials (JEM)",
+  "exchange": "Tokyo Stock Exchange",
+  "theme": "Memory (DRAM/HBM) probe cards -- second-tier to Micronics Japan",
+  "thesis": "Probe cards are consumables whose wear-out accelerates with HBM4's doubled pin count and higher layer count; FormFactor (+354% in a year) and Micronics Japan (+113% YTD) have re-rated on exactly this, but JEM -- the number-two Japanese memory probe-card maker -- has round-tripped: shares peaked at 10,270 yen on 25 Feb 2026 and were 6,580 yen on 10 Aug (-36%), partly because the company raised equity to fund probe-card capacity. Fundamentals are inflecting: Q3 FY2026 quarterly revenue was 8.4bn yen versus 4.9bn yen a year earlier (+71%), and the FY2026 plan is 30bn yen sales / 5bn yen ordinary profit with aggressive capex. The thesis is that DRAM test demand (DDR5 and HBM4/HBM4E at SK hynix, Samsung, Micron) spills to the second source as the leader's lines fill, and JEM's operating leverage on a small base drives an earnings multiple far larger than the top line. Confirmed: financials and offering. Promotional flag: Substack 'Hidden HBM Play' pieces; verify customer mix in filings. Risks: dilution overhang, share-loss to Micronics/FormFactor, and reliance on DRAM capex timing.",
+  "evidence": [
+   {
+    "url": "https://finboard.net/companies/JP:6855",
+    "claim": "FY2026 targets of 30bn yen consolidated net sales and 5bn yen ordinary profit; strengthening probe-card development and capacity via aggressive capex."
+   },
+   {
+    "url": "https://simplywall.st/stocks/jp/semiconductors/tse-6855/japan-electronic-materials-shares",
+    "claim": "Q3 FY2026 revenue 8.4bn yen vs 4.9bn yen in Q3 FY2025; basic EPS 139.91 yen for the quarter."
+   },
+   {
+    "url": "https://www.smartkarma.com/insights/japan-offering-japan-electronic-materials-6855-jp-more-money-for-more-probe-cards",
+    "claim": "JEM launched an equity offering to fund probe-card capacity expansion ('More Money for More Probe Cards')."
+   },
+   {
+    "url": "https://www.investing.com/equities/japan-electronic-materials",
+    "claim": "6,580 yen on 10 Aug 2026; 52-week range 2,035-10,270 yen; all-time high 10,270 yen on 25 Feb 2026."
+   },
+   {
+    "url": "https://variantperceptions.substack.com/p/japan-electronic-materials-hidden",
+    "claim": "Independent (promotional-leaning) write-up framing JEM as a 'hidden HBM play' via memory probe cards."
+   }
+  ],
+  "already_run": "Up strongly from the 2,035 yen 52-week low but ~36% below the 10,270 yen February 2026 all-time high at 6,580 yen (10 Aug 2026).",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "6315.T",
+  "name": "TOWA Corporation",
+  "exchange": "Tokyo Stock Exchange",
+  "theme": "HBM compression-molding equipment (near-monopoly consumable-like capex)",
+  "thesis": "Every HBM stack is encapsulated with compression molding and Towa is reported to hold close to 100% of that niche; compression-mold orders hit an all-time high in FY3/2026 and total orders were the second-highest ever, yet FY3/26 profit fell on cost burdens and the stock (2,993 yen on 9 Jul, 52-week range 1,622-3,735) has not participated in the memory re-rating. Guidance for FY3/2027 is revenue +20% to 64bn yen and operating profit 10bn yen, with a new lower-cost INOMOS platform to restore margins -- a profit-inflection on a washed-out multiple, and a direct read-through from SK hynix's 13bn-dollar HBM assembly plant and Samsung/Micron HBM4 ramps. The bottleneck logic: HBM4 and 16-Hi stacks raise molding tool count per wafer, and the equipment is qualified per-line, so share loss is slow. Confirmed: results/guidance from the FY call. Promotional flag: '100% share' claims come from a note.com analysis and an X post, not company disclosure. Risks: Japanese equipment cyclicality, competition from Korean molding vendors, and profit sensitivity to fixed-cost absorption.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/JP_6315.T_2026-05-13",
+    "claim": "FY3/2026: record revenue but lower profit; compression-mold orders at an all-time high, total orders second-highest ever; new INOMOS compression molding system; FY3/2027 guidance revenue ~64bn yen (+20%), operating profit ~10bn yen."
+   },
+   {
+    "url": "https://note.com/aibased_analysis/n/n10c9c0c929b9?hl=en",
+    "claim": "Analysis claiming Towa's compression molding holds close to 100% share in HBM packaging (promotional-leaning source)."
+   },
+   {
+    "url": "https://www.investing.com/equities/towa-corp",
+    "claim": "2,993 yen on 9 Jul 2026; 52-week range 1,622-3,735 yen."
+   },
+   {
+    "url": "https://www.tomshardware.com/pc-components/dram/sk-hynix-to-spend-usd13-billion-on-the-worlds-largest-hbm-memory-assembly-plant",
+    "claim": "SK hynix to spend $13bn on the world's largest HBM assembly (packaging/testing) plant -- back-end capex tailwind for molding tools."
+   }
+  ],
+  "already_run": "Roughly 20% below the 3,735 yen 52-week high at 2,993 yen (9 Jul 2026); up ~85% from the 1,622 yen low; profit still below prior peak.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "KLIC",
+  "name": "Kulicke & Soffa Industries",
+  "exchange": "Nasdaq",
+  "theme": "Memory interconnect equipment: fluxless TCB for HBM/HBF, vertical-wire and ball bonders for NAND stacks",
+  "thesis": "Second-tier TC bonder and memory wire-bond play with a real earnings inflection: fiscal Q3 2026 (reported 5 Aug) revenue was $330.4m (+123% YoY, +36% QoQ) versus a $245m consensus, non-GAAP EPS $1.20 vs $0.74 expected, and management said the TCB line will beat its $100m FY2026 target and grow to $150-200m in FY2027, with capex raised to add TCB capacity. In March 2026 K&S formally rolled out a memory portfolio (fluxless TCB and future hybrid bonding aimed at HBM, HBF and high-density DRAM), and its legacy ball/vertical-wire bonders are the workhorse tools for NAND die stacking, so the 2026 NAND capacity additions (sold out through 2026 per Phison) flow straight to unit demand. Multiple is the question: the stock is +89% YTD but 'well below' its $135.80 52-week high, and K&S has spent years as a value-trap, so a Dell-style re-rating requires the TCB memory wins to be named. Confirmed: results, guidance. Unconfirmed: which HBM maker is the TCB memory customer. Risks: China/OSAT exposure, ball-bonder cyclicality, and being third behind Hanmi/ASMPT at SK hynix.",
+  "evidence": [
+   {
+    "url": "https://investor.kns.com/2026-08-05-Kulicke-Soffa-Reports-Third-Quarter-2026-Results",
+    "claim": "Q3 FY2026 revenue $330.4m, net income $57.4m (GAAP EPS $1.07), non-GAAP EPS $1.20."
+   },
+   {
+    "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-kulicke-and-soffa-tops-q3-2026-estimates-lifts-outlook-93CH-4842147",
+    "claim": "Revenue +123% YoY and +36% QoQ on semiconductor and memory demand; non-GAAP EPS $1.20 vs $0.74 forecast; revenue $330.4m vs $244.6m expected; gross margin 47.8%."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/kulicke-soffa-industries-inc-klic-190604900.html",
+    "claim": "TCB/Advanced Solutions record revenue; on track to beat the $100m FY2026 TCB target; FY2027 TCB revenue guided to $150-200m."
+   },
+   {
+    "url": "https://investor.kns.com/2026-03-24-Kulicke-Soffa-Expands-Memory-Solutions-Portfolio",
+    "claim": "K&S expanded its memory solutions portfolio (fluxless TCB, hybrid roadmap) targeting HBM, HBF and high-density DRAM interconnect."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/kulicke-soffa-industries-klic-earnings-101111547.html",
+    "claim": "Share price +88.85% year-to-date but well below the $135.80 52-week high."
+   }
+  ],
+  "already_run": "+89% YTD per Yahoo/Simply Wall St but reported as well below the $135.80 52-week high; has partially repriced.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "NLST",
+  "name": "Netlist",
+  "exchange": "OTC (OTCQB)",
+  "theme": "Memory modules / hard-to-source DRAM plus patent-litigation binary",
+  "thesis": "A Moderna-style binary layered on a memory-price beneficiary: Netlist's product business resells and packages hard-to-source DRAM/modules, and Q2 2026 revenue rose 163% YoY to $109.8m with gross profit up 1,544% to $22.9m as constrained supply lifted pricing (H1 revenue $214.7m, ~3x). On 4-5 Aug 2026 Samsung settled all litigation with a five-year cross-license and supply/technology alliance worth up to $897m ($239m upfront plus up to $32.9m per quarter for 20 quarters) and agreed to buy 10m shares -- converting a court claim into contracted cash flow. The remaining binary is Micron: Federal Circuit oral argument on Micron's appeal of the $445m verdict is scheduled for 9 Sep 2026, and a Samsung-style settlement would be transformational for a company whose share price was under $1 a year ago. Caveat: the stock has already moved (+295% YTD, +58% on the Samsung day, ~$3.75 vs a $3.97 52-week high), it trades OTC, and several sources covering it (StocksToTrade, Timothy Sykes) are promotional; the Seeking Alpha and Simply Wall St pieces are more balanced but note valuation stretch. Include only as a small, event-driven position.",
+  "evidence": [
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/netlist-q2-earnings-call-highlights-070347996.html",
+    "claim": "Q2 2026 revenue $109.8m (+163% YoY), gross profit $22.9m (+1,544%); H1 revenue $214.7m (~3x); constrained memory supply expected to persist through next year; Micron appeal oral argument 9 Sep."
+   },
+   {
+    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262081863-samsung-netlist-patent-settlement-897-million-nlst-stock-surge-58-tradingkey",
+    "claim": "Samsung settlement: $239m upfront plus up to $32.9m/quarter for 20 quarters (up to $897m), five-year strategic alliance, Samsung to buy 10m shares; NLST +58% on the day."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-netlist-nlst-65-8-051020033.html",
+    "claim": "Share price +295% YTD and +67% over 7 days after the Samsung deal; trading ~5.5% below the $3.97 52-week high."
+   },
+   {
+    "url": "https://seekingalpha.com/article/4937547-netlist-everyone-is-watching-the-litigation-look-deeper",
+    "claim": "Independent analysis arguing the product business (not just litigation) is being overlooked; flags OTC listing."
+   }
+  ],
+  "already_run": "Already run hard: +295% YTD, +58% on 5 Aug 2026 Samsung settlement, ~$3.75 vs $3.97 52-week high -- but from a sub-$1 washed-out base a year ago.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "5991.T",
+  "name": "NHK Spring Co., Ltd.",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "HDD suspension duopoly (with TDK/Hutchinson) on an auto-parts multiple",
+  "thesis": "Bottleneck pattern. Every nearline HDD needs 20-plus suspension assemblies, and the supply base is a two-player duopoly (NHK Spring and TDK). Seagate and Western Digital are sold out for calendar 2026 with LTAs into 2027-28, and TDK's own disclosure shows nearline suspension volume up ~35% in FY3/26, so unit growth at the component layer is running well ahead of drive-unit growth as capacity-per-drive and platter counts rise. NHK Spring's disk-drive suspension (DDS) segment has been growing roughly 60% YoY and now drives more than half of group EBIT, yet the company is still classified and priced as an auto-parts supplier (~12x consensus EPS per one buy-side write-up). Confirmed: Q1 FY3/27 (Apr-Jun 2026) net sales \u00a5216.2bn (+8.1%), OP \u00a514.4bn, net profit \u00a59.0bn; new Thai suspension building announced. Caveat: the 60%-growth and 12x-multiple figures come from a promotional Substack, not company filings, and the ~40% of revenue in automotive springs/seats dilutes the storage exposure. The stock has already doubled over 12 months, so this is a 'multiple re-rate on a re-classification' story rather than a fresh earnings-inflection one.",
+  "evidence": [
+   {
+    "url": "https://www.tipranks.com/news/company-announcements/nhk-spring-posts-strong-first-quarter-profit-and-keeps-full-year-outlook-intact",
+    "claim": "Q1 FY3/27 (April-June 2026) consolidated net sales \u00a5216.2bn (+8.1% YoY), operating profit \u00a514.4bn, net profit \u00a59.0bn, EPS \u00a544.24."
+   },
+   {
+    "url": "https://asymmetricopportunities.substack.com/p/nhk-spring-tse-5991-mispriced-ai",
+    "claim": "(Promotional Substack) DDS suspension segment has grown ~60% YoY on average over the past five quarters, drives over half of EBIT; stock trades ~12.4x consensus EPS despite duopoly position."
+   },
+   {
+    "url": "https://www.nhkspg.co.jp/en/news/tag/ir",
+    "claim": "NHK Spring announced construction of a new production building for HDD suspensions at its Thailand base."
+   },
+   {
+    "url": "https://www.tdk.com/system/files/20264q_0mqf56xw_en.pdf",
+    "claim": "Industry read-through: TDK's FY3/26 briefing reports nearline HDD suspension sales volume up ~35% and heads up ~14%."
+   }
+  ],
+  "already_run": "Up ~125% over the last 12 months. Price snippets conflict: one shows \u00a54,056 on June 5, 2026 with a 52-week high of \u00a54,126; another shows \u00a53,590 with an all-time high of \u00a53,688 on May 13, 2026. No September 2026 print found. Either way the stock is within roughly 0-15% of its high, not washed out.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "6479.T",
+  "name": "MinebeaMitsumi Inc.",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "HDD pivot assemblies, No.2 HDD spindle motors, and data-center bearings/fan motors; stock has round-tripped to flat YTD despite record results",
+  "thesis": "Washed-out-on-record-earnings pattern. MinebeaMitsumi supplies HDD pivot assemblies (the bearing assembly the actuator arm swings on), is the second source for HDD spindle motors behind Nidec, and makes the miniature ball bearings and fan motors that go into AI servers. Confirmed: Q1 FY3/27 (Apr-Jun 2026) revenue \u00a5425.2bn and operating profit were both record highs on AI data-center demand; the Precision Technologies segment ran a 23.3% operating margin with bearing output near 378M units/month; full-year net profit guidance was raised to \u00a587bn from \u00a583bn. Despite that, the stock has fallen ~39% from its June 25, 2026 all-time high of \u00a55,307 to ~\u00a53,238 in early September, i.e. roughly flat versus its ~\u00a53,190 start-of-year level. The bear case is that the ACE (Access Solutions) segment took a \u00a52bn restructuring charge and the June spike priced in a lot; the bull case is that pivot/motor pricing has not yet been reset for a market where Seagate and WD are sold out through 2026 and Nidec (the primary motor supplier) is distracted by governance problems. This is the cleanest 'earnings up, stock down' setup in the HDD chain.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/7c2023d5-ece1-40c2-b04d-6026caccacd4",
+    "claim": "Q1 FY3/27 revenue and operating profit both record highs on AI data-center demand; FY3/27 net profit forecast raised to \u00a587bn from \u00a583bn."
+   },
+   {
+    "url": "https://finance.biggo.com/news/JP_6479.T_2026-08-05",
+    "claim": "Q1 earnings call: PT segment 23.3% operating margin, bearing production near 378M units/month; ACE segment operating profit fell to \u00a50.1bn on a \u00a52bn restructuring charge."
+   },
+   {
+    "url": "https://www.minebeamitsumi.com/english/corp/investors/disclosure/financial/p2026/summary04/",
+    "claim": "Precision Technologies segment (which includes HDD pivot assemblies) FY3/26 sales \u00a5281.2bn (+10.0%) and operating income \u00a562.2bn (+11.8%)."
+   },
+   {
+    "url": "https://www.tradingview.com/symbols/TSE-6479/",
+    "claim": "All-time high \u00a55,307 on June 25, 2026; recent price ~\u00a53,238 (-5.0% on the day) in early September 2026."
+   }
+  ],
+  "already_run": "All-time high \u00a55,307 on June 25, 2026; ~\u00a53,238 in early September 2026 (about 39% below the high). Started 2026 near \u00a53,190 (Feb 6 print \u00a53,256), so roughly flat YTD after a full round trip; down ~12.8% over the month to August.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "6594.T",
+  "name": "Nidec Corporation",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "~80% share of HDD spindle motors, washed out by an accounting and quality scandal; binary on governance clearing",
+  "thesis": "Moderna-style binary on a washed-out stock, layered on a bottleneck. Nidec supplies roughly 80% of the world's HDD spindle motors (secondary-source figure), and its own FY3/25 filing shows HDD spindle motor sales up 41.9% to \u00a5100.2bn 'mainly due to higher sales of high-value-added products for near-line HDDs' -- before the 2026 sell-out and price spike at Seagate/WD. The stock has been crushed by an unrelated problem set: a \u00a5160.7bn cumulative net-profit hit from improper accounting (final report April 2026), then 1,000-plus product-quality violations in appliance/auto motors (shares fell up to 18% on May 12, 2026), postponed FY3/26 results, a Q1 FY3/27 report delayed past the 45-day window, and on September 3, 2026 yet another independent committee into accounting. The CEO has said publicly that data-center demand is offsetting the scandal impact. If clean restated numbers finally land showing the nearline motor business compounding at 2025's rate under 2026 pricing, the re-rate from record-low levels could be large; if the new committee finds more, the stock re-tests the lows. Confidence is low because the FY3/26 and Q1 FY3/27 figures simply do not exist yet, and the 80% share figure is from a market-research blog rather than a filing.",
+  "evidence": [
+   {
+    "url": "https://www.nidec.com/files/user/www-nidec-com/ir/library/earnings/2025/FY24Q4_3_en.pdf",
+    "claim": "Nidec's FY3/25 financial statements: net sales of HDD spindle motors +41.9% to \u00a5100,219m, mainly due to higher sales of high-value-added products for near-line HDDs."
+   },
+   {
+    "url": "https://www.marketresearchreports.com/blog/mapping-hdd-supply-chain-monopolies-duopolies",
+    "claim": "(Secondary/promotional source) Nidec holds ~80% of the global HDD spindle motor market."
+   },
+   {
+    "url": "https://www.bloomberg.com/news/videos/2026-05-22/nidec-ceo-data-center-demand-offsets-scandal-impact-video",
+    "claim": "CEO Mitsuya Kishida said the data-center business is offsetting the impact of the accounting and quality scandals."
+   },
+   {
+    "url": "https://www.japantimes.co.jp/business/2026/05/13/companies/nidec-product-quality-scandal/",
+    "claim": "Shares fell as much as 18% on May 12-13, 2026 after Nidec disclosed 1,000-plus suspected quality violations on top of the accounting probe."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nidec-announces-disclosure-financial-results-065100724.html",
+    "claim": "Q1 FY3/27 results delayed beyond 45 days after quarter-end; Investigation Committee expected to complete by end of August 2026; on September 3, 2026 an independent third-party committee was established on accounting."
+   },
+   {
+    "url": "https://www.investing.com/news/stock-market-news/nidec-shares-rise-after-releasing-final-report-on-improper-accounting-probe-4622360",
+    "claim": "Final report showed a \u00a5160.7bn net-profit hit; shares up nearly 15% YTD in 2026 after slumping to record lows in late 2025."
+   }
+  ],
+  "already_run": "\u00a52,470 on September 3, 2026; up roughly 15% YTD from record lows hit in late 2025, still far below pre-scandal levels. Not repriced for the HDD cycle.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "7741.T",
+  "name": "HOYA Corporation",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "Monopoly glass substrates for high-capacity/HAMR HDD platters; second and third drive-maker customers ramping",
+  "thesis": "Bottleneck pattern with a customer-adoption catalyst. HOYA has ~100% share of 2.5-inch HDD glass substrates and is the leader in glass for HAMR-class 3.5-inch platters, which is the substrate the industry needs as it pushes past 30-40TB per drive. Confirmed from the July 31, 2026 Q1 FY3/27 release: revenue \u00a5255.7bn (+16%), pre-tax profit \u00a582.4bn (+24%), with nearline demand driving 'significant' 3.5-inch substrate growth; management is expanding HDD substrate capacity to 110-115% of current levels between 2H26 and early 2027, shipments to a second HDD-maker customer start in 2H26 and a third is expected in FY3/28 (the second customer is widely assumed to be Seagate, but that is an inference, not a company statement). Morningstar raised its fair value 22% on the glass-substrate shift. The stock is 21% off its April all-time high after a 60%-plus run and analysts see ~22% upside to \u00a530,553, so this is a 'buy the pullback into a capacity-and-customer ramp' idea rather than a 5x candidate; its \u00a58tn-class market cap and mask-blank/eyeglass diversification cap the multiple expansion.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/ir_7741.T_20260731_4f11eec74fb5",
+    "claim": "Q1 FY3/27 (quarter ended June 30, 2026): revenue \u00a5255.7bn (+16%), profit from ordinary operating activities \u00a582.4bn (+24%); nearline HDD demand drove significant 3.5-inch glass substrate revenue growth."
+   },
+   {
+    "url": "https://www.morningstar.com/company-reports/1422925-hoya-earnings-improved-demand-visibility-on-euv-blanks-and-hdd-substrates-through-2027-driven-by-ai",
+    "claim": "Improved demand visibility on HDD substrates through 2027; capacity to be expanded to 110-115% of current levels between 2H26 and early 2027; shipments to a second customer begin 2H26 and a third customer expected in FY2027."
+   },
+   {
+    "url": "https://www.morningstar.com/company-reports/1485208-hoya-earnings-ai-driven-hdd-demand-accelerates-glass-substrate-shift-raising-fair-value-by-22",
+    "claim": "Morningstar raised its Hoya fair value estimate by 22%, citing AI-driven HDD demand accelerating the shift to glass substrates."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/hoya-tse-7741-stock-60-210942632.html",
+    "claim": "Stock has risen ~60% and the article questions whether the rally is losing steam (context for 'already run')."
+   }
+  ],
+  "already_run": "All-time high \u00a530,400 on April 15, 2026; \u00a524,140 at the September 4, 2026 close, about 21% below the high. Consensus 12-month target \u00a530,553 (16 analysts, Buy).",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "2337.TW",
+  "name": "Macronix International Co., Ltd.",
+  "exchange": "Taiwan Stock Exchange",
+  "theme": "SLC/MLC NAND and eMMC for embedded storage; losses-to-record-margins inflection as the majors exit legacy NAND",
+  "thesis": "Closest analogue to the SanDisk/Micron pattern in this angle: a supply-constrained input (2D SLC/MLC NAND and eMMC) that Samsung, Micron and SK Hynix have walked away from to chase HBM/3D NAND, meeting AI-edge, server-boot, automotive and industrial demand. Confirmed from the July 28, 2026 Q2 call: revenue NT$19.1bn (+83% QoQ, +181% YoY), gross margin 64.4% (five-year high), operating margin 46.9%, net profit NT$7.74bn, EPS NT$3.91 for the quarter; NAND rose to 43% of revenue and eMMC revenue grew 317% QoQ; management said an 80% gross margin is 'within reach' in 2H26, pricing has moved to monthly negotiation, and it added NT$15.8bn of capex toward 30k wafers/month after restarting a NT$22bn plan in January. TrendForce forecasts SLC NAND contract prices +120-170% in 2H26 versus 1H26 and Winbond says capacity is booked through 2027. Macronix ended a ten-quarter losing streak only this year, so consensus is still catching up. Risks: this is a memory name more than a 'storage systems' name, the stock already had one spike to NT$192 in June and has retraced ~28%, and a single price snippet (NT$102, -9.7%) of uncertain date suggests high volatility.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/TW_2337.TW_2026-07-28",
+    "claim": "Q2 2026: revenue NT$19.1bn (+181% YoY), gross margin 64.4%, operating margin 46.9%, EPS NT$3.91; NAND 43% of revenue, eMMC +317% QoQ; 80% gross margin 'within reach' in 2H; additional NT$15.8bn capex targeting 30k wafers/month."
+   },
+   {
+    "url": "https://www.trendforce.com/presscenter/news/20260713-13142.html",
+    "claim": "TrendForce: SLC NAND contract prices expected to rise 120-170% in 2H26 versus 1H26 on niche demand and MLC migration."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2026/04/28/news-macronix-nand-revenue-jumps-382-yoy-on-samsungs-mlc-exit-shifts-to-monthly-pricing-amid-deepening-crunch/",
+    "claim": "Macronix NAND sales +382% YoY on Samsung's MLC exit; company shifted to monthly pricing amid a deepening crunch."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260128PD224/macronix-international-emmc-mlc-nand-flash.html",
+    "claim": "Macronix restarted a NT$22bn 2026 capex plan to expand MLC eMMC and NOR flash output."
+   },
+   {
+    "url": "https://finance.biggo.com/news/5nS3zp0BLfE1EzqPutm5",
+    "claim": "Macronix ended a ten-quarter losing streak; chairman said capacity is fully loaded in 2H with monthly price hikes and a 'massive' NAND shortage."
+   }
+  ],
+  "already_run": "All-time high NT$192.0 on June 23, 2026; NT$113 on July 29 and NT$137-138.5 in mid-August/early September (about 28% below the high). One snippet shows NT$102 (-9.7% on the day) of unclear date. Up multi-fold from 2025 levels, so partly run, but the stock has retraced while margin guidance rose.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "5289.TWO",
+  "name": "Innodisk Corporation",
+  "exchange": "Taipei Exchange (TPEx)",
+  "theme": "Industrial/embedded SSD and DRAM module maker; earnings up ~10x while the stock has fallen 42% from its June high",
+  "thesis": "Trough-multiple-on-peak-earnings setup, i.e. the pre-re-rate stage of the SanDisk pattern. Innodisk sells industrial SSDs and memory modules into edge-AI, automotive, telecom and server-boot applications, where customers must pay whatever NAND costs and the company earns inventory gains on the way up. Confirmed: June 2026 revenue NT$8.21bn (+696% YoY); first-half revenue exceeded all of 2025; Q2 2026 net profit NT$10.37bn with quarterly EPS of NT$108.93 (Digitimes, August 7). At ~NT$1,180 the stock trades at low-single-digit multiples of annualised Q2 earnings because the market is pricing a cyclical peak. The counter-evidence is that ADATA's chairman sees the memory uptrend extending into 1H27 and Q3 contract NAND prices rising another 35-40%, and Kioxia expects NAND demand to exceed supply through calendar 2026 with 2027 potentially tighter. If prices keep rising into 2027, the earnings persist and the multiple normalises upward. Note the parent brief referenced '5274'; the correct Taipei Exchange ticker is 5289. Risks: module makers have borrowed heavily to stock chips (an $880M industry-wide raise), so a price reversal turns inventory gains into losses fast; I could not find the reason for the 42% drawdown.",
+  "evidence": [
+   {
+    "url": "https://www.digitimes.com/news/a20260807PD232/innodisk-profit-2026-demand-revenue.html",
+    "claim": "Record Q2 2026: net profit NT$10.368bn, EPS NT$108.93, driven by surging memory prices and AI demand lifting revenue and margins."
+   },
+   {
+    "url": "https://www.taiwannews.com.tw/news/6396331",
+    "claim": "Innodisk June 2026 revenue NT$8.21bn, +696% YoY; ADATA, Transcend and Innodisk first-half revenue all exceeded their full-year 2025 totals."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260807PD245/adata-dram-revenue-2027.html",
+    "claim": "ADATA sees the memory price uptrend extending into 1H27 (industry read-through)."
+   },
+   {
+    "url": "https://www.tomshardware.com/tech-industry/taiwanese-memory-module-makers-raise-880-million-to-stockpile-chips",
+    "claim": "Taiwanese module makers including ADATA and TeamGroup raised ~$880M of debt to afford chips at record prices (risk factor)."
+   },
+   {
+    "url": "https://www.tradingview.com/symbols/TPEX-5289/",
+    "claim": "All-time high NT$2,025 on June 16, 2026; recent price NT$1,180 (-3.3% on the day)."
+   }
+  ],
+  "already_run": "All-time high NT$2,025 on June 16, 2026; ~NT$1,180 recently, about 42% below the high (NT$1,590 in early July with a ~NT$153bn market cap). Still multiples above 2025 levels, but the drawdown from the peak is large.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "NTAP",
+  "name": "NetApp, Inc.",
+  "exchange": "NASDAQ",
+  "theme": "Enterprise all-flash array vendor passing through NAND inflation; Dell-style volume-plus-price beneficiary on a modest multiple, just sold off on cash flow",
+  "thesis": "Dell pattern: a volume and pricing beneficiary of the AI storage build-out on a starting multiple that never re-rated. Confirmed from the September 2, 2026 release: Q1 FY27 revenue $2.03bn (+30%), non-GAAP EPS $2.58 (+66%), both above the top of guidance; full-year revenue guidance raised to $7.975-8.225bn and EPS to $9.73-10.03; management said it captured pricing benefits as component costs rose (CEO Kurian had said in Q3 FY26 that NetApp had already raised prices and would again as needed) and closed ~350 AI/data-lake deals. The stock nevertheless fell ~7% to ~$167.54 after hours because operating cash flow fell 25% and free cash flow 35% (working capital consumed by pre-buying NAND) and Q2 gross margin is guided down on mix and component cost. At ~$168 the shares are ~17x guided FY27 EPS for 30% top-line and 66% EPS growth, and the FCF hit is inventory build in a shortage, which is exactly what Dell's sell-side critics said before its re-rate. Risks: hyperscaler share loss to Everpure, and NAND cost catching up with list-price increases. This is a 1.5-2x candidate, not 5x.",
+  "evidence": [
+   {
+    "url": "https://investors.netapp.com/news/news-details/2026/NetApp-Reports-First-Quarter-of-Fiscal-Year-2027-Results/default.aspx",
+    "claim": "Q1 FY27 revenue $2.03bn (+30% YoY), non-GAAP EPS $2.58 (+66%); FY27 guidance raised to revenue $7.975-8.225bn and non-GAAP EPS $9.73-10.03."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/netapp-inc-ntap-q1-2027-070037079.html",
+    "claim": "NetApp captured pricing benefits as component costs increased; ~350 AI and data-lake modernization deals closed in the quarter."
+   },
+   {
+    "url": "https://seekingalpha.com/news/4639656-netapp-sails-past-q1-estimates-and-raises-guidance-but-tumbles-on-free-cash-flow-decline",
+    "claim": "Shares fell ~7% to $167.54 after hours on September 2, 2026 as operating cash flow fell 25% and free cash flow 35%; Q2 gross margin guided lower on mix and component costs."
+   },
+   {
+    "url": "https://www.forbes.com/sites/stevemcdowell/2026/02/28/the-memory-crisis-is-reshaping-enterprise-storage-what-it-leaders-need-to-know/",
+    "claim": "NetApp CEO George Kurian said on the Q3 FY26 call that NetApp has already raised prices and will do so again as needed."
+   }
+  ],
+  "already_run": "Substantially run: YTD return +77% as of August 25, 2026; intraday 52-week high $209.06 in mid-August (insiders sold at $204.48 on August 17); ~$187 in late August and ~$167.54 after the September 2 earnings selloff, about 20% below the high. An older snippet showing '-4.4% YTD' and a $23.7bn market cap appears stale.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "6762.T",
+  "name": "TDK Corporation",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "Only independent (merchant) HDD head maker via SAE, plus suspensions; 33% off its high with record group results",
+  "thesis": "Bottleneck pattern, diluted. TDK's SAE Magnetics is the only independent manufacturer of HDD read/write heads (Seagate and WD build their own; Toshiba and others buy from SAE), and TDK also makes suspension assemblies against NHK Spring. Confirmed: FY3/26 nearline head volume +14% and suspension volume +35% with mix improving toward Tri-SA suspensions for high-capacity drives; Q1 FY3/27 (July 31, 2026) group net sales \u00a5741.0bn (+38.3%) and operating profit \u00a586.3bn (+53%), both first-quarter records, with suspension sales and profit up and head profit up on mix even though nearline head volume fell ~12% during a product transition. The stock is \u00a52,907.5 (September 4) versus a 52-week high of \u00a54,315, a 33% drawdown, on ~26x trailing earnings with a consensus target of ~\u00a54,110. The dilution problem is real: batteries and passive components dominate TDK's earnings, so the HDD component upcycle moves the needle only modestly, and the 12% head-volume dip shows the merchant head business does not track the nearline shortage one-for-one. Treat as a lower-beta way to own the head/suspension bottleneck.",
+  "evidence": [
+   {
+    "url": "https://uk.investing.com/news/company-news/tdk-q1-fiscal-2027-slides-ai-boom-drives-record-results-across-segments-93CH-4803592",
+    "claim": "Q1 FY3/27 (July 31, 2026): net sales \u00a5741.0bn (+38.3% YoY), operating profit \u00a586.3bn (+53.0%); nearline HDD head volume -12% on a product transition but head profit up on mix; suspension sales and profit up; nearline demand from AI data centers remained robust."
+   },
+   {
+    "url": "https://www.tdk.com/system/files/20264q_0mqf56xw_en.pdf",
+    "claim": "FY3/26 full-year briefing: nearline HDD sales volume up ~14% for heads and ~35% for suspensions; mix improving via Tri-SA suspensions for high-capacity nearline drives."
+   },
+   {
+    "url": "https://www.sae.tdk.com/about-us",
+    "claim": "SAE Magnetics (a TDK group company) states it is the only independent manufacturer of magnetic recording heads serving the HDD industry."
+   },
+   {
+    "url": "https://www.investing.com/equities/tdk-corp.",
+    "claim": "TDK at \u00a52,907.5 on September 4, 2026; 52-week high \u00a54,315; YTD +32.8%; trailing P/E 26.5; average target \u00a54,110."
+   }
+  ],
+  "already_run": "YTD +32.8% but 33% below its 52-week high of \u00a54,315 (\u00a52,907.5 on September 4, 2026). Market cap ~\u00a56.1tn; trailing P/E ~26.5.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "P",
+  "name": "Everpure, Inc. (formerly Pure Storage)",
+  "exchange": "NYSE",
+  "theme": "All-flash array vendor that raised list prices ~70% in 2026 and won a second top-5 hyperscaler; growth re-accelerating",
+  "thesis": "Pricing-power plus volume pattern, but partly repriced. Everpure has raised list prices roughly 70% since the start of 2026 (a ~20% average product increase in February plus further hikes as NAND costs 'doubled or tripled'), and the volume side is now showing up: Q2 FY27 (quarter ended August 2, 2026) revenue $1.2bn (+38%, eight straight quarters of accelerating growth), product revenue +54%, FY27 revenue guidance raised to $5.03-5.07bn from $4.41-4.51bn and operating income to $940-960M, with a second top-5 hyperscaler design win expected to ramp materially in FY28 (one such win is worth $200-300M of year-one product revenue). The problem for a 2-5x thesis is that the market has already partly paid for it: the stock is +44% YTD, hit a $119.10 52-week high on August 14 and trades ~$109-111 on a premium software-like multiple (~70% gross margins). The 70% list-price figure comes from a UK reseller blog quoting the CEO, not a filing, so treat it as reported rather than confirmed. Include as the highest-quality but lowest-asymmetry name in the group.",
+  "evidence": [
+   {
+    "url": "https://www.prnewswire.com/news-releases/everpure-announces-second-quarter-fiscal-2027-financial-results-302860903.html",
+    "claim": "Q2 FY27 revenue $1.2bn (+38% YoY), product revenue +54%; FY27 revenue guidance raised to $5.03-5.07bn from $4.41-4.51bn; non-GAAP operating income guidance raised to $940-960M."
+   },
+   {
+    "url": "https://www.blocksandfiles.com/flash/2026/08/27/everpure-the-artist-formerly-known-as-pure-storage-ramps-up-growth-rate/5292871",
+    "claim": "Growth rate ramping; second design win with a top-5 hyperscaler expected to significantly ramp revenue in FY28; Evergreen//One TCV run-rate above $1bn."
+   },
+   {
+    "url": "https://www.servnetuk.com/insights/memory-shortage-inflating-san-nas-quotes-2026",
+    "claim": "(Reseller blog, secondary) Pure Storage raised list prices roughly 70% since the start of 2026, with the CEO citing component input costs that doubled then doubled or tripled again in early 2026."
+   },
+   {
+    "url": "https://www.tikr.com/blog/everpure-stock-hit-a-52-week-high-on-tuesday-a-second-hyperscaler-deal-is-why",
+    "claim": "Stock hit a 52-week high on the second hyperscaler deal announcement."
+   }
+  ],
+  "already_run": "Up 43.8% YTD; 52-week high $119.10 on August 14, 2026; closed $108.90 (+5.9%) on August 26 earnings day and ~$111 after hours, about 8% below the high. Analyst average target ~$100-130 depending on source.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "6988.T",
+  "name": "Nitto Denko Corporation",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "CISFLEX flexure circuits that wire every HDD suspension; \u00a543bn investment through 2028; 21% off its high",
+  "thesis": "Hidden-component bottleneck. Nitto Denko's CISFLEX is the thin-film metal circuit that integrates with the suspension and carries read/write signals to the head at a ~10nm flying height; it is a near-sole-source consumable that scales with head count, and head count per drive rises with every capacity step. Confirmed: Nitto plans \u00a543bn of investment in CISFLEX and related high-precision circuit capacity through 2028; the June-2026 quarter showed revenue \u00a5272bn (+10%) and operating income \u00a549bn (+15%) with CISFLEX cited as a major contributor from higher-capacity data-center HDDs, and FY3/27 operating income guidance was raised ~4% to \u00a5200bn. The stock was \u00a53,222 on July 3 versus a 52-week high of \u00a54,068 (about 21% below) and is up only ~26% over 12 months. The thesis is diluted by Nitto's core optical-film (display polariser) business, which is roughly 70% of earnings and has been soft, so CISFLEX growth has to overpower a mature core; a more recent price than July was not found.",
+  "evidence": [
+   {
+    "url": "https://www.thelec.net/news/articleView.html?idxno=12383",
+    "claim": "Nitto Denko plans to invest \u00a543bn through 2028 to expand CISFLEX flexible circuit capacity for HDD suspensions as AI data-center demand revives HDDs."
+   },
+   {
+    "url": "https://www.marketscreener.com/news/nitto-denko-strategy-performance-ce7c51dcdc8af023",
+    "claim": "Quarter ended June 2026: revenue \u00a5272bn (+10% YoY) and operating income \u00a549bn (+15%); full-year operating income guidance raised ~4% to \u00a5200bn; CISFLEX a major contributor on higher-capacity data-center HDD demand."
+   },
+   {
+    "url": "https://www.investing.com/equities/nitto-denko-co",
+    "claim": "Price \u00a53,222 on July 3, 2026; 52-week high \u00a54,068, low \u00a52,650; 1-year change +26.4%."
+   }
+  ],
+  "already_run": "\u00a53,222 on July 3, 2026 versus a 52-week high of \u00a54,068 (about 21% below); 1-year change +26%. No September 2026 print found.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "SMTC",
+  "name": "Semtech Corp",
+  "exchange": "NASDAQ",
+  "theme": "TIAs / laser drivers (FiberEdge) and AEC/ACC silicon (CopperEdge) for 800G and 1.6T transceivers",
+  "thesis": "Bottleneck play one layer below the transceiver. Applied Optoelectronics told investors on 6 Aug 2026 that its 800G/1.6T ramp is constrained by 'DSPs and TIAs', i.e. the transimpedance amplifier is now a named shortage component alongside the EML. Semtech is one of only two merchant TIA/driver suppliers at scale (MACOM is the other) and just printed a record $100M data-center quarter (+91% YoY) while guiding FQ3 to $410M total with a further ~45% sequential data-center jump as 1.6T FiberEdge and CopperEdge ramp. The rest of the company (IoT/LoRa, divesting cellular modules) has depressed the multiple, so a Dell-style low-starting-multiple volume re-rate is plausible if data center becomes the majority of revenue in FY27. Facts above are confirmed from the earnings release and call; I could not confirm the YTD share move because both price-data fetches were blocked, so the 'not yet repriced' premise is unverified.",
+  "evidence": [
+   {
+    "url": "https://www.tradingkey.com/news/transcripts/262131465-tradingkey",
+    "claim": "FQ2 FY27 (quarter ended 26 Jul 2026): data-center revenue a record $100M, +91% YoY; total revenue $342M, +33% YoY."
+   },
+   {
+    "url": "https://seekingalpha.com/news/4636832-semtech-projects-410m-q3-fy2027-revenue-with-45-percent-sequential-data-center-growth-as",
+    "claim": "FQ3 FY27 guidance of $410M revenue with ~45% sequential data-center growth; cellular module divestiture in progress."
+   },
+   {
+    "url": "https://seekingalpha.com/news/4628697-applied-optoelectronics-outlines-255m-290m-q3-revenue-as-800g-ramp-stays-capacity-constrained",
+    "claim": "AAOI says its 800G/1.6T growth is capacity- and component-constrained, specifically citing availability of DSPs and TIAs."
+   },
+   {
+    "url": "https://www.semtech.com/company/press/semtech-unveils-high-performance-tias-for-1.6t-ai-data-centers",
+    "claim": "Semtech launched GN1834D (1.6T) and GN1818 (800G) FiberEdge TIAs for AI data centers."
+   }
+  ],
+  "already_run": "unknown - YTD move and 52-week-high distance not found; both price-page fetches (stockanalysis.com) were blocked by the proxy.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "MTSI",
+  "name": "MACOM Technology Solutions",
+  "exchange": "NASDAQ",
+  "theme": "TIAs / drivers / CDRs for 800G-1.6T PAM4 plus InP DFB and CW lasers",
+  "thesis": "Second merchant supplier of the TIA/driver bottleneck, with an added laser kicker. Q3 FY26 (Aug 13) showed a record book-to-bill of 1.6:1, data-center revenue up 40% sequentially on 800G/1.6T PAM4 adoption, and guidance of $415-425M (another 21-24% sequential step). Management explicitly said it is seeing 25G DFB demand spill over because of the general InP DFB laser shortage, and is scoping capex and fab space for a high-volume CW-laser ramp for 'strategic customers' in late CY2027 - a direct read-through from the EML/CW-laser lock-up at Lumentum and Coherent. The stock is up roughly 81-87% YTD and sits ~20% below its May high, so it has re-rated once but not tripled; the FY27 base case of mid-20s% growth with data center 'trending toward 50%' leaves room for the earnings side of the re-rate.",
+  "evidence": [
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/macom-technology-solutions-holdings-inc-123000355.html",
+    "claim": "Record quarter; data center +40% sequentially on 800G/1.6T PAM4; record book-to-bill 1.6:1; FY27 base case mid-20s% growth with data center potentially ~50%."
+   },
+   {
+    "url": "https://www.fool.com/earnings/call-transcripts/2026/08/13/macom-mtsi-q3-2026-earnings-call-transcript/",
+    "claim": "Q3 FY26 call: next-quarter guide $415-425M; 25G DFB demand rising due to InP DFB shortage; CW-laser production planned late CY2027; scoping capex/fab space for a rapid ramp."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-macom-mtsi-stock-trading-011820351.html",
+    "claim": "Shares up ~86.6% YTD as of mid-August 2026 and ~20% below the $409.68 52-week high."
+   }
+  ],
+  "already_run": "Up ~81-87% YTD (mid-Aug 2026); 52-week high $409.68 (May 2026, intraday $418.90); traded ~$327 in mid-August after a >30% July pullback from the peak. Roughly 2x, not 3x.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "CRDO",
+  "name": "Credo Technology Group",
+  "exchange": "NASDAQ",
+  "theme": "Active electrical cables, optical DSPs, silicon-photonics PICs, scale-up retimers",
+  "thesis": "A washed-out-on-the-print name inside a supply-constrained category. Credo reported FQ1 FY27 revenue of $479M (+115% YoY), guided FQ2 to $525-535M and reiterated >85% FY27 growth with >$600M of optical revenue (DSP, SiPho PICs and ZeroFlap optics each >$100M) - yet the stock fell ~18% on 2 Sep 2026 because the beat did not clear expectations. Bottleneck angles: (1) 800G/1.6T lead times are past 40 weeks partly because 5nm/3nm transceiver DSPs are short, and Credo is one of only three merchant PAM4 DSP vendors; (2) 224G-per-lane AEC copper is gated by specialised German cable equipment with long lead times, and Credo is the AEC incumbent. This is a Moderna-style setup only in the sense that sentiment reset while fundamentals accelerated; there is no binary event. Facts are from the 8-K and call; the post-print drop is from quote-page summaries.",
+  "evidence": [
+   {
+    "url": "https://www.stocktitan.net/news/CRDO/credo-technology-group-holding-ltd-reports-first-quarter-of-fiscal-0aj6bc146rcj.html",
+    "claim": "FQ1 FY27 revenue $479M, +114.7% YoY, +9.6% QoQ; FQ2 guide $525-535M; FY27 growth >85%."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/credo-technology-group-q1-earnings-230226578.html",
+    "claim": ">$600M optical revenue expected in FY27 with optical DSPs, SiPho PICs and ZeroFlap optics each >$100M; CEO: 'AECs continue to grow. Optics is growing faster.'"
+   },
+   {
+    "url": "https://semifundamental.substack.com/p/active-electrical-cable-aec-fundamentals",
+    "claim": "Credo is the AEC incumbent with dominant share; 224G/lane copper cable manufacturing is bottlenecked by long-lead-time German equipment (Substack, analytical not promotional)."
+   },
+   {
+    "url": "https://www.utmel.com/blog/categories/optoelectronics/transceivers-shortage-outlook-2026-supply-lead-times-and-sourcing-options",
+    "claim": "800G transceiver lead times past 40 weeks, driven by shortages of the 5nm/3nm DSPs inside them."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/credo-71-wall-street-just-143057491.html",
+    "claim": "Shares up ~71% YTD as of late August 2026 with targets being raised."
+   }
+  ],
+  "already_run": "Up ~71% YTD through late August; 52-week high $308.67 (ATH close $302.52 on 22 Jun 2026); fell ~17.9% on 2 Sep 2026 after the FQ1 beat, so roughly +40% YTD now and well off the high. Not tripled.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "ALAB",
+  "name": "Astera Labs",
+  "exchange": "NASDAQ",
+  "theme": "PCIe 6 retimers (Aries), Scorpio PCIe/fabric switches, Taurus 800G AEC modules",
+  "thesis": "The PCIe/scale-up switch-chip volume beneficiary that the market just de-rated. Q2 2026 revenue was $392.4M (+104% YoY, +27% QoQ) and the Q3 guide of $540-560M implies +40% sequentially as Scorpio X-Series (rack-scale PCIe/fabric switching) enters volume and becomes the largest product line; Taurus 100G/lane smart-cable modules for 800G AECs are in pre-production. Despite that, the stock is down 12-24% since the 4 Aug print on valuation, opex and competition worries. In the framework this is a Dell-type 'volume beneficiary' that has been knocked back to a lower multiple; it is not supply-constrained itself, so the upside is a re-rate on sustained Scorpio ramp rather than a price spike. Ticker and results are confirmed; YTD move is not fully confirmed.",
+  "evidence": [
+   {
+    "url": "https://www.tikr.com/blog/astera-labs-dropped-12-today-heres-why-the-scorpio-ramp-could-define-the-stock-in-2026",
+    "claim": "Q2 2026 sales $392.4M (+104% YoY); Q3 guide $540-560M (+40% sequential at midpoint); CEO: Scorpio X-Series in volume production and expected to be the largest product category in Q3."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/investors-hold-astera-labs-stock-175100478.html",
+    "claim": "Shares down 12% since the 4 Aug 2026 Q2 report despite beat-and-raise; concerns are stretched valuation, rising opex and competition."
+   },
+   {
+    "url": "https://ca.finance.yahoo.com/news/alab-stock-down-24-month-173200983.html",
+    "claim": "ALAB down 24% over one month (Aug-Sep 2026)."
+   },
+   {
+    "url": "https://www.tikr.com/blog/astera-labs-stock-is-up-116-in-six-months-heres-whats-behind-the-rally",
+    "claim": "Stock had risen 116% in the six months into the Q2 print."
+   }
+  ],
+  "already_run": "Rallied ~116% over six months into the Aug 4 print, then fell 12-24% afterwards. Exact YTD and 52-week-high distance not confirmed (searches exhausted before quote pages).",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "5016.T",
+  "name": "JX Advanced Metals Corp",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "Indium phosphide substrates - the raw wafer under every EML/CW laser",
+  "thesis": "The furthest-upstream bottleneck: InP substrate supply is concentrated in 2-3 producers (Sumitomo Electric, AXT, JX) controlling ~75% of the market, and AXT's Q2 showed the pricing dynamics (record InP revenue, a $100M backorder, talk of a 10% price hike). JX on 16 Jun 2026 approved up to JPY120B over four years - the largest investment in its history - to lift InP substrate capacity by up to 10x, citing 'substantial requests for increased supply from customers' and demand 'significantly exceeding previous expectations'; market chatter in August pointed to a third capacity increase within the same fiscal year. Unlike AXTI (up ~30x from its low), JX is only +8% YTD and ~33% below its May high. The caveat is dilution: InP is a small slice of a company dominated by copper smelting and sputtering targets, so the earnings torque is far lower than at AXTI and the 'third expansion' item is rumour-grade until confirmed by the company.",
+  "evidence": [
+   {
+    "url": "https://www.jx-nmm.com/english/newsrelease/fy2026/20260616_02.html",
+    "claim": "Company release: up to JPY120B capital investment over four years to significantly expand InP substrate capacity; largest investment in JX history; substantial customer requests for increased supply."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2026/06/16/news-jx-advanced-metals-to-invest-jpy-120b-through-fy2030-expand-inp-capacity-up-to-10x-as-cpo-demand-accelerates/",
+    "claim": "Capacity to rise up to tenfold through FY2030 across two Ibaraki plants on CPO/data-center demand."
+   },
+   {
+    "url": "https://www.itiger.com/news/2595505857",
+    "claim": "'Market Chatter' (unconfirmed): JX plans a third capacity expansion this fiscal year for data-center optics materials."
+   },
+   {
+    "url": "https://www.techtimes.com/articles/317281/20260527/ai-data-center-optical-component-shortage-nvidias-4b-laser-lockup-pushes-rivals-past-2027.htm",
+    "claim": "InP substrate production is consolidated among 2-3 companies with ~75% of global supply; Nvidia's $4B each to Lumentum and Coherent (Mar 2026) pushed EML lead times past 2027 for others."
+   },
+   {
+    "url": "https://www.investing.com/equities/jx-advanced-metals",
+    "claim": "Stock +8% YTD but +141% over six months; all-time high JPY5,828 on 11 May 2026; JPY3,886 on 9 Aug 2026."
+   }
+  ],
+  "already_run": "+8% YTD but +141% over six months (as of 9 Aug 2026); ~33% below the JPY5,828 all-time high of 11 May 2026.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "CIEN",
+  "name": "Ciena Corp",
+  "exchange": "NYSE",
+  "theme": "Data-center interconnect: RLS line systems, Waveserver, coherent pluggables, interconnects",
+  "thesis": "The DCI bottleneck is showing up as backlog rather than price. FQ3 FY26 (3 Sep 2026) revenue rose 37% to $1.67B with adjusted EPS +215%; backlog rose $800M sequentially to $8.5B and management expects >$10B by year-end, attributing the build to 'lead times and supply limitations' rather than slower conversion - the same supply-constrained language as the transceiver names. Interconnect revenue more than doubled, direct cloud revenue +80%, and in/around-data-center revenue has already quadrupled YTD. FY27 guidance is at least +30% to $8.3-8.4B with 25-27% operating margin. The problem for a 2-5x thesis is that the stock is already +83% YTD at a large-cap multiple, so the remaining upside is an earnings-beat re-rate, not a multiple reset; I include it as the lowest-conviction name on the list.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/US_CIEN_2026-09-03",
+    "claim": "FQ3 FY26 revenue +37% to $1.67B; backlog $8.5B expected to exceed $10B; FY27 revenue floor raised to $8.3-8.4B (>=30% growth)."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/ciena-q3-earnings-call-highlights-150431612.html",
+    "claim": "Backlog elevated primarily due to lead times and supply limitations; interconnects >2x; cloud revenue +80%; in/around-DC revenue quadrupled YTD; RLS and Waveserver each >55%."
+   },
+   {
+    "url": "https://www.barchart.com/story/news/924065/how-is-ciena-s-stock-performance-compared-to-other-technology-stocks",
+    "claim": "CIEN up 82.8% year-to-date."
+   },
+   {
+    "url": "https://www.tikr.com/blog/ciena-stock-fell-6-last-week-following-ceo-and-senior-executive-share-sales",
+    "claim": "Stock fell 6% in a week following CEO and senior executive share sales."
+   }
+  ],
+  "already_run": "+82.8% YTD; 52-week high $637.51 (Aug 2026) after $599.81 in May; roughly 2x over 12 months. Not tripled but already at a re-rated multiple.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "5802.T",
+  "name": "Sumitomo Electric Industries",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "EML lasers (global top-3 merchant) plus InP substrates plus data-center power cable",
+  "thesis": "Owns two links of the constrained chain: it is one of the handful of EML makers at commercial scale and also an InP substrate producer, and on 13 Jul 2026 it raised its substrate expansion to ~JPY18B, targeting 3.1x FY2024 capacity by FY2028. With Nvidia having pre-paid $4B each to Lumentum and Coherent for priority EML capacity, non-Nvidia buyers face lead times past 2027, which should give the remaining merchant EML supplier pricing power. The bottleneck logic is strong but the stock exposure is diluted by a large conglomerate (auto harnesses, power cables); I could not verify the YTD move (fetch blocked), and the only source with segment profit detail is a promotional Japanese blog, so treat the earnings-leverage claim as unverified.",
+  "evidence": [
+   {
+    "url": "https://www.trendforce.com/news/2026/07/13/news-sumitomo-electric-to-raise-inp-substrate-expansion-scale-with-jpy-18-billion/",
+    "claim": "Sumitomo Electric raised its InP substrate expansion to ~JPY18B (US$120M) to reach 3.1x FY2024 capacity by FY2028 on AI data-center demand."
+   },
+   {
+    "url": "https://sumitomoelectric.com/id/project/v27/02",
+    "claim": "Company states it is among the global EML leaders and supplies EML, CW-LD and optical wiring for AI data-center optics."
+   },
+   {
+    "url": "https://www.trendforce.com/presscenter/news/20251208-12823.html",
+    "claim": "TrendForce: AI data centers have triggered a laser shortage wave; Nvidia's strategic lock-in is reshaping the EML supply chain."
+   },
+   {
+    "url": "https://note.com/loots/n/n25a92d261654?hl=en",
+    "claim": "PROMOTIONAL blog: Info & Communications operating profit JPY77.4B, 2028 group OP target JPY600B, 4-for-1 split - unverified."
+   }
+  ],
+  "already_run": "unknown - YTD move not found; price-page fetch (photonicstracker.com) was blocked.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "3081.TWO",
+  "name": "LandMark Optoelectronics",
+  "exchange": "Taipei Exchange (TPEx)",
+  "theme": "InP/GaAs MOCVD epitaxial wafers for EML/CW lasers and 6-inch silicon photonics",
+  "thesis": "Sits between the substrate makers (JX, Sumitomo, AXT) and the laser fabs (Lumentum, Coherent, Taiwanese EML houses): every EML and CW-DFB wafer needs an InP epi layer, and TrendForce expects combined EML/CW-DFB monthly capacity to double to ~50.7M units in 2026 with supply still tight. LandMark is raising 2026 capex to NT$1.315B explicitly to be ready for second-half-2027 demand and is buying semiconductor-grade tools for 6-inch SiPh - the capacity-ahead-of-demand signature of a constrained input. It is a small-cap with no US analyst coverage; I could not confirm order backlog, monthly sales trend or the YTD share move before the search budget ran out, hence low confidence.",
+  "evidence": [
+   {
+    "url": "https://www.digitimes.com/news/a20260423PD225/siph-demand-equipment-6-inch-photonics.html",
+    "claim": "LandMark raising 2026 capex to NT$1.315B (US$41.7M) to prepare early for 2H27 demand and adding semiconductor-grade equipment for 6-inch silicon photonics."
+   },
+   {
+    "url": "https://www.semiconductor-today.com/news_items/2026/jun/trendforce-040626.shtml",
+    "claim": "TrendForce: combined EML and CW-DFB laser capacity to reach 50.7M units/month in 2026; supply remains tight on allocation constraints."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20220901PD204/epitaxial-wafer-intelliepi-landmark-optoelectronics-visual-photonics-epitaxy.html",
+    "claim": "LandMark, VPEC and IntelliEPI are Taiwan's InP epi-wafer suppliers for optical communications (older 2022 context)."
+   }
+  ],
+  "already_run": "unknown - no YTD or 52-week data found.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "3363.TWO",
+  "name": "FOCI Fiber Optic Communications",
+  "exchange": "Taipei Exchange (TPEx)",
+  "theme": "Fiber array units (FAU) and fiber attach for co-packaged optics",
+  "thesis": "CPO turns the fiber array unit from a commodity into a precision bottleneck: each CPO switch needs hundreds of fibers aligned to the photonic die, and FOCI is standing up high-precision automated FAU lines to mass-produce 1.6T and 3.2T FAUs from 2H26, with Himax as a CPO partner; JX cites accelerating CPO demand as a reason for its own InP expansion. This is a binary-ish setup - if Nvidia/Broadcom CPO switch volumes arrive on schedule in 2H26-2027, FOCI's revenue could step up sharply from a ~US$2.9B market cap base; if CPO slips, the stock is exposed. I could not verify order size, monthly sales or the YTD move, and the FAU supply chain has several competitors (Sena, Senko), so confidence is low.",
+  "evidence": [
+   {
+    "url": "https://www.digitimes.com/news/a20260312PD211/2026-foci-cpo-production-revenue-optics.html",
+    "claim": "FOCI deploying automated FAU production lines for CPO and plans mass production of 1.6T and 3.2T FAUs in 2H26; targets a revenue surge within three years."
+   },
+   {
+    "url": "https://pitchbook.com/profiles/company/168872-23",
+    "claim": "Market cap ~US$2.92B as of 1 Jun 2026; Himax is a strategic CPO partner."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2026/06/16/news-jx-advanced-metals-to-invest-jpy-120b-through-fy2030-expand-inp-capacity-up-to-10x-as-cpo-demand-accelerates/",
+    "claim": "CPO demand acceleration cited as a driver of upstream InP capacity expansion."
+   }
+  ],
+  "already_run": "unknown - no YTD or 52-week data found.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "688498.SS",
+  "name": "Yuanjie Semiconductor Technology",
+  "exchange": "Shanghai Stock Exchange (STAR Market)",
+  "theme": "Merchant EML and CW-DFB laser chips (China's largest domestic supplier)",
+  "thesis": "The only listed pure-play EML/CW laser chip maker outside the Lumentum/Coherent/Japanese trio, at the exact point of the bottleneck: TrendForce says 1.6T transceiver shipments will fall ~10M units short of demand in 2026 because of EML and isolator shortages, and Chinese module makers (Innolight, Eoptolink) need non-Nvidia-allocated EML supply. Yuanjie announced a RMB1.251B phase-II laser chip base in Feb 2026 and is reportedly preparing a Hong Kong listing. Confidence is low: I found no confirmation that its capacity is sold out or of 2026 revenue growth, Chinese optics names ran very hard in 2025 so the 'not yet repriced' premise is unverified, and the Futu 'strong performance, proactive expansion' piece is broker research. Ticker is confirmed by Yahoo/Investing.",
+  "evidence": [
+   {
+    "url": "https://finance.yahoo.com/quote/688498.SS/",
+    "claim": "Ticker 688498.SS confirmed; company designs and makes DFB/EML laser chips up to 200G and silicon-photonics light sources for data centers."
+   },
+   {
+    "url": "https://www.scmp.com/tech/article/3348311/what-makes-yuanjie-chinese-optical-chip-star-and-hong-kong-ipo-candidate-stand-out",
+    "claim": "SCMP profile: Yuanjie is a leading Chinese optical chip maker and a Hong Kong IPO candidate."
+   },
+   {
+    "url": "https://news.futunn.com/en/post/73629455/yuanjie-semiconductor-technology-co-ltd-688498-sh-strong-performance-proactive",
+    "claim": "Broker note: strong performance and proactive capacity expansion to capture high industry prosperity (promotional/sell-side)."
+   },
+   {
+    "url": "https://www.trendforce.com/presscenter/news/20260420-13017.html",
+    "claim": "TrendForce: 1.6T shipments in 2026 ~15M units vs >25M demand, gap driven by EML and isolator shortages; component shortages are the primary capacity-expansion bottleneck."
+   }
+  ],
+  "already_run": "unknown - no 2026 YTD data found; search budget exhausted before Chinese-language queries ran.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "042700.KS",
+  "name": "Hanmi Semiconductor",
+  "exchange": "KRX (Korea Exchange, KOSPI)",
+  "theme": "Thermocompression (TC) bonders for HBM stacking \u2014 washed-out equipment monopolist-turned-oligopolist",
+  "thesis": "Bottleneck: every HBM4 stack still goes through a TC bonder, and SK hynix said at Hot Chips 2026 that hybrid bonding will not be ready for HBM4E (pushed to HBM5 at the earliest), extending MR-MUF/TCB through Nvidia Rubin \u2014 i.e. the TCB installed base must keep growing for 16-Hi HBM4/4E rather than being displaced. Hanmi printed record H1 2026 (revenue KRW 302.1bn, operating profit KRW 138.8bn, ~46% margin, record Q2) and won a KRW 44.2bn HBM4 'Griffin' TC bonder order from SK hynix in June, while adding Micron as a major customer. Yet the stock has roughly halved from its May 12, 2026 all-time high (KRW 426,000) on share-loss fears (ASMPT/BESI winning HBM4 slots, Hanwha Semitech price competition), the SK hynix earnings miss, and an absence of financial targets in its value-up plan. The setup is a 'Moderna-style' washed-out multiple on a company whose earnings are at record highs: if HBM4/4E TCB unit demand plus Micron diversification hold up, the multiple re-rates. Confirmed facts: orders, H1 numbers, hybrid-bonding delay. Rumour/estimate: Hanmi's share of SK hynix TCB falling to 20-30% (substack estimate); Micron adopting BESI as sole HBM4 TCB vendor (unconfirmed, conflicts with Hanmi's own 'Micron major customer' disclosure). Risk: Hanwha/ASMPT/BESI share gains, patent litigation with Hanwha, HBM capex digestion.",
+  "evidence": [
+   {
+    "url": "https://finance.biggo.com/news/a22e4e5e-597b-4744-b0e9-e755d125ece5",
+    "claim": "'Operating margin 52% but stock halved' \u2014 Hanmi's fair-value debate; stock roughly halved despite record profitability (aggregator source)."
+   },
+   {
+    "url": "https://finance.biggo.com/news/18c8ca95-0983-4bca-8d2a-096a36d8760b",
+    "claim": "H1 2026 revenue KRW 302.1bn and operating profit KRW 138.8bn, record Q2, Micron added as major customer; rival Hanwha Semitech posted only KRW 0.3bn H1 operating profit."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2026/06/09/news-sk-hynix-reportedly-places-44-2bn-won-tc-bonder-order-with-hanmi-accelerating-hbm4-ramp-up/",
+    "claim": "SK hynix placed a KRW 44.2bn order for Hanmi's TC Bonder 4.5 Griffin for HBM4 (~15 units) in June 2026."
+   },
+   {
+    "url": "https://www.tomshardware.com/tech-industry/semiconductors/sk-hynix-says-hybrid-bonding-wont-be-ready-for-hbm4e-as-ai-memory-runs-into-a-775-micron-ceiling",
+    "claim": "SK hynix at Hot Chips 2026: hybrid bonding not ready for HBM4E, pushed to HBM5; MR-MUF (TCB-based) extended through Nvidia Rubin."
+   },
+   {
+    "url": "https://companiesmarketcap.com/hanmi-semiconductor/stock-price-history/",
+    "claim": "All-time high KRW 426,000 on May 12, 2026; stock has since declined substantially."
+   },
+   {
+    "url": "https://www.semiconductor-digest.com/hanmi-semiconductor-to-launch-second-generation-hybrid-bonder-by-end-of-2026/",
+    "claim": "Hanmi plans a second-generation hybrid bonder prototype by end-2026 and a 'wide TC bonder' in 2H26 \u2014 optionality if hybrid bonding eventually arrives."
+   }
+  ],
+  "already_run": "Down roughly 54% year-to-date per one aggregator summary; ~50% below the May 12, 2026 all-time high of KRW 426,000. Not repriced \u2014 de-rated.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "3110.T",
+  "name": "Nittobo (Nitto Boseki)",
+  "exchange": "Tokyo Stock Exchange (Prime)",
+  "theme": "T-glass / low-Dk glass cloth \u2014 sole-source input for AI package substrates and CCL, on allocation",
+  "thesis": "Bottleneck: Nittobo holds ~90% of T-glass (low-CTE) and 60-70% of NE-glass cloth, the reinforcement layer inside every ABF/FC-BGA substrate and high-end AI server CCL. Supply has been short since 2023; Nittobo pushed through ~20% price increases (Aug 2025) and further 'price revisions' in FY26, Nvidia locked in a mid/long-term exclusive supply arrangement, and other customers struggle to get allocation. The Fukushima capacity tripling (JPY 150bn) does not materially land until late 2026/mid-2027, so 2026 capacity grows only ~10-20% while ABF substrate area demand compounds at ~39%/yr \u2014 classic price-over-volume earnings torque (Q1 FY26, Apr-Jun: sales JPY 34.0bn, +JPY 5.8bn YoY; operating profit JPY 7.9bn, +JPY 3.6bn, ~+84%). The stock did a 5-for-1 split on July 1, 2026 and now trades ~JPY 3,140-3,170; an aggregator lists a May 7, 2026 all-time high of JPY 6,580 \u2014 if that figure is split-adjusted, the shares are ~50% below the high despite accelerating profits (this is the SanDisk/Micron pattern of a constrained input with price spikes). Confirmed: market share, price hikes, Q1 results, split. Uncertain: whether the JPY 6,580 high is split-adjusted \u2014 verify before sizing; possible reasons for the de-rating (new Taiwanese/Chinese T-glass entrants, Nvidia exclusivity terms) were not found in search.",
+  "evidence": [
+   {
+    "url": "https://insights.trendforce.com/p/glass-fiber-cloth-shortage",
+    "claim": "Nittobo ~90% share in T-glass, 60-70% in NE-glass; Nvidia has an exclusive mid/long-term supply arrangement making allocation harder for others; tight supply expected through 2026."
+   },
+   {
+    "url": "https://www.tomshardware.com/tech-industry/shortages-of-crucial-chip-packaging-material-threatens-ai-accelerator-supply-chains-nittobos-fukushima-plant-is-tripling-capacity-but-itll-take-years-before-market",
+    "claim": "Nittobo's Fukushima plant is tripling capacity but it will take years to reach market; shortage threatens AI accelerator supply chains."
+   },
+   {
+    "url": "https://finance.biggo.com/quote/3110.T/earnings-call/JP_3110.T_2026-08-01",
+    "claim": "Q1 FY2026 (Aug 1, 2026): net sales JPY 34.0bn (+JPY 5.8bn YoY), operating profit JPY 7.9bn (+JPY 3.6bn); special glass for AI servers strong with price revisions contributing."
+   },
+   {
+    "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/2122978/nittobo-announces-five-for-one-stock-split-and-boosts-authorized-shares/",
+    "claim": "Five-for-one stock split effective July 1, 2026."
+   },
+   {
+    "url": "https://www.investing.com/equities/nitto-boseki-co.,-ltd.",
+    "claim": "Share price JPY 3,170 on Aug 20, 2026 (post-split); an aggregator cites an all-time high of JPY 6,580 on May 7, 2026."
+   },
+   {
+    "url": "https://info.fusionww.com/blog/understanding-the-t-glass-shortage-and-its-role-in-ai-growth",
+    "claim": "T-glass prices up 20-30%, CCL lead times stretched from 8-10 weeks to beyond 20; Nittobo 2026 capacity up only ~10-20% vs FY25 (industry blog, promotional)."
+   }
+  ],
+  "already_run": "Post-split price ~JPY 3,140-3,170 vs a listed all-time high of JPY 6,580 (May 7, 2026) \u2014 appears ~50% below the high, but split adjustment of that high is unverified.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "089030.KQ",
+  "name": "Techwing",
+  "exchange": "KOSDAQ",
+  "theme": "HBM die-level test \u2014 'Cube Prober' for full-chip testing of stacked HBM core/logic dies",
+  "thesis": "Binary + bottleneck: HBM4 (16-Hi, 2048-bit) makes known-good-die testing before stacking far more valuable, and Techwing's Cube Prober is the only volume tool of its kind. It is already shipping to Samsung, passed SK hynix qualification in March 2026 and won its first commercial SK hynix order (so two of three HBM makers), and delivered qualification units to Micron with results expected within 2026 \u2014 a discrete binary catalyst that would make it the sole supplier to all three HBM makers as HBM4 ramps into Rubin. The stock peaked at KRW 74,000 on June 15, 2026 and has retraced to ~KRW 47,000-50,000 (roughly 35% off the high) amid the Korean HBM-equipment selloff, while consensus targets sit near KRW 80,000. Small cap, volatile; confirmed: Samsung supply, SK hynix qualification/order, Micron evaluation. Not confirmed: Micron outcome, order sizes, 2026 earnings (Q2 detail not found).",
+  "evidence": [
+   {
+    "url": "https://www.thelec.net/news/articleView.html?idxno=11441",
+    "claim": "Techwing won its first SK hynix order for the HBM Cube Prober after passing qualification in March 2026; already supplying Samsung; Micron qualification units delivered with results expected within the year."
+   },
+   {
+    "url": "https://x.com/DrNHJ/status/1967459318678372834",
+    "claim": "Techwing passed SK hynix HBM test equipment evaluation following Samsung; Micron qualification ongoing (social-media source, treat as secondary)."
+   },
+   {
+    "url": "https://www.stockopedia.com/share-prices/techwing-KOSDAQ:089030/",
+    "claim": "Consensus target ~KRW 80,000, ~60% above last close ~KRW 49,850."
+   },
+   {
+    "url": "https://www.tradingview.com/symbols/KRX-089030/",
+    "claim": "Price chart context: all-time high KRW 74,000 on June 15, 2026; current ~KRW 47,000."
+   }
+  ],
+  "already_run": "~35% below the June 15, 2026 all-time high of KRW 74,000; trading ~KRW 47,000-50,000.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "SMHN.DE",
+  "name": "SUSS MicroTec",
+  "exchange": "Xetra (Frankfurt)",
+  "theme": "Temporary bonders/debonders for HBM wafer thinning and CoWoS lithography/coaters \u2014 HBM4 retool pause then recovery",
+  "thesis": "Bottleneck with a timing gap: temporary wafer bonding/debonding is required for every HBM core-die thinning step and SUSS is one of only two suppliers (with private EV Group). 2025-26 was a digestion year as the 'HBM cartel' retooled for HBM4, and SUSS guided FY26 revenue only EUR 425-485m (flat-to-down) \u2014 yet its order backlog hit a record EUR 473.7m, it reported record temporary-bonder orders on the AI boom, its current-generation bonders are already qualified for HBM4, and management/brokers say HBM could return to >20% of revenue from a low base. Free cash flow turned positive and EBIT margin doubled sequentially in Q2. The stock ran from EUR 25.80 to EUR 118.40 and has since pulled back ~39% to ~EUR 72, versus an average target ~EUR 110. This is the 'volume beneficiary on a de-rated multiple' setup: if HBM4 16-Hi and CoWoS-L volumes force a 2027 bonder buying cycle, 2027 estimates and the multiple both move. Confirmed: backlog, guidance, upgrades. Caveat: FY26 revenue is guided down, so the re-rating depends on 2027 orders, not 2026 prints.",
+  "evidence": [
+   {
+    "url": "https://siliconsemiconductor.net/article/118084/AI_boom_provides_SUSS_MicroTec_with_record_orders_for_temporary_bonders",
+    "claim": "AI boom delivered record orders for SUSS temporary bonders."
+   },
+   {
+    "url": "https://www.investing.com/news/stock-market-news/suss-microtec-upgraded-to-buy-by-jefferies-ubs-on-aidriven-recovery-prospects-4345147",
+    "claim": "Jefferies/UBS upgrades: HBM4 retool pause in 2026, current-gen temporary bonders qualified for HBM4, HBM could return to >20% of revenue; record backlog EUR 473.7m."
+   },
+   {
+    "url": "https://stockanalysis.com/quote/etr/SMHN/",
+    "claim": "Share price ~EUR 72.40 (Sept 2026); 52-week range EUR 25.80-118.40; average target ~EUR 110."
+   },
+   {
+    "url": "https://www.investing.com/news/transcripts/suss-microtec-at-industrial-technology-online-investor-conference-demand-surges-93CH-4851694",
+    "claim": "Investor-conference transcript: demand surging; FY26 guidance EUR 425-485m revenue, 8-10% EBIT margin; Q2 EBIT margin 9.0% and FCF positive EUR 16.4m."
+   }
+  ],
+  "already_run": "Ran from EUR 25.80 to a EUR 118.40 52-week high; now ~EUR 72, about 39% below the high.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "011790.KS",
+  "name": "SKC (parent of Absolics)",
+  "exchange": "KRX (KOSPI)",
+  "theme": "Glass-core substrates \u2014 binary qualification readout on the first commercial glass substrate line",
+  "thesis": "Binary (Moderna pattern): SKC's Absolics is the only glass-core substrate maker with a built fab (Covington, Georgia) and claims mass-production samples in Q1 2026; embedded glass substrate samples are now in Taiwan undergoing Package-Level Reliability (PLR) certification (thermal cycling, mechanical, damp-heat), with final results due by end-2026 and mass production targeted for late 2026 if they pass; press reports name AMD and AWS as qualification customers. Competitors have slipped \u2014 Samsung Electro-Mechanics' JV targets 2H27 with reports of 2028+, Shinko is private \u2014 so a pass would make Absolics the sole commercial source for a substrate technology that solves warpage for 100mm+ AI packages. SKC has committed KRW 1.2tn (May 2026 rights issue) plus a further KRW 281bn (~$200m, Sept 4, 2026) into Absolics, so the parent's equity is now substantially a call option on the readout. Stock ~KRW 85,100 (Aug 24); YTD/52-week context not found (SKC's core chemicals/copper-foil businesses are weak and the 2024 glass-hype spike collapsed, so I believe the shares are washed out but could not confirm). Confirmed: capital injections, PLR testing. Unconfirmed/promotional: AMD/AWS names (ic-pcb.com and Korean press), 'first commercial production by end-2026' (company timelines have slipped repeatedly per Tom's Hardware). Confidence low: dilution, a failed or delayed PLR result would hit hard.",
+  "evidence": [
+   {
+    "url": "https://en.sedaily.com/finance/2026/09/04/skc-invests-200-million-in-absolics-to-speed-glass",
+    "claim": "SKC board approved ~KRW 281bn ($200m) injection into Absolics via rights offering (Sept 4, 2026) to speed glass-substrate rollout."
+   },
+   {
+    "url": "https://en.sedaily.com/finance/2026/05/12/skc-raises-12-trillion-won-to-fund-glass-substrate-push",
+    "claim": "SKC raised ~KRW 1.2tn in May 2026 to fund glass substrates and repay debt."
+   },
+   {
+    "url": "https://www.tomshardware.com/tech-industry/manufacturing/glass-substrate-roadmap-examined",
+    "claim": "Absolics is in final qualification but its first product has kept slipping (skeptical framing)."
+   },
+   {
+    "url": "https://www.ic-pcb.com/absolics-poised-for-amd-glass-substrate-certification-as-skc-weighs-expansion-plans.html",
+    "claim": "Absolics PLR certification samples in Taiwan; AMD certification pending; results by year-end (industry-site source, promotional tone)."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2026/08/18/news-glass-substrate-war-heats-up-shinko-electric-advances-22-layer-product-as-samsung-reportedly-faces-ramp-up-uncertainty/",
+    "claim": "Samsung Electro-Mechanics faces ramp-up uncertainty (2027-28), leaving Absolics as the nearest-term commercial source."
+   },
+   {
+    "url": "https://www.investing.com/equities/skc",
+    "claim": "SKC share price KRW 85,100 as of Aug 24, 2026."
+   }
+  ],
+  "already_run": "unknown \u2014 price KRW 85,100 (Aug 24, 2026); 52-week range and YTD not found before search budget ran out.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "KLIC",
+  "name": "Kulicke & Soffa Industries",
+  "exchange": "NASDAQ",
+  "theme": "Fluxless thermocompression bonding (chip-to-substrate/CoWoS-class) plus wire-bond recovery \u2014 earnings up multiples, multiple lagging",
+  "thesis": "Volume/earnings-inflection (Micron-style ratio, Dell-style multiple): K&S's fiscal Q3 (to July 4, 2026) revenue was $330.4m, +123% YoY and +36% QoQ, with non-GAAP EPS $1.20 versus $0.74 expected, and Q4 guided to $375m / $1.42 \u2014 an EPS run-rate near $5-6 versus roughly break-even a year earlier. The AI leg is fluxless TCB (APTURA): >30 systems shipped across five customers, FY26 TCB revenue guided >$100m (+70%), capex nearly doubled to lift Advanced Solutions capacity to a $400m run-rate by 1H FY27, plus a co-packaged-optics bonding platform. The base business (ball bonders for general semis/memory) is recovering at the same time, giving operating leverage. The stock is +89% YTD, so it is not untouched, but at ~$1.40/quarter EPS the multiple is still that of a cyclical, not an AI-packaging supplier. Confirmed: results and guidance from the 8-K/press release. Risks: TCB is a three-way fight with ASMPT and BESI; 'fully priced' commentary from some brokers after Q3.",
+  "evidence": [
+   {
+    "url": "https://investor.kns.com/2026-08-05-Kulicke-Soffa-Reports-Third-Quarter-2026-Results",
+    "claim": "Fiscal Q3 2026 net revenue $330.4m; net income $57.4m; GAAP EPS $1.07; non-GAAP EPS $1.20."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/kulicke-soffa-klic-q3-earnings-221019900.html",
+    "claim": "Q3 beat: non-GAAP EPS $1.20 vs $0.74 expected, revenue $330.4m vs $244.6m forecast; Q4 guided to $375m and $1.42 EPS."
+   },
+   {
+    "url": "https://www.investing.com/news/company-news/kulicke--soffa-q2f26-slides-demand-surge-drives-21-revenue-jump-93CH-4668305",
+    "claim": "FY26 TCB revenue guided >$100m (+70%); Advanced Solutions capacity to $400m annual run-rate by 1H FY27; capex nearly doubled for TCB."
+   },
+   {
+    "url": "https://www.prnewswire.com/news-releases/kulicke--soffa-expands-fluxless-thermo-compression-customer-base-302304455.html",
+    "claim": ">30 fluxless TCB systems delivered across five end customers (company press release)."
+   },
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/kulicke-soffa-industries-klic-stock-190933119.html",
+    "claim": "Share price +88.85% YTD; some analysts view the stock as fully priced after Q3."
+   }
+  ],
+  "already_run": "Up ~89% YTD and ~162% over one year \u2014 partially repriced, but earnings are up far more than the stock.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "CAMT",
+  "name": "Camtek",
+  "exchange": "NASDAQ (also TASE)",
+  "theme": "2D inspection and 3D metrology for HBM stacks and CoWoS/2.5D \u2014 record multi-year backlog",
+  "thesis": "Bottleneck-adjacent metrology: every HBM4 stack and CoWoS interposer needs bump/TSV/micro-bump 3D metrology and 2D inspection, and Camtek is the share leader (advanced packaging ~75% of revenue). It disclosed >$105m of new multi-system orders (a $55m OSAT order for 2.5D/3D AI devices plus >$50m of 'Hawk' 3D-metrology systems from an HBM maker) that extend backlog into 2027, and management says orders/forecasts from two HBM manufacturers represent >$260m of revenue across 2026-27, with 2H26 revenue >25% above 1H. Q2 2026 beat ($0.78 vs $0.74) but the shares slipped on the print and are ~15% off the ~$195 peak \u2014 a digestion window in a name whose forward earnings keep rising. It is not washed out (still +42% YTD at ~$164), so the re-rating case is 'earnings up 2x, multiple stays' rather than a multiple explosion. Confirmed: 6-K order disclosures, Q2 call. Risk: two-customer HBM concentration; Onto/KLA competition.",
+  "evidence": [
+   {
+    "url": "https://www.stocktitan.net/sec-filings/CAMT/6-k-camtek-ltd-current-report-foreign-issuer-1c543ac9f004.html",
+    "claim": "6-K: >$105m new orders \u2014 $55m from an OSAT for 2.5D/3D AI devices and >$50m of Hawk system orders from an HBM manufacturer \u2014 extending backlog into 2027."
+   },
+   {
+    "url": "https://www.aol.com/articles/camtek-camt-q2-2026-earnings-165433000.html",
+    "claim": "Q2 2026 call: orders/forecasts from two HBM makers for 3D metrology and 2D inspection worth >$260m across 2026-27; 2H26 revenue projected >25% above 1H."
+   },
+   {
+    "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-camtek-beats-q2-2026-estimates-shares-slip-93CH-4849638",
+    "claim": "Camtek beat Q2 2026 estimates but shares slipped after the report."
+   },
+   {
+    "url": "https://simplywall.st/stocks/us/semiconductors/nasdaq-camt/camtek",
+    "claim": "Shares ~$164 on Aug 11, 2026, +42% YTD, after a peak near $195 (+69% YTD at the high)."
+   }
+  ],
+  "already_run": "Up ~42% YTD at ~$164 (Aug 11), roughly 15% below the ~$195 2026 high; partially repriced.",
+  "confidence": "medium",
+  "angle": "?"
+ },
+ {
+  "ticker": "ATS.VI",
+  "name": "AT&S Austria Technologie & Systemtechnik",
+  "exchange": "Vienna Stock Exchange (Prime)",
+  "theme": "IC substrates (FC-BGA) for AI accelerators \u2014 ABF shortage beneficiary outside Taiwan/Japan",
+  "thesis": "Bottleneck: ABF substrate lead times have stretched to 20-30 weeks, Ajinomoto is raising build-up-film prices ~30% and the industry supply-demand gap is forecast to widen toward 2027-28. AT&S is the only large European substrate maker, with its Kulim (Malaysia) plant qualified with AMD and other AI-accelerator customers. In 2026 it raised FY2026/27 guidance sharply \u2014 currency-adjusted revenue growth to +45-55% (from +30-35%), EBITDA margin to 32-37% (from 25-29%) \u2014 and announced a EUR 1.5-2bn Kulim expansion 'backed by long-term customer commitments', with capex raised to EUR 1.0-1.2bn. Shares spiked ~29% to a record ~EUR 200 on the news but have since retraced to ~EUR 152 (Aug 10), ~25% below the high. This fits the SanDisk/Micron mould (constrained input, price and mix rising, margin step-up) but the stock has very likely already re-rated multiples from its 2025 lows \u2014 I could not confirm the YTD move before the search budget ran out, hence low confidence on 'not yet repriced'. Confirmed: guidance and expansion via the company's ad-hoc release. Risks: heavy capex/leverage, customer concentration (AMD), execution at Kulim.",
+  "evidence": [
+   {
+    "url": "https://ats.net/en/ir-news/ats-expands-ai-substrate-capacity-in-kulim-and-increases-outlook-for-2026-27/",
+    "claim": "Company release: EUR 1.5-2bn Kulim AI-substrate expansion backed by long-term customer commitments; FY26/27 revenue growth guidance raised to +45-55%, EBITDA margin 32-37%, capex EUR 1.0-1.2bn."
+   },
+   {
+    "url": "https://meyka.com/blog/ats-shares-surge-29-after-announcing-up-to-e2-billion-malaysia-investment-to-capitalize-on-ai-boom/",
+    "claim": "Shares surged ~29% to a record ~EUR 200 after the Malaysia investment announcement (aggregator/promotional source)."
+   },
+   {
+    "url": "https://www.investing.com/equities/at-s-austria",
+    "claim": "Share price EUR 152.40 on Aug 10, 2026."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260226PD219/unimicron-demand-2026-price-transmission.html",
+    "claim": "Industry context: fiberglass shortage persists in 2026 and substrate makers are raising prices."
+   },
+   {
+    "url": "https://wccftech.com/msg-maker-ajinomoto-to-raise-prices-as-abf-substrate-supply-demand-gap-extends-to-2027/",
+    "claim": "Ajinomoto raising ABF film prices ~30% as the ABF substrate supply-demand gap extends to 2027."
+   }
+  ],
+  "already_run": "~25% below the record ~EUR 200 high (now ~EUR 152); full YTD/multi-year move not confirmed but likely already large.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "COHU",
+  "name": "Cohu",
+  "exchange": "NASDAQ",
+  "theme": "High-power thermal test handlers (Eclipse) for AI accelerators/custom ASICs plus HBM inspection (Neon) \u2014 low-multiple volume beneficiary",
+  "thesis": "Dell-style volume beneficiary on a low starting base: AI accelerators and custom ASICs need high-power active-thermal-control handlers for final and system-level test, and Cohu's Eclipse platform is winning \u2014 Q2 2026 revenue $149m (+38% YoY), computing system orders +150% YoY, a single $26m Eclipse order, and FY26 HPC revenue guidance raised to $100-110m (from $80-100m). Management sized the annual HPC customer pipeline at ~$850m ($190m qualified across four customers, $250m in active qualification across five, $445m early-stage across ten) versus a ~$600m company \u2014 so the HPC book could double the company if conversions land, with the Neon HBM inspection tool as free optionality (not yet in guidance). Recurring consumables are ~53% of sales, cushioning the base. Confirmed: Q2 numbers and pipeline framework from the call. Not found: YTD share move or 52-week high (search budget exhausted), so 'not yet repriced' is unverified \u2014 hence low confidence. Risks: pipeline conversion timing, concentration in a few hyperscaler ASIC programs, legacy auto/industrial test still soft.",
+  "evidence": [
+   {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/cohu-inc-q2-2026-earnings-025040047.html",
+    "claim": "Q2 2026: revenue $149m (+38%), computing system orders +150% YoY, $26m Eclipse order, FY26 HPC revenue guidance raised to $100-110m; ~$850m annual HPC pipeline ($190m qualified / $250m in qualification / $445m early-stage)."
+   },
+   {
+    "url": "https://www.fool.com/earnings/call-transcripts/2026/07/30/cohu-cohu-q2-2026-earnings-call-transcript/",
+    "claim": "Q2 2026 earnings call transcript detailing Eclipse HPC handler growth and Neon HBM inspection status."
+   },
+   {
+    "url": "https://x.com/TheValueist/status/2082960288949625152",
+    "claim": "Read-through summary of Cohu's Q2 call: AI test, high-power thermal handling, HBM inspection, OSAT demand (social-media source, secondary)."
+   }
+  ],
+  "already_run": "unknown \u2014 YTD move and 52-week high not found before search budget ran out.",
+  "confidence": "low",
+  "angle": "?"
+ },
+ {
+  "ticker": "0522.HK",
+  "name": "ASMPT",
+  "exchange": "Hong Kong Stock Exchange",
+  "theme": "TC bonders for HBM4 (share gains at SK hynix) and chip-to-substrate TCB for OSAT CoWoS overflow",
+  "thesis": "Double bottleneck exposure: (1) HBM \u2014 ASMPT has secured HBM4-12H TC bonder orders from multiple customers and is reportedly primary supplier at one, taking share from Hanmi at SK hynix, with 16H development under way; (2) CoWoS overflow \u2014 as TSMC outsources 240-270k CoWoS wafers/yr to Amkor/ASE-SPIL and OSATs build 'CoWoS-like' lines, ASMPT received bulk orders in July 2026 for more than 50 C2S (chip-to-substrate) TCB tools from OSAT customers. 1H26 Advanced Packaging revenue hit a record $339m (+17%, 30% of group) with Q2 revenue/EPS above consensus and 'robust bookings momentum', while the SMT half of the business is still depressed \u2014 the classic low-multiple conglomerate discount that unwinds when AP becomes the majority of profit. The shares trade ~HK$158-182 (Aug-Sept 2026); I could not retrieve the 52-week range or YTD (search budget exhausted) and believe the stock has already roughly doubled from 2025 levels, so confidence on 'not yet repriced' is low. Confirmed: interim results and July bulk TCB orders (company release). Reported, not confirmed: SK hynix HBM4 order details (TrendForce citing Korean press).",
+  "evidence": [
+   {
+    "url": "https://www.asmpt.com/en/investor-relations/news-events/asmpt-announces-2026-interim-results/",
+    "claim": "1H26 Advanced Packaging revenue record $339.0m (+17% YoY, 30% of group); in July 2026 received bulk orders for >50 C2S TCB tools from OSAT customers; Q2 revenue/EPS above consensus."
+   },
+   {
+    "url": "https://www.trendforce.com/news/2025/12/12/news-sk-hynix-reportedly-places-hbm4-tc-bonder-order-with-asmpt-as-hanmi-hanwha-patent-clash-heats-up/",
+    "claim": "SK hynix reportedly placed an HBM4 TC bonder order with ASMPT amid the Hanmi-Hanwha patent clash (reported, not company-confirmed)."
+   },
+   {
+    "url": "https://x.com/jukan05/status/2045643713104544054?lang=en",
+    "claim": "ASMPT secured multiple HBM4 TC bonder orders; 12H orders secured, 16H in development (social-media summary of company commentary)."
+   },
+   {
+    "url": "https://www.digitimes.com/news/a20260105PD209/tsmc-cowos-packaging-capacity-nvidia-samsung.html",
+    "claim": "TSMC outsourcing CoWoS to ASE/SPIL and Amkor in 2026 \u2014 the OSAT overflow that drives C2S TCB tool orders."
+   },
+   {
+    "url": "https://www.investing.com/equities/asm-pacific",
+    "claim": "Share price ~HK$158-182 in Aug-Sept 2026."
+   }
+  ],
+  "already_run": "unknown \u2014 trading ~HK$158-182; 52-week range/YTD not retrieved. Likely already up substantially from 2025.",
+  "confidence": "low",
+  "angle": "?"
+ }
+]
