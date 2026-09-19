@@ -53,7 +53,7 @@ Built with a production-grade RAG pipeline: hybrid search (BM25 + Pinecone seman
 - Reports: `reports/stocks/latest.{md,json}` + `history/<date>.json`; diffs show entrants/dropouts
 - `stocks/catalysts.py`: Claude (`claude-opus-5`) + `web_search_20260209` scan of pre-boom signatures → `reports/stocks/catalysts/`; uses server-side refusal fallbacks; resumes on `pause_turn`
 - Market-data hosts are blocked in the Claude web sandbox — real runs happen locally or in Actions
-- `reports/stocks/research/` holds dated deep-dive runs: `2026-09-06` (40-name catalyst dossiers, Notion renders) and `2026-09-19-robotics` (humanoid supply-chain moat map + six raw research streams)
+- `reports/stocks/research/` holds dated deep-dive runs: `2026-09-06` (40-name catalyst dossiers, Notion renders) and `2026-09-19-robotics` (humanoid supply-chain moat map, 2030 scenario model via `scripts/robotics_2030_model.py`, seven raw research streams)
 
 ## Known Issues / Tech Debt
 - Knowledge graph entity matching is naive (substring, no NER/lemmatization)

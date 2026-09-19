@@ -79,40 +79,70 @@ class Co:
         }
 
 
-# Base financials from the 19-Sep-2026 research streams and the follow-up data pull.
-# Where a figure was NOT FOUND it is marked est. and set conservatively.
+# Base financials: market caps and latest-year figures from the 19-Sep-2026 data pull
+# (stockanalysis, companiesmarketcap, PitchBook, company releases; see raw/07-financials.md).
+# Local-currency millions. Where two sites conflicted the lower figure is used.
 ASSUMPTIONS: list[Co] = [
-    Co("Lynas", "LYC.AX", "AUD", 14_500, 978, 222, 0.10, 0.25, "all", 0, 0, 0, 22,
-       "Robots modelled via HRE volumes, see text; here base business only + HRE premium in growth"),
-    Co("MP Materials", "MP", "USD", 9_700, 350, -60, 0.40, 0.20, "all", 3.5 * 120, 0.30, 0.25, 25,
-       "3.5 kg NdFeB per robot at $120/kg finished magnet; MP takes 30% of ex-China robot magnets (10X 10kt cap)"),
-    Co("Nvidia", "NVDA", "USD", 5_370_000, 300_000, 165_000, 0.20, 0.55, "western", 2_000, 0.85, 0.55, 28,
-       "Jetson class $2k per Western robot at 85% share; excludes sim/cloud upsell (immaterial at this scale)"),
-    Co("Hengli Hydraulic", "601100.SS", "CNY", 95_000, 12_500, 2_600, 0.08, 0.20, "all", 14 * 150, 0.25, 0.20, 22,
-       "14 roller screws per robot at $150 (2030 Chinese price) and 25% share"),
-    Co("Schaeffler", "SHA.DE", "EUR", 5_500, 24_000, 200, 0.02, 0.02, "western", 25 * 250, 0.20, 0.10, 12,
-       "25 actuator-grade parts per Western robot at $250, 20% share; group margin stays thin"),
-    Co("Huachen Precision", "300809.SZ", "CNY", 12_000, 700, 60, 0.15, 0.12, "all", 4.0, 0.25, 0.15, 25,
-       "Grinder capex: ~$4 of grinder per robot-year of capacity (28 parts / 50k parts per $1.5M grinder over 7 yrs)"),
-    Co("LG Innotek", "011070.KS", "KRW", 4_500_000, 20_000_000, 250_000, 0.03, 0.02, "western", 6 * 40, 0.50, 0.08, 10,
+    Co("Lynas", "LYC.AX", "AUD", 10_900, 978, 222, 0.10, 0.25, "western", 0.105 * 1_500, 0.70, 0.35, 22,
+       "0.105 kg Dy/Tb per robot (3% of a 3.5 kg magnet set) at $1,500/kg ex-China; 70% of ex-China robot HRE"),
+    Co("MP Materials", "MP", "USD", 9_730, 433, -65, 0.30, 0.20, "western", 3.5 * 120, 0.40, 0.25, 25,
+       "Base = 2026 consensus revenue $433M growing 30% as 10X ramps; 3.5 kg NdFeB at $120/kg, 40% of ex-China robot magnets"),
+    Co("Nvidia", "NVDA", "USD", 5_310_000, 411_000, 226_000, 0.15, 0.55, "western", 2_000, 0.85, 0.55, 28,
+       "Base = FY27 consensus $411B growing 15%; Jetson-class $2k per Western robot at 85% share (physical-AI cloud upsell excluded)"),
+    Co("Hengli Hydraulic", "601100.SS", "CNY", 132_780, 11_730, 2_770, 0.08, 0.22, "all", 14 * 150, 0.25, 0.20, 22,
+       "14 roller screws per robot at $150 (2030 Chinese price), 25% global share"),
+    Co("Wuzhou Xinchun", "603667.SS", "CNY", 14_270, 3_343, 91, 0.03, 0.03, "tesla", 30 * 120, 0.50, 0.15, 20,
+       "30 screws (leg inverted PRS + hand ball screws) per Tesla robot at $120, 50% share"),
+    Co("Schaeffler", "SHA.DE", "EUR", 6_830, 24_700, 0, 0.02, 0.03, "western", 25 * 250, 0.20, 0.10, 10,
+       "25 actuator-grade parts per Western robot at $250, 20% share; group margin recovers to 3% (consensus EPS EUR0.88)"),
+    Co("Huachen Precision", "300809.SZ", "CNY", 6_400, 525, 60, 0.12, 0.12, "all", 270, 0.15, 0.15, 25,
+       "Grinder capex ~$270 per robot-year (28 parts / 30k parts per $1.2M grinder, 7-yr life); 15% share"),
+    Co("Qinchuan Machine Tool", "000837.SZ", "CNY", 9_140, 4_190, 50, 0.05, 0.03, "all", 270, 0.15, 0.12, 20,
+       "Same grinder-capex pool, 15% share; base business is low-margin machine tools"),
+    Co("LG Innotek", "011070.KS", "KRW", 12_160_000, 22_450_000, 485_000, 0.03, 0.025, "western", 6 * 40, 0.50, 0.08, 10,
        "6 camera modules at $40 per Western robot, 50% share"),
-    Co("Hesai", "HSAI", "USD", 3_500, 480, 40, 0.20, 0.12, "embodied", 120, 0.35, 0.15, 22,
-       "One robotics lidar at $120 into the broader embodied pool, 35% share"),
-    Co("LG Energy Solution", "373220.KS", "KRW", 95_000_000, 24_000_000, 400_000, 0.08, 0.03, "western", 2.5 * 110, 0.45, 0.06, 15,
-       "2.5 kWh pack at $110/kWh cell cost per Western robot, 45% share"),
-    Co("Harmonic Drive Systems", "6324.T", "JPY", 548_000, 74_500, 4_500, 0.06, 0.07, "western", 14 * 180, 0.45, 0.15, 25,
-       "14 harmonics per Western robot at $180 premium price, 45% share"),
-    Co("Tuopu", "601689.SS", "CNY", 108_000, 30_000, 3_300, 0.10, 0.11, "tesla", 28 * 220, 0.60, 0.12, 20,
-       "28 actuator assemblies per Tesla robot at $220, 60% share (reported exclusivity)"),
-    Co("Leaderdrive", "688017.SS", "CNY", 51_300, 571, 150, 0.15, 0.26, "chinese", 14 * 85, 0.50, 0.28, 30,
-       "14 harmonics per Chinese-chain robot at $85 (CNY 600), 50% share"),
-    Co("Nabtesco", "6268.T", "JPY", 480_000, 344_000, 20_000, 0.04, 0.06, "all", 2 * 200, 0.25, 0.12, 18,
+    Co("Hesai", "HSAI", "USD", 2_920, 491, 73, 0.18, 0.13, "embodied", 120, 0.35, 0.15, 22,
+       "Base grows 18% (2027 consensus $987M); one robotics lidar at $120 into the broader embodied pool, 35% share"),
+    Co("LG Energy Solution", "373220.KS", "KRW", 94_650_000, 23_670_000, -1_073_000, 0.08, 0.04, "western", 2.5 * 110, 0.45, 0.06, 15,
+       "2.5 kWh pack at $110/kWh per Western robot, 45% share; base margin recovers to 4%"),
+    Co("Harmonic Drive Systems", "6324.T", "JPY", 651_300, 74_500, 5_900, 0.06, 0.08, "western", 14 * 180, 0.45, 0.15, 25,
+       "Base = FY3/27 guide; 14 harmonics per Western robot at $180 premium price, 45% share"),
+    Co("Tuopu", "601689.SS", "CNY", 100_000, 29_580, 2_780, 0.10, 0.10, "tesla", 14 * 250, 0.60, 0.12, 20,
+       "14 linear actuator assemblies per Tesla robot at $250, 60% share (reported exclusivity)"),
+    Co("Sanhua", "002050.SZ", "CNY", 197_540, 31_010, 4_060, 0.09, 0.13, "tesla", 14 * 250, 0.60, 0.12, 20,
+       "14 rotary joint modules per Tesla robot at $250, 60% share (reported)"),
+    Co("Leaderdrive", "688017.SS", "CNY", 53_280, 571, 141, 0.15, 0.26, "chinese", 14 * 85, 0.50, 0.28, 30,
+       "14 harmonics per Chinese-chain robot at $85, 50% share"),
+    Co("Nabtesco", "6268.T", "JPY", 602_490, 309_700, 18_440, 0.04, 0.06, "all", 2 * 200, 0.25, 0.12, 18,
        "2 mini-RV per robot (hip/waist) at $200, 25% share"),
-    Co("Keli Sensing", "603662.SS", "CNY", 18_800, 1_558, 341, 0.12, 0.22, "chinese", 4 * 420, 0.25, 0.20, 25,
-       "4 six-axis F/T per Chinese-chain robot at $420 (CNY 3k), 25% share"),
-    Co("Allegro", "ALGM", "USD", 6_500, 890, 40, 0.10, 0.12, "all", 100, 0.30, 0.20, 25,
-       "$100 of encoders, current sensors and gate drivers per robot, 30% share"),
+    Co("Keli Sensing", "603662.SS", "CNY", 20_000, 1_558, 341, 0.12, 0.22, "chinese", 4 * 420, 0.25, 0.20, 25,
+       "4 six-axis F/T per Chinese-chain robot at $420, 25% share"),
+    Co("Allegro", "ALGM", "USD", 10_980, 890, 100, 0.10, 0.14, "all", 100, 0.30, 0.20, 25,
+       "$100 of encoders, current sensors and gate drivers per robot, 30% share; base NI = non-GAAP"),
 ]
+
+
+def breakeven_units(c: Co, target_cagr: float = 0.0) -> float | None:
+    """2030 humanoid units (all pools scaled from the base scenario) at which the
+    implied CAGR equals target_cagr. None if no volume up to 20M units gets there."""
+    base = SCENARIOS["base"]
+    lo, hi = 0.0, 20_000_000.0
+    def cagr_at(u: float) -> float:
+        k = u / base["units"]
+        sc = {kk: (v * k if kk != "embodied_mult" else v) for kk, v in base.items()}
+        r = c.project(sc)["cagr"]
+        return r if r == r else -1.0
+    if cagr_at(hi) < target_cagr:
+        return None
+    if cagr_at(lo) >= target_cagr:
+        return 0.0
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if cagr_at(mid) < target_cagr:
+            lo = mid
+        else:
+            hi = mid
+    return hi
 
 
 def run(md_path: str | None = None) -> None:
@@ -124,6 +154,13 @@ def run(md_path: str | None = None) -> None:
         pe = f"{b['pe_today_on_2030']:.0f}x" if b['pe_today_on_2030'] == b['pe_today_on_2030'] else "n/m"
         f = lambda r: f"{r['cagr']*100:+.0f}%" if r['cagr'] == r['cagr'] else "n/m"
         lines.append(f"| {c.name} ({c.ticker}) | {b['mcap_usd_m']:,} | {b['rev_2030']:,} | {b['robo_rev_2030']:,} | {b['robo_share']*100:.0f}% | {b['ni_2030']:,} | {pe} | {f(b)} | {f(be)} | {f(bu)} |")
+    lines.append("")
+    lines.append("| Company | 2030 units needed for 0% CAGR at today's price | for +10% CAGR |")
+    lines.append("|---|---|---|")
+    for c in ASSUMPTIONS:
+        b0, b10 = breakeven_units(c, 0.0), breakeven_units(c, 0.10)
+        fmt = lambda u: "n/a (base business alone)" if u == 0 else ("never below 20M" if u is None else f"{u/1e6:.1f}M")
+        lines.append(f"| {c.name} | {fmt(b0)} | {fmt(b10)} |")
     out = "\n".join(lines)
     print(out)
     if md_path:
