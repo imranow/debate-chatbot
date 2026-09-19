@@ -8,3 +8,7 @@ US close (or locally, see the README).
 - `catalysts/latest.md` / `latest.json` — Claude web-search scan for pre-boom setups
   (`python -m stocks.catalysts`), each candidate cross-referenced with the price screen
 - `catalyst-research-<date>.md` — hand-compiled research notes
+- `research/<date>/` — deep-dive research runs (per-company dossiers, Notion renders)
+- `research/2026-09-19-robotics/robotics-supply-chain-moats.md` — humanoid-robot supply-chain
+  moat map (heavy rare earths, roller screws and grinders, reducers, sensors, compute, batteries),
+  with six raw research-stream reports and sources under `raw/`
