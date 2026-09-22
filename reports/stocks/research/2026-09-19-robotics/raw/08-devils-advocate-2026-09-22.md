@@ -196,5 +196,5 @@ Reproduction scripts (scratchpad, not in the repo): `/tmp/claude-0/-home-user-de
 
 ## Errata (QA review, 22 Sep 2026)
 
-- The Lynas "about -14% at A$14-15B" estimate is superseded. The QA review found the base cap was in US dollars; the corrected model gives -15% at A$16.5B (-12% at A$14.07B).
+- The Lynas "about -14% at A$14-15B" estimate is superseded. The QA review found the base cap was in US dollars; the corrected model gives -14% at A$15.64B (1.0065B shares x A$15.54).
 - Reuters (20 Sep 2026) describes window guidance that slows humanoid IPOs, not a freeze. The 60-70% valuation cut is Mech-Mind's CEO's estimate.

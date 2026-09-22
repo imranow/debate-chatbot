@@ -33,8 +33,9 @@ SCENARIOS = {
     "bull": {"units": 2_500_000, "western_units": 600_000, "tesla_units": 400_000},
 }
 
-# Assumed rates, not sourced to a dated quote. CAGRs are FX-invariant; robot share of revenue is not.
-FX = {"USD": 1.0, "CNY": 0.14, "JPY": 0.0068, "AUD": 0.66, "EUR": 1.10, "KRW": 0.00073}
+# Assumed rates, not sourced to a dated quote, except AUD (0.70, implied by the Sep-2026
+# stockanalysis Lynas quote of US$10.87 vs A$15.54). CAGRs are FX-invariant; robot share of revenue is not.
+FX = {"USD": 1.0, "CNY": 0.14, "JPY": 0.0068, "AUD": 0.70, "EUR": 1.10, "KRW": 0.00073}
 
 
 @dataclass
@@ -95,10 +96,10 @@ class Co:
 # Base financials: market caps and latest-year figures from the 19-Sep-2026 data pull
 # (stockanalysis, companiesmarketcap, PitchBook, company releases; see reports/stocks/research/2026-09-19-robotics/raw/07-financials-2026-09-19.md).
 # Local-currency millions. Where two sites conflicted the lower figure is used, except Keli
-# (CNY 20.0B, between 18.8B and 22.5B) and Leaderdrive (CNY 53.3B, latest dated figure;
-# raw/01 shows 51.3B). Lynas corrected 22 Sep 2026: the 10.9B quote is USD, not AUD.
+# (CNY 20.0B, between 18.3B (Sep 2025) and 22.5B) and Leaderdrive (CNY 53.3B, latest dated figure;
+# raw/01 shows 51.3B). Lynas corrected 22 Sep 2026: the 10.9B quote is USD, not AUD; cap = 1.0065B shares x A$15.54.
 ASSUMPTIONS: list[Co] = [
-    Co("Lynas", "LYC.AX", "AUD", 16_500, 978, 222, 0.10, 0.25, "western", 0.105 * 1_500, 0.70, 0.35, 22,
+    Co("Lynas", "LYC.AX", "AUD", 15_640, 978, 222, 0.10, 0.25, "western", 0.105 * 1_500, 0.70, 0.35, 22,
        "0.105 kg Dy/Tb per robot (3% of a 3.5 kg magnet set) at $1,500/kg ex-China; 70% of ex-China robot HRE"),
     Co("MP Materials", "MP", "USD", 9_730, 433, -65, 0.30, 0.20, "western", 3.5 * 120, 0.40, 0.25, 25,
        "Base = 2026 consensus revenue $433M growing 30% as 10X ramps; 3.5 kg NdFeB at $120/kg, 40% of ex-China robot magnets"),
@@ -109,7 +110,7 @@ ASSUMPTIONS: list[Co] = [
        use_cn=0.25),
     Co("Wuzhou Xinchun", "603667.SS", "CNY", 14_270, 3_343, 91, 0.03, 0.03, "tesla", 30 * 120, 0.50, 0.15, 20,
        "30 screws (leg inverted PRS + hand ball screws) per Tesla robot at $120, 50% share"),
-    Co("Schaeffler", "SHA.DE", "EUR", 6_830, 24_700, -444, 0.02, 0.03, "western", 25 * 250, 0.20, 0.10, 10,
+    Co("Schaeffler", "SHA.DE", "EUR", 6_830, 24_700, -404, 0.02, 0.03, "western", 25 * 250, 0.20, 0.10, 10,
        "25 actuator-grade parts per Western robot at $250, 20% share; group margin recovers to 3% (consensus EPS EUR0.88)"),
     Co("Huachen Precision", "300809.SZ", "CNY", 6_400, 525, 60, 0.12, 0.12, "all", 160, 0.15, 0.15, 25,
        "Grinder capex ~$160 per robot-year (28 parts x $1.2M/30k parts / 7-yr life; corrected from $270); 15% share; grinders only serve robots that use screws or harmonics (50% of Chinese robots, the harmonic share)",

@@ -1,6 +1,6 @@
 # Who Owns the Robot Supply Chain? Moat Map for State-of-the-Art Humanoids
 
-*Research date: 19 September 2026. Six parallel research streams (actuators and gears; motors, magnets and batteries; sensors; compute and AI models; structure, hands and machine tools; OEMs and demand). Raw stream reports with full source lists are in `raw/`. All figures come from web-search snippets because finance sites are blocked from this sandbox; verify against filings before acting. Not investment advice. Revised 22 September 2026 after a devil's-advocate review (section 9) and a QA review (`raw/09-qa-review.md`). Where earlier sections conflict with section 9, section 9 governs.*
+*Research date: 19 September 2026. Six parallel research streams (actuators and gears; motors, magnets and batteries; sensors; compute and AI models; structure, hands and machine tools; OEMs and demand). Raw stream reports with full source lists are in `raw/`. All figures come from web-search snippets because finance sites are blocked from this sandbox; verify against filings before acting. Not investment advice. Revised 22 September 2026 after a devil's-advocate review (section 9), a QA review (`raw/09-qa-review.md`) and a check of that QA (`raw/10-meta-qa-review.md`). Where earlier sections conflict with section 9, section 9 governs.*
 
 ---
 
@@ -38,7 +38,7 @@ The rule that falls out: **a moat is durable when the constraint is a scarce cap
 | 2035 forecast | Goldman raised to 6.5M units (from 1.4M) in Sep 2026 | OEM stream |
 | Tesla Optimus | V3 reveal slipped again; Musk declined to give a 2026 unit target; Fremont line converted; Tesla audit teams at Sanhua and Tuopu on 16 to 17 Sep 2026 with a reported ~5,000-unit order | OEM and actuator streams |
 | Western pure-plays | Figure ~3k/yr run-rate in April 2026 at a $39B private valuation; Agility going public via SPAC at $2.5B with >$300M contracted orders; 1X had no verified customer delivery as of July 2026 | OEM stream |
-| Unitree (688836.SS) | Listed 19 Aug 2026, +460% day one to roughly $50B; 2025 revenue CNY 1.7B, 60% gross margin, in-house actuators | Compute and OEM streams |
+| Unitree (688836.SS) | Listed 19 Aug 2026, +460% day one to roughly $50B (down about 55% from peak by 20 Sep); 2025 revenue CNY 1.7B, 60% gross margin, in-house actuators | Compute and OEM streams |
 
 Implication: 2026 volume is 55k to 90k units and roughly 80% Chinese. That means the moats that pay in the next two years are the ones **inside the Chinese chain** or the ones **China cannot substitute** (heavy rare earths, Nvidia, Swiss screws). The Western OEM ramp (Tesla, Figure, Agility) is a 2027 to 2028 story and its suppliers are priced as if it were already here.
 
@@ -106,7 +106,7 @@ Motors are the most in-housed part of the joint (Tesla designs its own; Unitree 
 ### 4.7 Sensors: moat B in three places, C elsewhere
 
 - **Camera modules**: **LG Innotek (011070.KS)** is the only supplier with confirmed mass production for a US humanoid major (5 to 8 modules per robot for Figure; integrated vision unit for Boston Dynamics Atlas). Samsung Electro-Mechanics with **Sony (6758.T)** sensors reportedly supplies Optimus. Module assembly will commoditise as Sunny Optical and Luxshare qualify.
-- **Lidar**: **Hesai (HSAI)** shipped 142k robotics lidars in Q2 2026 (+193%), fifth straight GAAP-profitable quarter (US-listed, and also listed in Hong Kong since September 2025 per a QA web check), JT128 adopted by over 50 embodied-AI companies including Unitree and Galbot. **RoboSense (2498.HK)** robotics units +510% in H1 2026 and is launching joint modules; a QA web check indicates it was added to the Pentagon's 1260H list in June 2026 alongside Unitree (verify). A duopoly with falling ASPs.
+- **Lidar**: **Hesai (HSAI)** shipped 142k robotics lidars in Q2 2026 (+193%), fifth straight GAAP-profitable quarter (US-listed, and also listed in Hong Kong since September 2025), JT128 adopted by over 50 embodied-AI companies including Unitree and Galbot. **RoboSense (2498.HK)** robotics units +510% in H1 2026 and is launching joint modules. A duopoly with falling ASPs.
 - **Six-axis force/torque**: the cost-down battleground. Average price fell from CNY 46k (2017) to CNY 32k (2022) and humanoids need about four at CNY 2k to 5k to scale. **ATI / Novanta (NOVT)** is the incumbent; **Keli Sensing (603662.SS)** is the Chinese challenger at about 55x earnings.
 - **Encoders**: highest unit count (56+ per Optimus) but $20 to $100 each; chip vendors (Allegro, ams OSRAM, onsemi, Broadcom) will take volume from Renishaw and Heidenhain. Commoditising.
 - **Tactile skin**: pre-standard and speculative; Luxshare is reported as the exclusive Optimus fingertip-sensor supplier (trade-show source only).
@@ -114,14 +114,14 @@ Motors are the most in-housed part of the joint (Tesla designs its own; Unitree 
 
 ### 4.8 Compute, simulation and models: moat A (Nvidia), C (models)
 
-- **Nvidia (NVDA)**: Jetson Thor at $2,999 per module is reported as the standard on Agility, Boston Dynamics and 1X (Figure 03 may use a custom chip, per one blog; Tesla uses its own AI5); Isaac Sim, Cosmos 3 and GR00T are used by 1X, Agibot, Agility, Boston Dynamics, Figure, Neura and Skild. Robotics is under 2% of revenue, so this is a free option inside a $5.3T company (18 Sep 2026), and a $3k compute BOM is too expensive for sub-$20k robots.
+- **Nvidia (NVDA)**: Jetson Thor at $2,999 per module is reported as the standard on Agility, Boston Dynamics and 1X (Figure 03 may use a custom chip, per one blog; Tesla uses its own AI5); Isaac Sim, Cosmos 3 and GR00T are used by 1X, Agibot, Agility, Boston Dynamics, Figure, Neura and Skild. Robotics is a low-single-digit share of revenue, so this is a free option inside a $5.3T company (18 Sep 2026), and a $3k compute BOM is too expensive for sub-$20k robots.
 - **Rockchip (603893.SS)** is the default brain in Chinese entry humanoids (Unitree G1, Agibot X2); H1 2026 revenue +41%, net profit +62%. **Qualcomm (QCOM)** IQ10 is the first credible second source, with Figure and Neura as named wins.
 - **Tesla AI5** is dual-sourced at Samsung 2nm (Taylor, trial wafers 15 Sep 2026) and TSMC 3nm; the foundry read-through is the investable angle.
 - **Foundation models are the most contestable layer.** At least eight well-funded competitors (Nvidia GR00T, Google Gemini Robotics 2, Physical Intelligence at a reported $11B, Skild at $14B on roughly $30M revenue, Figure Helix, Generalist, Genesis, OpenAI) chase a layer where the two largest incumbents give the model away to sell chips and cloud. No public pure-play exists, and that is the right outcome.
 
 ### 4.9 Batteries: moat B (LG Energy Solution), not a supply bottleneck
 
-**LG Energy Solution (373220.KS)** has named humanoid contracts with Tesla, Boston Dynamics and Figure. **Samsung SDI (006400.KS)** targets 500 Wh/kg solid-state humanoid cells in mass production H2 2027. **CATL** powers Galbot; **EVE (300014.SZ)** ships 300 Wh/kg all-solid-state cells (Longquan II); a QA web check indicates EVE was also added to the 1260H list in June 2026 (verify). Energy density (2 to 4 hour runtimes) is a product constraint, not a supply one; the US solid-state names (QS, SLDP, SES) have no robot contracts.
+**LG Energy Solution (373220.KS)** has named humanoid contracts with Tesla, Boston Dynamics and Figure. **Samsung SDI (006400.KS)** targets 500 Wh/kg solid-state humanoid cells in mass production H2 2027. **CATL** powers Galbot; **EVE (300014.SZ)** ships 300 Wh/kg all-solid-state cells (Longquan II). Energy density (2 to 4 hour runtimes) is a product constraint, not a supply one; the US solid-state names (QS, SLDP, SES) have no robot contracts.
 
 ### 4.10 Structure, hands, materials and assembly: moat C with two exceptions
 
@@ -135,14 +135,14 @@ Die-casting (Tuopu, Xusheng for Figure's magnesium shells, Wencan), connectors (
 
 | Rank | Company | Ticker | Moat | Why | What is wrong with it | Verdict after 22-Sep review |
 |---|---|---|---|---|---|---|
-| 1 | Lynas | LYC.AX | A | Only ex-China Dy/Tb at tonne scale; profitable; FY26 revenue +76% | Heavy-rare-earth capex creep; Malaysian politics; stock fell 6% on results | Policy trade only; -15% a year in the corrected model |
+| 1 | Lynas | LYC.AX | A | Only ex-China Dy/Tb at tonne scale; profitable; FY26 revenue +76% | Heavy-rare-earth capex creep; Malaysian politics; stock fell 6% on results | Policy trade only; -14% a year in the corrected model |
 | 2 | Nvidia | NVDA | A | Full-stack compute + sim + model lock-in on most non-Tesla Western humanoids | Robotics <2% of revenue; already the world's largest company | Survives, for data-centre reasons |
 | 3 | MP Materials | MP | A (policy) | DoD price floor and 100% offtake; only US mine-to-magnet chain | Loss-making; 10X plant is 2028; no heavy rare earths | Avoid as a robotics play |
-| 4 | Hengli Hydraulic | 601100.SS | A/B | Largest Chinese roller-screw capacity, Tesla-validated, profitable hydraulics base | Screw revenue is a broker forecast; Tesla timing | Only on a big drawdown |
-| 5 | Schaeffler | SHA.DE | A/B | Ewellix screws, integrated strain-wave gear, new 2027 harmonic process; cheap optionality | Immaterial to group; leveraged auto supplier | Survives as a cheap auto-recovery option |
-| 6 | Huachen Precision / Qinchuan | 300809.SZ / 000837.SZ | A (tooling) | Chinese thread-grinder proxies while Reishauer and Kapp Niles stay private | Quality gap for sub-5 micron work; no lead-time data found | Avoid |
+| 4 | Hengli Hydraulic | 601100.SS | A/B | Largest Chinese roller-screw capacity, reportedly Tesla-validated, profitable hydraulics base | Screw revenue is a broker forecast; Tesla timing | Only on a big drawdown |
+| 5 | Schaeffler | SHA.DE | A/B | Ewellix screws, integrated strain-wave gear, reported 2027 harmonic process (single source); cheap optionality | Immaterial to group; leveraged auto supplier | Survives as a cheap auto-recovery option |
+| 6 | Huachen Precision / Qinchuan | 300809.SZ / 000837.SZ | A (tooling) | Chinese thread-grinder proxies while Reishauer and Kapp Niles stay private | Quality gap for sub-5 micron work; no lead-time data found | Avoid as robotics plays |
 | 7 | LG Innotek | 011070.KS | B | Only confirmed mass-production camera supplier to a US humanoid major (Figure, Boston Dynamics) | Humanoid <1% of group; Apple concentration | Avoid as a robotics play |
-| 8 | Hesai | HSAI | B | Number one robotics lidar in China, GAAP profitable, +193% robotics units | ASP deflation; US-listing geopolitics; stale valuation data | Least-bad robot-exposed name; re-check its market cap |
+| 8 | Hesai | HSAI | B | Number one robotics lidar in China, GAAP profitable, +193% robotics units | ASP deflation; US-listing geopolitics; undated valuation data | Least-bad robot-exposed name; base case is conservative; re-check its market cap |
 | 9 | LG Energy Solution | 373220.KS | B | Named cells for Tesla, Boston Dynamics, Figure | Cell format undisclosed; EV cycle dominates | Avoid as a robotics play |
 | 10 | Harmonic Drive Systems | 6324.T | B | Premium tier incumbent, orders +56% | 186x earnings; Chinese share gains; Schaeffler process 2027 | Avoid as a robotics play |
 | 11 | Tuopu | 601689.SS | B | Holds the reported Tesla actuator purchase orders, tariff-proof plants | Tesla V3 has slipped twice; unconfirmed order claims | Only on a big drawdown |
@@ -160,9 +160,9 @@ Names the market treats as humanoid plays where the evidence does not support a 
 *Rewritten 22 September 2026 to match section 9. The earlier version's position sizes pre-dated the review and have been removed. Groupings are illustrative only, not a recommendation.*
 
 - **Core, for reasons other than robots**: Nvidia (data centre) and Schaeffler (auto-margin recovery). The robot line is a free option.
-- **Policy trade, not a robot trade**: Lynas, after the 24 September 2026 Trump-Xi summit and the 10 November 2026 deadline. After a currency fix the corrected model gives it -15% a year on the base business.
+- **Policy trade, not a robot trade**: Lynas, after the 24 September 2026 Trump-Xi summit and the 10 November 2026 deadline. After a currency fix the corrected model gives it -14% a year in the base case.
 - **Big-drawdown watchlist**: Tuopu, Hengli, Nabtesco and Keli. Each needs 2.4M to 7.9M units in 2030 to be fairly priced today.
-- **Hesai**: least-bad robot-exposed name, but its market cap is undated; re-check before acting.
+- **Hesai**: least-bad robot-exposed name. Its market cap is undated in our sources, and the model's base revenue is conservative against consensus; re-check both before acting.
 - **Avoid as robotics plays**: MP Materials, Wuzhou Xinchun, Huachen, Qinchuan, Harmonic Drive, Leaderdrive, Sanhua, LG Innotek, LG Energy Solution and Allegro, plus the names at the end of section 5. Harmonic Drive and Leaderdrive trade on triple-digit trailing multiples; Tuopu, Sanhua and Keli on about 35 to 55x.
 
 ## 7. Dated signals that confirm or kill the thesis
@@ -174,19 +174,19 @@ Names the market treats as humanoid plays where the evidence does not support a 
 | H2 2026 | Tesla Optimus V3 reveal and first Fremont output; 2026 target still undisclosed | Any hard unit number re-rates the entire Chinese Tesla chain |
 | By YE 2026 | Agility SPAC close (AGLT); Unitree H1 2026 results (guided +36 to 45%) | First public Western pure-play and the Chinese profitability benchmark |
 | Dec 2026 | Harmonic Drive Beverly MA +33% capacity; Leaderdrive 120k per month run-rate | Tests whether reducer pricing holds as capacity lands |
-| 2027 | Schaeffler strain-wave mass production; Samsung SDI 500 Wh/kg solid-state; Hyundai 30k-unit plant build toward 2028 | De-bottlenecking of harmonics; battery step change; Western volume |
+| 2027 | Schaeffler's reported strain-wave mass production (single source); Samsung SDI 500 Wh/kg solid-state; Hyundai 30k-unit plant build toward 2028 | De-bottlenecking of harmonics; battery step change; Western volume |
 | Ongoing | Publication of a Reishauer or Kapp Niles thread-grinder lead time | The single datapoint that would confirm the grinder as the true bottleneck |
 
 ## 8. Gaps in this research
 
-Finance sites were blocked, so valuation multiples are missing for most Japanese, Korean and Chinese names and stale for Hesai. No source gave a 2026 thread-grinder lead time. Tesla supplier claims are all from Chinese media and broker notes, not from Tesla. The Energy Fuels acquisition of Vacuumschmelze rests on a single source. Policy and ETF sections in the OEM stream were written from background knowledge and are unverified. Each raw stream report lists its own unverified claims.
+Finance sites were blocked, so valuation multiples are missing for most Japanese, Korean and Chinese names and undated for Hesai. Whether RoboSense and EVE Energy were added to the Pentagon's 1260H list alongside Unitree was not verified. No source gave a 2026 thread-grinder lead time. Tesla supplier claims are all from Chinese media and broker notes, not from Tesla. The Energy Fuels acquisition of Vacuumschmelze rests on a single source. Policy and ETF sections in the OEM stream were written from background knowledge and are unverified. Each raw stream report lists its own unverified claims.
 
 
 ---
 
 ## 9. Devil's-advocate review (22 September 2026)
 
-A separate skeptic reviewed this note, the 2030 model, all six research streams and the financial data pull (`raw/08-devils-advocate-2026-09-22.md`). It found four things the original work missed, which change the risk picture more than the moat ranking.
+A separate skeptic reviewed this note, the 2030 model, all six research streams and the financial data pull (`raw/08-devils-advocate-2026-09-22.md`). It found four things the original work missed, which change both the risk picture and the moat ranking.
 
 - **Chinese demand is partly policy-made.** Reuters reported on 20 September 2026 that Chinese regulators have used informal window guidance to slow humanoid IPOs and are questioning revenue from state-backed data-collection centres and local-government ventures that fund 80 to 90% of initial investment. Mech-Mind's CEO said stripping that revenue out could cut some valuations by 60 to 70%. Unitree is down about 55% from its post-IPO peak.
 - **US-China decoupling has already started.** The FCC banned imports of new foreign-made humanoid and quadruped models on 28 to 29 July 2026, and the Pentagon listed Unitree as a Chinese military company on 8 June 2026. The Section 232 robotics review covers parts. This hits the Chinese Tesla chain (Tuopu, Sanhua, Wuzhou, Hengli, Leaderdrive) and Hesai (US- and Hong Kong-listed).
@@ -202,6 +202,6 @@ What the review leaves standing: the heavy-rare-earth two-tier market is real, N
 | Nvidia | Survives, for data-centre reasons; robots add nothing to the investment case |
 | Schaeffler | Survives as a cheap auto-recovery option at about 8x 2030 earnings; robots are free |
 | Hesai | Least-bad robot-exposed name; priced on automotive lidar; US-listing risk after the FCC ban |
-| Lynas | Policy trade only; wait for the Trump-Xi summit (23 to 25 Sep 2026) and the 10 Nov 2026 deadline. The QA review found its market cap was in US dollars; the corrected base case is -15% a year |
+| Lynas | Policy trade only; wait for the Trump-Xi summit (23 to 25 Sep 2026) and the 10 Nov 2026 deadline. The QA review found its market cap was in US dollars; the corrected base case is -14% a year |
 | Tuopu, Hengli, Nabtesco, Keli | Only on a big drawdown |
 | MP Materials, Wuzhou Xinchun, Huachen, Qinchuan, Harmonic Drive, Leaderdrive, Sanhua, LG Innotek, LG Energy Solution, Allegro | Avoid as robotics plays |

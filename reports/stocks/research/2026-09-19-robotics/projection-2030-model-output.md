@@ -1,6 +1,6 @@
 | Company | Mkt cap $M | Base: 2030 rev $M | Base: robot rev $M | Base: robot % | Base: NI $M | Today's P/E on 2030 NI | Base: implied CAGR | Crash CAGR | Bear CAGR | Bull CAGR |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Lynas (LYC.AX) | 10,890 | 990 | 22 | 2% | 250 | 44x | -15% | -15% | -15% | -14% |
+| Lynas (LYC.AX) | 10,948 | 1,049 | 22 | 2% | 264 | 41x | -14% | -14% | -14% | -13% |
 | MP Materials (MP) | 9,730 | 1,354 | 34 | 2% | 273 | 36x | -8% | -9% | -9% | -7% |
 | Nvidia (NVDA) | 5,310,000 | 744,538 | 136 | 0% | 409,496 | 13x | +20% | +20% | +20% | +20% |
 | Hengli Hydraulic (601100.SS) | 18,589 | 2,474 | 197 | 8% | 540 | 34x | -10% | -11% | -11% | -7% |
