@@ -206,3 +206,10 @@ Delivery units per patient-year fall from 26.5 to 19.1 (-28%). That is the "form
 - Generics, China: https://michael7924.substack.com/p/no-semaglutide-generics-approved ; https://bridgecrossbio.substack.com/p/chinas-ozempic-moment-generics-scale
 - Suppliers: West https://www.sec.gov/Archives/edgar/data/0000105770/000010577026000097/a2q26earningsdeck-final.htm ; Stevanato https://www.fool.com/earnings/call-transcripts/2026/08/04/stevanato-stvn-q2-2026-earnings-call-transcript/ ; Ypsomed https://www.investing.com/news/earnings/ypsomed-shares-jump-9-as-fy26-profit-beats-fy27-guide-tops-consensus-4700574 ; Schott https://www.investing.com/news/transcripts/earnings-call-transcript-schott-pharma-tops-revenue-forecast-in-q3-2026-93CH-4854084 ; Embecta https://www.sec.gov/Archives/edgar/data/0001872789/000187278926000014/q22026ex-991.htm and https://vectorshift.ai/research/companies/embecta/earnings/2026-q2 ; BD https://www.sec.gov/Archives/edgar/data/0000010795/000162828026053790/ex9916302026.htm and https://finance.yahoo.com/healthcare/articles/why-becton-dickinson-bdx-6-002052815.html ; Gerresheimer https://www.morpheus-research.com/gerresheimer/ ; ATS https://www.sec.gov/Archives/edgar/data/0001394832/000139483226000023/ats-mdaxfy27q1.htm ; Shaily https://financepulse.ai/deep-dives/shaily-engineering/ ; Ypsomed–Novo autoinjector deal https://www.fiercebiotech.com/medtech/ypsomed-inks-deal-manufacture-glp-1-autoinjectors-novo-nordisk
 
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- The Medicare GLP-1 Bridge also covers Wegovy (injection or tablet) and Foundayo. "KwikPen only" applies to Zepbound formats alone.
+- Moving one million patients from weekly autoinjectors to four-dose pens removes 52 million autoinjectors and adds 13 million pens: 39 million fewer devices in net, not "39 million autoinjectors removed".

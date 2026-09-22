@@ -247,3 +247,11 @@ Assumptions are mine **[reasoning]**. The arithmetic follows Report 04's units p
 - **Single low-quality source:** the Wegovy FlexTouch US launch (a Substack).
 - **Unconfirmed by the companies:** supplier-to-drug mapping (West and BD in Lilly's device).
 
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- The Medicare Bridge coverage and the autoinjector-to-pen arithmetic carry the same errors as raw/04 (see its errata).
+- The itemised inputs to the listed-supplier pool sum to about $1.45bn, below the stated $2 to 2.5bn.
+- Pfizer's first monthly GLP-1 Phase 3 readouts are guided to late 2027.

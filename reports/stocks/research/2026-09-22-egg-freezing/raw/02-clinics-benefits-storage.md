@@ -255,3 +255,11 @@
 - Natera: https://www.sec.gov/Archives/edgar/data/0001604821/000162828026054525/ntra-20260630.htm ; https://classactionu.org/our-news/natera-facing-class-action-lawsuit-over-allegedly-misleading-ivf-genetic-testing-claims/
 - Hims & Hers: https://investors.hims.com/news/news-details/2025/Hers-Launches-Menopause-and-Perimenopause-Specialty-Taking-the-Next-Step-Toward-1B-of-Hers-Revenue-in-2026/default.aspx
 - Oct 2025 policy: https://www.whitehouse.gov/fact-sheets/2025/10/fact-sheet-president-donald-j-trump-announces-actions-to-lower-costs-and-expand-access-to-in-vitro-fertilization-ivf-and-high-quality-fertility-care/ ; https://www.dol.gov/newsroom/releases/osec/osec20251016 ; https://www.hrdive.com/news/feds-issue-proposed-rule-fertility-benefit-coverage/819893/ ; https://www.hr-brew.com/stories/2025/10/31/white-house-actions-ivf-access ; https://www.kff.org/womens-health-policy/will-trumps-announcement-expand-access-to-ivf/
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- The 2023 growth rate of "+39%" is miscomputed; it is about +28 to 32% depending on the 2023 base.
+- The Gedeon Richter Budapest ticker is RICHTER.
+- The Cooper buyback figure here ($1B) conflicts with raw/03 ($3bn authorisation) and has not been reconciled.

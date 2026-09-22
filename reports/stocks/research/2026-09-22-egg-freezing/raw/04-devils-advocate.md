@@ -152,3 +152,11 @@ These are my assumptions [reasoning], not company disclosures:
 - **Conflicting 2023 US egg-freezing counts** across the reports: 39,269, 38,126 and "about 40,000". Total US ART cycles for 2023 also differ: 415,953, 425,869 and ~432k.
 - **All egg-freezing share estimates in table (c) are my assumptions.** No company discloses them.
 
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- Merck KGaA "+2.4% organic / Gonal-f -7.7%" are Q3 2025 figures. FY2025 was +0.4% organic, Gonal-f -6.7%.
+- The Cooper exposure arithmetic gives 0.13 to 0.22%, not "~0.2-0.5%".
+- The SART 2024 preliminary figure of 38,930 comes from one snippet not found by the other streams or by QA.

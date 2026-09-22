@@ -279,3 +279,10 @@ PGT is **not used in egg freezing** until the eggs are thawed, fertilised and cu
 - [PMC: planned oocyte cryopreservation](https://pmc.ncbi.nlm.nih.gov/articles/PMC11393050/)
 
 Most finance and company sites (emdgroup.com, sec.gov, mfn.se, latticework, ivfpharmacy) blocked direct fetching, so every figure above comes from search snippets.
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- Gameto's US site count (15 here, "up to 20" in raw/04) and cleared-country lists differ between streams and are unreconciled.
+- The Cooper buyback figure here ($3bn authorisation) conflicts with raw/02 ($1B) and has not been reconciled.

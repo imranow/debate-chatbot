@@ -205,3 +205,9 @@
 - New entrants: [Viking](https://ir.vikingtherapeutics.com/2025-03-11-Viking-Therapeutics-Signs-Broad-Manufacturing-Agreement-With-CordenPharma-to-Support-Commercialization-of-VK2735) · [Pfizer/Metsera](https://www.fiercebiotech.com/biotech/pfizer-finalizes-metsera-buy-after-contentious-bidding-war-novo-nordisk)
 - Oral drugs: [Foundayo](https://www.ajmc.com/view/fda-approves-lilly-s-oral-glp-1-orforglipron-for-obesity)
 - Resins: [Celanese](https://www.celanese.com/products/medical-hostaform-pom-mt-acetal-copolymer) · [Covestro](https://www.covestro.com/press/new-polycarbonates-meet-demands-for-drug-delivery-and-surgical-devices/)
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- Stevanato FY26 adjusted EPS guidance of EUR 0.53 to 0.55 is stale. The current range is EUR 0.60 to 0.62 (narrowed in Aug 2026).

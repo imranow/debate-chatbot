@@ -282,3 +282,11 @@ The split is about 72% retrieval, 16% storage and 12% later treatment. The later
 - Global Market Insights: https://www.gminsights.com/industry-analysis/egg-freezing-and-embryo-banking-market
 - Mordor Intelligence: https://www.mordorintelligence.com/industry-reports/egg-freezing-embryo-banking-market
 - Research and Markets: https://www.researchandmarkets.com/reports/5986845/egg-freezing-embryo-banking-market-report
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- The Xu Zaozao ruling date is wrong. A Beijing court rejected her final appeal on 7 Aug 2024, not October 2025.
+- "US return rates of 6-28%" mixes regions. The US figure is about 6% (5.7% at 5 to 7 years); 28% is Australia and New Zealand at 10+ years.
+- Table growth rates are miscomputed. 2021 is +46% (24,558 vs 16,786), not +31%. 2023 is +31.8% (39,269 vs 29,803) or +27.9% (38,126 vs 29,803), not +39.2%.
