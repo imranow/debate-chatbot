@@ -14,3 +14,5 @@ US close (or locally, see the README).
   with six raw research-stream reports and sources under `raw/`
 - `research/2026-09-19-robotics/projection-2030.md` — 2030 scenario projection for the same names,
   produced by `scripts/robotics_2030_model.py` (assumptions in one table; re-run with `--md`)
+- `research/2026-09-22-glp1-pens/glp1-pen-bottlenecks.md` — GLP-1 injection-pen supply chain: bottleneck by layer,
+  device-count model, company verdicts after a devil's-advocate review (raw streams in `raw/`)
