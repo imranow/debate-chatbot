@@ -16,3 +16,5 @@ US close (or locally, see the README).
   produced by `scripts/robotics_2030_model.py` (assumptions in one table; re-run with `--md`)
 - `research/2026-09-22-glp1-pens/glp1-pen-bottlenecks.md` — GLP-1 injection-pen supply chain: bottleneck by layer,
   device-count model, company verdicts after a devil's-advocate review (raw streams in `raw/`)
+- `research/2026-09-22-egg-freezing/egg-freezing-thesis.md` — single women / egg freezing thesis: value chain,
+  listed exposure estimates, verdicts after a devil's-advocate review (raw streams in `raw/`)
