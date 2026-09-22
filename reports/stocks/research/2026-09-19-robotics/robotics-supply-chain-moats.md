@@ -174,3 +174,28 @@ Names the market treats as humanoid plays where the evidence does not support a 
 ## 8. Gaps in this research
 
 Finance sites were blocked, so valuation multiples are missing for most Japanese, Korean and Chinese names and stale for Hesai. No source gave a 2026 thread-grinder lead time. Tesla supplier claims are all from Chinese media and broker notes, not from Tesla. The Energy Fuels acquisition of Vacuumschmelze rests on a single source. Policy and ETF sections in the OEM stream were written from background knowledge and are unverified. Each raw stream report lists its own unverified claims.
+
+
+---
+
+## 9. Devil's-advocate review (22 September 2026)
+
+A separate skeptic reviewed this note, the 2030 model and all seven research streams (`raw/08-devils-advocate-2026-09-22.md`). It found four things the original work missed, which change the risk picture more than the moat ranking.
+
+- **Chinese demand is partly policy-made.** Reuters reported on 20 September 2026 that Chinese regulators have informally frozen humanoid IPOs and are questioning revenue from state-backed data-collection centres and local-government ventures that fund 80 to 90% of initial investment. Stripping that revenue out could cut some valuations by 60 to 70%. Unitree is down about 55% from its post-IPO peak.
+- **US-China decoupling has already started.** The FCC banned imports of new foreign-made humanoid and quadruped models on 28 to 29 July 2026, and the Pentagon listed Unitree as a Chinese military company on 8 June 2026. The Section 232 robotics review covers parts. This hits the Chinese Tesla chain (Tuopu, Sanhua, Wuzhou, Hengli, Leaderdrive) and US-listed Hesai.
+- **The winning design may drop the bottleneck parts.** Unitree, number two by volume, uses quasi-direct-drive planetary joints that need neither harmonic reducers nor roller screws. Planetary reducers cost about a fifth of harmonics and can be made on standard gear-cutting machines. Chinese roller-screw capacity (Hengli 3.4M sets, Wuzhou 0.98M, Seenpin 1M) is already about six times total 2026 demand.
+- **Robots are not yet doing useful work at scale.** Tesla and Figure each shipped a few hundred units or fewer in 2025, and Chinese teleoperation trainers get one usable movement per 50 to 300 attempts.
+
+What the review leaves standing: the heavy-rare-earth two-tier market is real, Nvidia's software and compute stack is the default on Western humanoids, and precision grinding and heat treatment remain real know-how gaps today. What it changes: the moats in sections 4.2 and 4.3 are capacity moats being competed away faster than the original note allowed, and every robot pure play is now negative in the corrected 2030 model (see `projection-2030.md`).
+
+**Revised verdicts after the review**
+
+| Company | Verdict |
+|---|---|
+| Nvidia | Survives, for data-centre reasons; robots add nothing to the investment case |
+| Schaeffler | Survives as a cheap auto-recovery option at about 8x 2030 earnings; robots are free |
+| Hesai | Least-bad robot-exposed name; priced on automotive lidar; US-listing risk after the FCC ban |
+| Lynas | Policy trade only; wait for the Trump-Xi summit (23 to 25 Sep 2026) and the 10 Nov 2026 deadline |
+| Tuopu, Hengli, Nabtesco, Keli | Only on a big drawdown |
+| MP Materials, Wuzhou Xinchun, Huachen, Qinchuan, Harmonic Drive, Leaderdrive, Sanhua, LG Innotek, LG Energy Solution, Allegro | Avoid as robotics plays |

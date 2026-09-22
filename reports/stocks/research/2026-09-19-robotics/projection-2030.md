@@ -6,15 +6,15 @@
 
 ## 1. The answer first
 
+> **Revised 22 September 2026** after a devil's-advocate audit of the model (`raw/08-devils-advocate-2026-09-22.md`). One arithmetic error was fixed (grinder cost per robot is $160, not $270), one market cap was brought into line with the "use the lower figure" rule (Harmonic Drive ¥548B), content pools now count only the robots whose design actually uses each part (quasi-direct-drive Chinese robots such as Unitree's use no harmonic reducers or roller screws), Keli's force-sensor content was cut to two sensors in 40% of Chinese robots, Hesai's double-counted non-humanoid lidar was removed, and a 150k-unit crash case was added. The conclusions below reflect the corrected model; the first version's numbers are in git history.
+
 Run the supply chain forward to 2030 on Goldman's base case of about 900,000 humanoids a year (200,000 of them from Western OEMs, 120,000 from Tesla) and three things fall out.
 
-1. **Robotics becomes a material business by 2030 for only six of the eighteen names.** Leaderdrive (74% of 2030 revenue), Keli Sensing (45%), Wuzhou Xinchun (29%), Harmonic Drive (26%), Huachen (23%) and Hengli (17%). For everyone else, including Nvidia, Lynas, MP Materials, LG Energy Solution, LG Innotek, Sanhua and Allegro, humanoids are under 5% of 2030 revenue. Their share prices will be set by their core businesses, not by robots.
-2. **Even where robotics is material, today's price already discounts it.** On the base case, the model gives a positive four-year return only for Nvidia (+20%, driven by its data-centre business, not robots), Schaeffler (+5%), Keli (+5%) and Hesai (+2%). The pure-play reducer and screw names (Leaderdrive, Harmonic Drive, Wuzhou, Hengli) show negative base-case returns and need 1.6M to 3.3M units in 2030, roughly two to four times Goldman's number, just to be fairly priced today.
-3. **The cheapest exposure to the robot volume story is where the market cap is small relative to the 2030 profit pool: Keli and Hesai.** Keli is fairly priced at 0.5M units and returns 10% a year at 1.4M. Hesai is fair at 0.2M humanoids because its lidar sells into quadrupeds and service robots too. Those are the only two names in the set with a margin of safety under the base case.
+1. **Robotics becomes a material business by 2030 for only four of the eighteen names.** Leaderdrive (59% of 2030 revenue), Wuzhou Xinchun (29%), Harmonic Drive (26%) and Keli Sensing (14%). Hengli (8%) and Huachen (7%) drop below 10% once only the robots that use roller screws are counted. For Nvidia, Lynas, MP Materials, LG Energy Solution, LG Innotek, Sanhua, Hesai and Allegro, humanoids are under 5% of 2030 revenue.
+2. **No robot-exposed name offers a positive base-case return.** The only positive four-year returns are Nvidia (+20% a year, entirely a data-centre call: robots are 0.05% of its modelled revenue) and Schaeffler (+5%, an auto-margin recovery call). Hesai is roughly flat. Every pure play is negative, and the reducer and screw names need 2.3M to 7.9M units in 2030 just to be fairly priced, three to nine times Goldman's number.
+3. **The "margin of safety" found in the first version disappears.** Keli moves from +5% to -5% a year once its force-sensor content is limited to what a Chinese robot's sensor budget can hold, and it now needs 2.6M units to break even. Hesai needs 0.8M. There is no listed name that is cheap relative to a 900k-unit 2030.
 
-The rare-earth names are a different animal. Humanoids alone do not move Lynas or MP by 2030 (200,000 Western robots need about 21 tonnes of Dy/Tb, less than one year of Lynas output). Their case rests on the ex-China price regime, EV and defence demand and policy, not on robot volumes. Hold them for that reason or not at all.
-
----
+The rare-earth names are a different animal. Humanoids alone do not move Lynas or MP by 2030 (200,000 Western robots need about 21 tonnes of Dy/Tb, less than one year of Lynas output). Their case rests on the ex-China price regime, which is a live bargaining chip at the 23 to 25 September 2026 Trump-Xi summit and the 10 November 2026 deadline.
 
 ## 2. How the model works (first principles)
 
@@ -24,6 +24,7 @@ Three unit scenarios:
 
 | Scenario | 2030 humanoids | of which Western OEMs | of which Tesla | Broader embodied multiplier (lidar, compute) |
 |---|---|---|---|---|
+| Crash (added after audit) | 150k | 30k | 15k | 3x |
 | Bear | 300k | 60k | 30k | 3x |
 | Base | 900k | 200k | 120k | 3x |
 | Bull | 2.5M | 600k | 400k | 3.5x |
@@ -34,28 +35,28 @@ Content prices are the 2030 cost-down prices, not today's: roller screws at $150
 
 ---
 
-## 3. The 2030 table (base case)
+## 3. The 2030 table (base case, corrected)
 
-| Company | Market cap $M | 2030 revenue $M | Robot revenue $M | Robot share | 2030 net income $M | Today's price / 2030 earnings | Implied CAGR base | bear | bull |
-|---|---|---|---|---|---|---|---|---|---|
-| Nvidia | 5,310,000 | 744,742 | 340 | 0% | 409,608 | 13x | +20% | +20% | +20% |
-| Schaeffler | 7,513 | 29,806 | 250 | 1% | 912 | 8x | +5% | +4% | +6% |
-| Keli Sensing | 2,800 | 647 | 294 | 45% | 136 | 21x | +5% | -3% | +19% |
-| Hesai | 2,920 | 1,106 | 113 | 10% | 146 | 20x | +2% | 0% | +8% |
-| Tuopu | 14,000 | 6,461 | 252 | 4% | 651 | 21x | -2% | -3% | +1% |
-| Lynas | 7,194 | 990 | 22 | 2% | 250 | 29x | -6% | -7% | -5% |
-| Hengli Hydraulic | 18,589 | 2,750 | 472 | 17% | 596 | 31x | -8% | -10% | -2% |
-| MP Materials | 9,730 | 1,354 | 34 | 2% | 273 | 36x | -8% | -9% | -7% |
-| Nabtesco | 4,097 | 2,578 | 90 | 3% | 160 | 26x | -8% | -9% | -5% |
-| Sanhua | 27,656 | 6,514 | 252 | 4% | 844 | 33x | -11% | -12% | -9% |
-| Leaderdrive | 7,459 | 561 | 416 | 74% | 154 | 48x | -11% | -24% | +9% |
-| Huachen Precision | 896 | 155 | 36 | 23% | 20 | 45x | -13% | -17% | -5% |
-| LG Innotek | 8,877 | 18,606 | 24 | 0% | 466 | 19x | -14% | -14% | -14% |
-| Harmonic Drive Systems | 4,429 | 876 | 227 | 26% | 86 | 52x | -16% | -22% | -3% |
-| Wuzhou Xinchun | 1,998 | 747 | 216 | 29% | 48 | 41x | -16% | -28% | +5% |
-| Allegro | 10,980 | 1,361 | 27 | 2% | 192 | 57x | -18% | -18% | -17% |
-| Qinchuan Machine Tool | 1,280 | 758 | 36 | 5% | 26 | 49x | -19% | -21% | -14% |
-| LG Energy Solution | 69,094 | 23,989 | 25 | 0% | 960 | 72x | -31% | -31% | -31% |
+| Company | Market cap $M | 2030 revenue $M | Robot revenue $M | Robot share | 2030 net income $M | Today's price / 2030 earnings | Implied CAGR base | crash | bear | bull |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Nvidia | 5,310,000 | 744,742 | 340 | 0% | 409,608 | 13x | +20% | +20% | +20% | +20% |
+| Schaeffler | 7,513 | 29,806 | 250 | 1% | 912 | 8x | +5% | +4% | +4% | +6% |
+| Hesai | 2,920 | 1,022 | 29 | 3% | 133 | 22x | 0% | -1% | 0% | +1% |
+| Tuopu | 14,000 | 6,461 | 252 | 4% | 651 | 21x | -2% | -3% | -3% | +1% |
+| Keli Sensing | 2,800 | 412 | 59 | 14% | 89 | 31x | -5% | -8% | -7% | -1% |
+| Lynas | 7,194 | 990 | 22 | 2% | 250 | 29x | -6% | -7% | -7% | -5% |
+| MP Materials | 9,730 | 1,354 | 34 | 2% | 273 | 36x | -8% | -9% | -9% | -7% |
+| Nabtesco | 4,097 | 2,578 | 90 | 3% | 160 | 26x | -8% | -9% | -9% | -5% |
+| Hengli Hydraulic | 18,589 | 2,474 | 197 | 8% | 540 | 34x | -10% | -11% | -11% | -7% |
+| Sanhua | 27,656 | 6,514 | 252 | 4% | 844 | 33x | -11% | -12% | -12% | -9% |
+| Harmonic Drive Systems | 3,726 | 876 | 227 | 26% | 86 | 43x | -12% | -20% | -19% | +1% |
+| LG Innotek | 8,877 | 18,606 | 24 | 0% | 466 | 19x | -14% | -14% | -14% | -14% |
+| Wuzhou Xinchun | 1,998 | 747 | 216 | 29% | 48 | 41x | -16% | -32% | -28% | +5% |
+| Huachen Precision | 896 | 128 | 9 | 7% | 16 | 57x | -18% | -19% | -19% | -15% |
+| Allegro | 10,980 | 1,361 | 27 | 2% | 192 | 57x | -18% | -18% | -18% | -17% |
+| Leaderdrive | 7,459 | 353 | 208 | 59% | 96 | 78x | -20% | -32% | -29% | -5% |
+| Qinchuan Machine Tool | 1,280 | 731 | 9 | 1% | 23 | 56x | -22% | -22% | -22% | -20% |
+| LG Energy Solution | 69,094 | 23,989 | 25 | 0% | 960 | 72x | -31% | -31% | -31% | -31% |
 
 Read the "today's price / 2030 earnings" column as the multiple you pay now for what the company earns four years out. Anything above about 25x needs either a higher exit multiple than the model gives it or a bull-case volume to work.
 
@@ -63,23 +64,22 @@ Read the "today's price / 2030 earnings" column as the multiple you pay now for 
 
 | Company | Units for 0% | Units for +10% |
 |---|---|---|
-| Hesai | 0.2M | 3.7M |
-| Keli Sensing | 0.5M | 1.4M |
-| Leaderdrive | 1.6M | 2.6M |
+| Hesai | 0.8M | 14.3M |
 | Wuzhou Xinchun | 2.3M | 3.7M |
 | Tuopu | 2.4M | 12.8M |
-| Hengli Hydraulic | 3.3M | 7.3M |
-| Harmonic Drive Systems | 3.3M | 5.7M |
-| Huachen Precision | 3.5M | 6.5M |
+| Harmonic Drive Systems | 2.6M | 4.5M |
+| Keli Sensing | 2.6M | 6.9M |
+| Leaderdrive | 3.3M | 5.2M |
 | Nabtesco | 6.5M | 16.0M |
-| Qinchuan | 8.7M | 15.3M |
+| Hengli Hydraulic | 7.9M | 17.5M |
 | Lynas, MP Materials | about 10M to 13M (robots alone cannot carry the price) | never |
-| Sanhua, LG Innotek, LG Energy Solution, Allegro | never below 20M | never |
+| Huachen Precision | 14.4M | never below 20M |
+| Sanhua, Qinchuan, LG Innotek, LG Energy Solution, Allegro | never below 20M | never |
 | Nvidia, Schaeffler | fair on the base business alone | Schaeffler needs 8.6M |
 
-Goldman's 2035 number is 6.5M. So Leaderdrive, Wuzhou, Tuopu, Hengli and Harmonic Drive are priced today for roughly 2030 volumes that the most bullish Street house does not expect until 2032 to 2035.
+Goldman's 2035 number is 6.5M. Every robot pure play is priced today for a 2030 volume the most bullish Street house does not expect until the early-to-mid 2030s, if at all.
 
----
+**Further downside the corrected model still does not include** (from the audit, not adopted as base assumptions because they are judgement calls): component prices held fixed across scenarios even though overcapacity should push them lower in the bear case; exit multiples of 25 to 30x for parts the moat map itself rates as commoditising (halving them takes Leaderdrive's bear case to about -35% a year); Leaderdrive's 28% robot net margin at an $85 selling price, which its loss-making peer Laifual contradicts (at 17% and 20x, Leaderdrive's base case is about -35%); Schaeffler's 3% 2030 margin (at 2% it turns to about -5%); and no share dilution.
 
 ## 4. What each business looks like in 2030
 
@@ -99,7 +99,7 @@ Goldman's 2035 number is 6.5M. So Leaderdrive, Wuzhou, Tuopu, Hengli and Harmoni
 
 **Leaderdrive.** The biggest transformation: from a CNY 571M company to a CNY 4B one, with harmonics at CNY 600 apiece and 50% of the Chinese chain. Net margin holds at 28% only if the Laifual price war ends; if it does not, margin halves and the stock is worth a third of today. This is the highest-beta name in the set on both sides.
 
-**Keli Sensing.** Four six-axis sensors per robot at CNY 3,000 turns a CNY 1.6B weighing-sensor company into a CNY 4.6B one with 45% of revenue from robots. At 21x 2030 earnings today it is the best-priced pure play, provided ATI, Bota and the private Chinese entrants do not compress the price faster than the model's 90% decline already assumes.
+**Keli Sensing.** The first version put four six-axis sensors in every Chinese robot, which alone exceeded the whole sensor budget of a $10k robot. Corrected to two wrist sensors in the 40% of Chinese robots that carry them, robots are 14% of Keli's 2030 revenue, the stock is 31x 2030 earnings and it needs 2.6M units to be fair. It is no longer a margin-of-safety name.
 
 **Hesai.** Robotics lidar is about 10% of a $1.1B revenue base by 2030, sold into several million quadrupeds, mowers, AMRs and humanoids. The model's 18% base growth is below the 2027 consensus path. It is the one name where the market already prices the robot line cheaply because it is bundled with automotive lidar.
 
@@ -123,7 +123,7 @@ Goldman's 2035 number is 6.5M. So Leaderdrive, Wuzhou, Tuopu, Hengli and Harmoni
 
 ## 6. What to do with this
 
-- **Keep the moat ranking, change the sizing.** The moat map correctly identified where scarcity sits. The 2030 model says scarcity is priced in for the reducer and screw names and not priced in for Keli and Hesai.
+- **Keep the moat ranking, change the sizing.** The moat map correctly identified where scarcity sits. The corrected 2030 model says scarcity is priced in for every robot pure play; none offers a margin of safety at 900k units.
 - **Own Nvidia and Schaeffler for reasons other than robots** and treat the robot line as a free option.
 - **Treat Lynas and MP as a policy trade** with 10 November 2026 as the next binary date, not as robot-volume plays.
 - **Trade the reducer and screw names on drawdowns only.** Leaderdrive needs 1.6M units to be fair; buy it when a Tesla slip or a price-war headline takes 30 to 40% off, as happened on 27 May 2026, and sell it into audit-and-order headlines.
@@ -131,4 +131,4 @@ Goldman's 2035 number is 6.5M. So Leaderdrive, Wuzhou, Tuopu, Hengli and Harmoni
 
 ## 7. Limits of this model
 
-Market caps for Hengli, Keli, MP and Qinchuan differ between sources by 10 to 40%; the lower figure was used. Leaderdrive's FY2025 net income is inferred from its price/earnings ratio. Nvidia's 2030 net income assumes 15% growth on FY27 consensus and a 55% margin, which is a data-centre call and not part of this analysis. No sell-side 2027 consensus was available for most Asian names, so base-business growth rates are the analyst's. Component price paths are the single largest source of error and are stated in section 2 so they can be changed.
+Market caps for Hengli, Keli, MP and Qinchuan differ between sources by 10 to 40%; the lower figure was used, except Keli (CNY 20.0B, midpoint of CNY 18.8B to 22.5B) and Lynas (A\$10.9B, the only dated figure; an unconfirmed estimate of A\$14 to 15B would take its base case to about -14%). All caps pre-date the 20 September 2026 reports of a Chinese humanoid IPO freeze. Leaderdrive's FY2025 net income is inferred from its price/earnings ratio. Nvidia's 2030 net income assumes 15% growth on FY27 consensus and a 55% margin, which is a data-centre call and not part of this analysis. No sell-side 2027 consensus was available for most Asian names, so base-business growth rates are the analyst's. Component price paths are the single largest source of error and are stated in section 2 so they can be changed.

@@ -22,6 +22,7 @@ YEARS = 4.25  # Sep 2026 -> end 2030
 # 2030 humanoid units, plus a "broader embodied" multiplier for sensors/compute that
 # also sell into quadrupeds, AMRs and service robots.
 SCENARIOS = {
+    "crash": {"units": 150_000, "western_units": 30_000, "tesla_units": 15_000, "embodied_mult": 3.0},
     "bear": {"units": 300_000, "western_units": 60_000, "tesla_units": 30_000, "embodied_mult": 3.0},
     "base": {"units": 900_000, "western_units": 200_000, "tesla_units": 120_000, "embodied_mult": 3.0},
     "bull": {"units": 2_500_000, "western_units": 600_000, "tesla_units": 400_000, "embodied_mult": 3.5},
@@ -46,18 +47,24 @@ class Co:
     robot_margin: float           # net margin on robotics revenue
     exit_pe: float                # multiple on 2030 earnings
     note: str
+    # Share of robots in each region whose architecture actually uses this part.
+    # Added after the 22-Sep-2026 devil's-advocate audit: quasi-direct-drive
+    # (Unitree-style) Chinese robots use no harmonic reducers or roller screws.
+    use_west: float = 1.0
+    use_cn: float = 1.0
 
     def units(self, s: dict) -> float:
+        west, cn = s["western_units"], s["units"] - s["western_units"]
         if self.pool == "all":
-            return s["units"]
+            return west * self.use_west + cn * self.use_cn
         if self.pool == "western":
-            return s["western_units"]
+            return west * self.use_west
         if self.pool == "tesla":
             return s["tesla_units"]
         if self.pool == "embodied":
             return s["units"] * s["embodied_mult"]
         if self.pool == "chinese":
-            return s["units"] - s["western_units"]
+            return cn * self.use_cn
         raise ValueError(self.pool)
 
     def project(self, s: dict, share_mult: float = 1.0) -> dict:
@@ -90,33 +97,38 @@ ASSUMPTIONS: list[Co] = [
     Co("Nvidia", "NVDA", "USD", 5_310_000, 411_000, 226_000, 0.15, 0.55, "western", 2_000, 0.85, 0.55, 28,
        "Base = FY27 consensus $411B growing 15%; Jetson-class $2k per Western robot at 85% share (physical-AI cloud upsell excluded)"),
     Co("Hengli Hydraulic", "601100.SS", "CNY", 132_780, 11_730, 2_770, 0.08, 0.22, "all", 14 * 150, 0.25, 0.20, 22,
-       "14 roller screws per robot at $150 (2030 Chinese price), 25% global share"),
+       "14 roller screws per robot at $150 (2030 Chinese price), 25% share; only 25% of Chinese robots use roller screws (QDD designs do not)",
+       use_cn=0.25),
     Co("Wuzhou Xinchun", "603667.SS", "CNY", 14_270, 3_343, 91, 0.03, 0.03, "tesla", 30 * 120, 0.50, 0.15, 20,
        "30 screws (leg inverted PRS + hand ball screws) per Tesla robot at $120, 50% share"),
     Co("Schaeffler", "SHA.DE", "EUR", 6_830, 24_700, 0, 0.02, 0.03, "western", 25 * 250, 0.20, 0.10, 10,
        "25 actuator-grade parts per Western robot at $250, 20% share; group margin recovers to 3% (consensus EPS EUR0.88)"),
-    Co("Huachen Precision", "300809.SZ", "CNY", 6_400, 525, 60, 0.12, 0.12, "all", 270, 0.15, 0.15, 25,
-       "Grinder capex ~$270 per robot-year (28 parts / 30k parts per $1.2M grinder, 7-yr life); 15% share"),
-    Co("Qinchuan Machine Tool", "000837.SZ", "CNY", 9_140, 4_190, 50, 0.05, 0.03, "all", 270, 0.15, 0.12, 20,
-       "Same grinder-capex pool, 15% share; base business is low-margin machine tools"),
+    Co("Huachen Precision", "300809.SZ", "CNY", 6_400, 525, 60, 0.12, 0.12, "all", 160, 0.15, 0.15, 25,
+       "Grinder capex ~$160 per robot-year (28 parts x $1.2M/30k parts / 7-yr life; corrected from $270); 15% share; grinders only serve robots that use screws/harmonics",
+       use_cn=0.25),
+    Co("Qinchuan Machine Tool", "000837.SZ", "CNY", 9_140, 4_190, 50, 0.05, 0.03, "all", 160, 0.15, 0.12, 20,
+       "Same grinder-capex pool ($160, corrected), 15% share; base business is low-margin machine tools",
+       use_cn=0.25),
     Co("LG Innotek", "011070.KS", "KRW", 12_160_000, 22_450_000, 485_000, 0.03, 0.025, "western", 6 * 40, 0.50, 0.08, 10,
        "6 camera modules at $40 per Western robot, 50% share"),
-    Co("Hesai", "HSAI", "USD", 2_920, 491, 73, 0.18, 0.13, "embodied", 120, 0.35, 0.15, 22,
-       "Base grows 18% (2027 consensus $987M); one robotics lidar at $120 into the broader embodied pool, 35% share"),
+    Co("Hesai", "HSAI", "USD", 2_920, 491, 73, 0.18, 0.13, "chinese", 120, 0.35, 0.15, 22,
+       "Base grows 18% and already includes non-humanoid robotics lidar; robot line = one lidar per Chinese humanoid (Western humanoids are camera-only), 35% share"),
     Co("LG Energy Solution", "373220.KS", "KRW", 94_650_000, 23_670_000, -1_073_000, 0.08, 0.04, "western", 2.5 * 110, 0.45, 0.06, 15,
        "2.5 kWh pack at $110/kWh per Western robot, 45% share; base margin recovers to 4%"),
-    Co("Harmonic Drive Systems", "6324.T", "JPY", 651_300, 74_500, 5_900, 0.06, 0.08, "western", 14 * 180, 0.45, 0.15, 25,
+    Co("Harmonic Drive Systems", "6324.T", "JPY", 548_000, 74_500, 5_900, 0.06, 0.08, "western", 14 * 180, 0.45, 0.15, 25,
        "Base = FY3/27 guide; 14 harmonics per Western robot at $180 premium price, 45% share"),
     Co("Tuopu", "601689.SS", "CNY", 100_000, 29_580, 2_780, 0.10, 0.10, "tesla", 14 * 250, 0.60, 0.12, 20,
        "14 linear actuator assemblies per Tesla robot at $250, 60% share (reported exclusivity)"),
     Co("Sanhua", "002050.SZ", "CNY", 197_540, 31_010, 4_060, 0.09, 0.13, "tesla", 14 * 250, 0.60, 0.12, 20,
        "14 rotary joint modules per Tesla robot at $250, 60% share (reported)"),
     Co("Leaderdrive", "688017.SS", "CNY", 53_280, 571, 141, 0.15, 0.26, "chinese", 14 * 85, 0.50, 0.28, 30,
-       "14 harmonics per Chinese-chain robot at $85, 50% share"),
+       "14 harmonics per Chinese-chain robot at $85, 50% share; only 50% of Chinese robots use harmonics (QDD designs do not)",
+       use_cn=0.50),
     Co("Nabtesco", "6268.T", "JPY", 602_490, 309_700, 18_440, 0.04, 0.06, "all", 2 * 200, 0.25, 0.12, 18,
        "2 mini-RV per robot (hip/waist) at $200, 25% share"),
-    Co("Keli Sensing", "603662.SS", "CNY", 20_000, 1_558, 341, 0.12, 0.22, "chinese", 4 * 420, 0.25, 0.20, 25,
-       "4 six-axis F/T per Chinese-chain robot at $420, 25% share"),
+    Co("Keli Sensing", "603662.SS", "CNY", 20_000, 1_558, 341, 0.12, 0.22, "chinese", 2 * 420, 0.25, 0.20, 25,
+       "2 six-axis F/T (wrists) at $420 in the 40% of Chinese robots that carry them, 25% share (was 4 in all, which exceeded the whole sensor budget)",
+       use_cn=0.40),
     Co("Allegro", "ALGM", "USD", 10_980, 890, 100, 0.10, 0.14, "all", 100, 0.30, 0.20, 25,
        "$100 of encoders, current sensors and gate drivers per robot, 30% share; base NI = non-GAAP"),
 ]
@@ -147,13 +159,13 @@ def breakeven_units(c: Co, target_cagr: float = 0.0) -> float | None:
 
 def run(md_path: str | None = None) -> None:
     rows = {s: [c.project(SCENARIOS[s]) for c in ASSUMPTIONS] for s in SCENARIOS}
-    lines = ["| Company | Mkt cap $M | Base: 2030 rev $M | Base: robot rev $M | Base: robot % | Base: NI $M | Today's P/E on 2030 NI | Base: implied CAGR | Bear CAGR | Bull CAGR |",
-             "|---|---|---|---|---|---|---|---|---|---|"]
+    lines = ["| Company | Mkt cap $M | Base: 2030 rev $M | Base: robot rev $M | Base: robot % | Base: NI $M | Today's P/E on 2030 NI | Base: implied CAGR | Crash CAGR | Bear CAGR | Bull CAGR |",
+             "|---|---|---|---|---|---|---|---|---|---|---|"]
     for i, c in enumerate(ASSUMPTIONS):
-        b, be, bu = rows["base"][i], rows["bear"][i], rows["bull"][i]
+        b, cr, be, bu = rows["base"][i], rows["crash"][i], rows["bear"][i], rows["bull"][i]
         pe = f"{b['pe_today_on_2030']:.0f}x" if b['pe_today_on_2030'] == b['pe_today_on_2030'] else "n/m"
         f = lambda r: f"{r['cagr']*100:+.0f}%" if r['cagr'] == r['cagr'] else "n/m"
-        lines.append(f"| {c.name} ({c.ticker}) | {b['mcap_usd_m']:,} | {b['rev_2030']:,} | {b['robo_rev_2030']:,} | {b['robo_share']*100:.0f}% | {b['ni_2030']:,} | {pe} | {f(b)} | {f(be)} | {f(bu)} |")
+        lines.append(f"| {c.name} ({c.ticker}) | {b['mcap_usd_m']:,} | {b['rev_2030']:,} | {b['robo_rev_2030']:,} | {b['robo_share']*100:.0f}% | {b['ni_2030']:,} | {pe} | {f(b)} | {f(cr)} | {f(be)} | {f(bu)} |")
     lines.append("")
     lines.append("| Company | 2030 units needed for 0% CAGR at today's price | for +10% CAGR |")
     lines.append("|---|---|---|")
