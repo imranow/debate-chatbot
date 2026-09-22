@@ -191,3 +191,10 @@ I re-ran the model. Reproduction scripts are in the scratchpad (`audit.py`, `aud
 - Lynas share count of ~1.0B, which drives the A$15.5B cap.
 
 Reproduction scripts (scratchpad, not in the repo): `/tmp/claude-0/-home-user-debate-chatbot/7d77e5a7-be3d-5eeb-89ce-9125f9e0b7ad/scratchpad/audit.py` and `audit2.py`. Model under audit: `/home/user/debate-chatbot/scripts/robotics_2030_model.py`.
+
+---
+
+## Errata (QA review, 22 Sep 2026)
+
+- The Lynas "about -14% at A$14-15B" estimate is superseded. The QA review found the base cap was in US dollars; the corrected model gives -15% at A$16.5B (-12% at A$14.07B).
+- Reuters (20 Sep 2026) describes window guidance that slows humanoid IPOs, not a freeze. The 60-70% valuation cut is Mech-Mind's CEO's estimate.
