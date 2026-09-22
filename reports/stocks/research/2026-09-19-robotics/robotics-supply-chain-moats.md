@@ -136,7 +136,7 @@ Die-casting (Tuopu, Xusheng for Figure's magnesium shells, Wencan), connectors (
 | Rank | Company | Ticker | Moat | Why | What is wrong with it | Verdict after 22-Sep review |
 |---|---|---|---|---|---|---|
 | 1 | Lynas | LYC.AX | A | Only ex-China Dy/Tb at tonne scale; profitable; FY26 revenue +76% | Heavy-rare-earth capex creep; Malaysian politics; stock fell 6% on results | Policy trade only; -14% a year in the corrected model |
-| 2 | Nvidia | NVDA | A | Full-stack compute + sim + model lock-in on most non-Tesla Western humanoids | Robotics <2% of revenue; already the world's largest company | Survives, for data-centre reasons |
+| 2 | Nvidia | NVDA | A | Full-stack compute + sim + model lock-in on most non-Tesla Western humanoids | Robotics a low-single-digit share of revenue; already the world's largest company | Survives, for data-centre reasons |
 | 3 | MP Materials | MP | A (policy) | DoD price floor and 100% offtake; only US mine-to-magnet chain | Loss-making; 10X plant is 2028; no heavy rare earths | Avoid as a robotics play |
 | 4 | Hengli Hydraulic | 601100.SS | A/B | Largest Chinese roller-screw capacity, reportedly Tesla-validated, profitable hydraulics base | Screw revenue is a broker forecast; Tesla timing | Only on a big drawdown |
 | 5 | Schaeffler | SHA.DE | A/B | Ewellix screws, integrated strain-wave gear, reported 2027 harmonic process (single source); cheap optionality | Immaterial to group; leveraged auto supplier | Survives as a cheap auto-recovery option |
@@ -144,7 +144,7 @@ Die-casting (Tuopu, Xusheng for Figure's magnesium shells, Wencan), connectors (
 | 7 | LG Innotek | 011070.KS | B | Only confirmed mass-production camera supplier to a US humanoid major (Figure, Boston Dynamics) | Humanoid <1% of group; Apple concentration | Avoid as a robotics play |
 | 8 | Hesai | HSAI | B | Number one robotics lidar in China, GAAP profitable, +193% robotics units | ASP deflation; US-listing geopolitics; undated valuation data | Least-bad robot-exposed name; base case is conservative; re-check its market cap |
 | 9 | LG Energy Solution | 373220.KS | B | Named cells for Tesla, Boston Dynamics, Figure | Cell format undisclosed; EV cycle dominates | Avoid as a robotics play |
-| 10 | Harmonic Drive Systems | 6324.T | B | Premium tier incumbent, orders +56% | 186x earnings; Chinese share gains; Schaeffler process 2027 | Avoid as a robotics play |
+| 10 | Harmonic Drive Systems | 6324.T | B | Premium tier incumbent, orders +56% | 186x earnings; Chinese share gains; Schaeffler's reported 2027 process | Avoid as a robotics play |
 | 11 | Tuopu | 601689.SS | B | Holds the reported Tesla actuator purchase orders, tariff-proof plants | Tesla V3 has slipped twice; unconfirmed order claims | Only on a big drawdown |
 | 12 | Leaderdrive | 688017.SS | B | 80 to 90% of Chinese humanoid harmonics, 2M-unit 2027 capacity | 364x earnings; Laifual price war | Avoid as a robotics play |
 | 13 | Nabtesco | 6268.T | B | 60% of industrial RV, 27x earnings, capacity doubling | Only 28% of humanoid mini-RV; humanoids moving to harmonic + screw | Only on a big drawdown |
