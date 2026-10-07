@@ -1,6 +1,6 @@
 # Hims & Hers (HIMS): From Drug Maker to Drug Store
 
-*Research date 7 October 2026. Three research streams: financials and valuation (with a 2030 model, `raw/01-valuation_model.py`); GLP-1, compounding rules and legal risk; and competition, strategy and governance. Raw reports with sources are in `raw/`. The sandbox blocked every primary filing (sec.gov, investors.hims.com). So every figure comes from search snippets that quote Hims' releases, filings and calls. Figures seen in several snippets are treated as reported; single-source figures are marked unverified. Our own estimates are marked as estimates. Not investment advice.*
+*Research date 7 October 2026. Three research streams: financials and valuation (with a 2030 model, `raw/01-valuation_model.py`); GLP-1, compounding rules and legal risk; and competition, strategy and governance. Raw reports with sources are in `raw/`. The sandbox blocked every primary filing (sec.gov, investors.hims.com). So every figure comes from search snippets that quote Hims' releases, filings and calls. Figures seen in several snippets are treated as reported; single-source figures are marked unverified. Our own estimates are marked as estimates. Revised the same day after a devil's-advocate review (`raw/04-devils-advocate.md`; summary in section 7). Not investment advice.*
 
 ---
 
@@ -9,10 +9,10 @@
 Hims is growing fast again, but it has turned into a lower-margin business, and the stock prices in real doubt about its 2030 plan. Three facts matter most.
 
 1. **It lost its best product.** Until March 2026, Hims made its own copies of the weight-loss drug semaglutide (Novo Nordisk's Ozempic and Wegovy) from cheap ingredients. On our estimate it kept about 80% of the price as gross profit. After a February crackdown by FDA and a Novo patent lawsuit, Hims settled with Novo on 9 March 2026. It now sells Novo's branded drugs at Novo's own cash prices and keeps only a service fee. Gross margin fell from 76% to 64% in a year.
-2. **Growth is back, but it is lower quality.** Second-quarter 2026 revenue rose 38% to $753.2M, and full-year guidance was raised to $3.1–3.3B. But US revenue grew only 16%. Much of the rest came from buying Eucalyptus in Australia. Pass-through drug revenue inflates sales without adding much profit. Revenue guidance went up by $300M between May and August while the profit guide did not. That says the extra revenue earns roughly nothing in 2026.
-3. **At about $29.40, the stock needs a margin recovery to pay well.** Our base case is 4.5 million subscribers and a 14% profit margin in 2030, against 2.89 million and 8% today. It gives about $38 a share, or about 6% a year. Management's own 2030 plan ($6.5B of revenue at a 20% margin) gives about 21% a year. A repeat of today's 8% margin gives large losses, because about $2.1B of convertible debt and deferred acquisition payments sit ahead of shareholders.
+2. **Growth is back, but it is lower quality.** Second-quarter 2026 revenue rose 38% to $753.2M, and full-year guidance was raised to $3.1–3.3B. But US revenue grew only 16%. Much of the rest came from buying Eucalyptus in Australia. Pass-through drug revenue inflates sales without adding much profit. Revenue guidance went up by $300M between May and August. About $280M of that is seven months of Eucalyptus, which the May guide excluded. The profit guide midpoint fell by $12.5M. So the organic guide barely moved, and Eucalyptus adds roughly no 2026 profit.
+3. **At about $29.40, the stock needs a margin recovery to pay well.** Our base case is 4.5 million subscribers and a 14% profit margin in 2030, against 2.89 million and 8% today. It gives about $38 a share, or about 6% a year, before stock pay. Charging stock pay at 4% of revenue as a cost gives about $28, or about −1% a year. Management's own 2030 plan ($6.5B of revenue at a 20% margin) gives about 21% a year. A repeat of today's 8% margin gives large losses, because about $2.1B of convertible debt and deferred acquisition payments sit ahead of shareholders.
 
-**Verdict: not cheap enough for the risks.** The business is real and the brand is strong. But the moat is shallow, the legal docket is crowded, and the CEO controls about 87% of the votes. In our base case the stock earns about 10% a year only below roughly $25. That is a model output, not a price target. The things that would change our mind are listed in section 7.
+**Verdict: not cheap enough for the risks.** The business is real and the brand is strong. But the moat is shallow, the legal docket is crowded, and the CEO controls about 87% of the votes. Our honest central estimate is about 0–6% a year, depending on whether stock pay is treated as a cost. In our base case the stock earns about 10% a year only below roughly $25 before stock pay, or about $19 after it. Those are model outputs, not price targets. The case is skewed upward: weighting our bear, base and bull cases 30/50/20 gives about 8% a year, or about 1% with stock pay charged as a cost. The things that would change our mind are listed in section 8.
 
 ---
 
@@ -25,7 +25,7 @@ A simple way to see what changed in weight loss: Hims used to cook the dish and 
 | Product | Who sets the drug price | Illustrative monthly price | Illustrative gross margin |
 |---|---|---|---|
 | Compounded semaglutide (before March 2026) | Hims (it bought the ingredient and made the vials) | about $199 | about 80% (estimate: (199 − 40) / 199) |
-| Branded Wegovy injection (since March 2026) | Novo (Hims must sell at Novo's self-pay price) | about $349 drug + $149 membership | about 27% (estimate) |
+| Branded Wegovy injection (since March 2026) | Novo (Hims must sell at Novo's self-pay price) | $199 (first two fills, to end-2026) to $349 drug, or $249–329 on Novo's multi-month plans, + $149 membership | about 27% (estimate; assumes gross booking. If the maker's pharmacy fills the script, Hims books only its fee) |
 | Branded Wegovy pill | Novo | about $149 drug + $149 membership | about 45% (estimate) |
 | Hair, sexual health, skin generics | Hims | varies | about 85–90% (estimate) |
 
@@ -42,7 +42,7 @@ The result is that **each patient who moves from compounded to branded raises re
 | Revenue | $753.2M (+38%) | $544.8M | $2,347.6M (+59%) |
 | of which US | $621.8M (+16%) | about $537.3M | — |
 | of which international | $131.4M (about $40M from one month of Eucalyptus) | $7.5M | — |
-| Subscribers | 2.891M (+19%; includes part of June from Eucalyptus, not split out) | 2.439M | 2.511M |
+| Subscribers | 2.891M (+19%; includes Eucalyptus from June. Our estimate from Hims' $90 ex-Eucalyptus revenue per subscriber: Eucalyptus about 0.12–0.35M, so organic growth about +8% to +11%) | 2.439M | 2.511M |
 | Monthly revenue per subscriber | $92 | $76 | — |
 | Gross margin | 64% | 76% | — |
 | Marketing / revenue | 34.8% | 40.0% | 39.2% |
@@ -62,7 +62,7 @@ At the midpoint that is about 36% revenue growth but a 9.4% margin, down from 13
 
 **What Hims does not disclose.** It gives no revenue by category, no split between compounded and branded weight loss, no churn rate and no cost per new customer. A 2025 guide implied weight loss was about 31% of 2025 revenue ($725M). One secondary source says 24% (unverified). The latest disclosed personalised share is 65% of subscribers, about 1.6M people, in Q4 2025.
 
-**Cost to win a customer (estimate).** Q2 marketing of $262.2M ÷ about 300,000 net new subscribers = about $874 per net add. That is an upper bound: net adds understate gross adds, and some of the 300,000 may be Eucalyptus customers. At $92 a month and a 64% gross margin, that pays back in about 15 months.
+**Cost to win a customer (estimate).** Q2 marketing of $262.2M ÷ about 300,000 net new subscribers = about $874 per net add. Per gross add it is an upper bound, because net adds understate gross adds. Per organic add it is a lower bound, because the 300,000 includes Eucalyptus customers. Excluding them, marketing per organic net add is about $2,000–5,900 (estimate). At $92 a month and a 64% gross margin, $874 pays back in about 15 months.
 
 ---
 
@@ -112,13 +112,13 @@ The regulatory stream's rough odds over 12–24 months (its own estimates): bear
 | Many categories in one account | B | New lines (menopause, testosterone, labs) have no disclosed revenue |
 | International scale | B | Zava (UK and Europe), Eucalyptus (Australia), Canada; integration risk |
 
-**Everyone sells the same drug now.** Ro, LifeMD, WeightWatchers' clinic, Costco with Sesame, Amazon One Medical (from 21 April 2026) and the drug makers' own direct channels all sell branded GLP-1s. The makers' channels are large. About 35% of new Zepbound prescriptions went through LillyDirect in Q2 2025. About 39% of US injectable Wegovy prescriptions were self-pay in mid-July 2026. No source gives measured 2026 market shares for telehealth. This matches our earlier GLP-1 note: the drug makers keep most of the value.
+**Everyone sells the same drug now.** Ro, LifeMD, WeightWatchers' clinic, Costco with Sesame, Amazon One Medical (from 21 April 2026) and the drug makers' own direct channels all sell branded GLP-1s. The makers' channels are large. About 35% of new Zepbound prescriptions went through LillyDirect in Q2 2025. About 39% of US injectable Wegovy prescriptions were self-pay in mid-July 2026. No source gives measured 2026 market shares for telehealth. Our earlier GLP-1 note found that drug makers keep most of the device and fill value against their suppliers. It did not study telehealth, but the channel data here point the same way.
 
 **What has worked:** the fast switch to branded Wegovy, which brought back growth, and international expansion by acquisition. International is now about 17% of revenue.
 
 **What has not:** the compounded strategy, which ended two Novo relationships and drew an FDA rebuke. Margins have also fallen. New categories have no disclosed numbers.
 
-**Governance.** CEO Andrew Dudum chairs the board. Class V shares carry 175 votes each. On proxy share counts, Class V plus his Class A shares give him about 87–88% of the votes. Outside shareholders cannot replace management. He sold heavily in 2025 under a pre-set trading plan. No open-market sale by him was found in 2026. The chief accounting officer leaves on 9 October 2026, and two directors were not renominated.
+**Governance.** CEO Andrew Dudum chairs the board. Class V shares carry 175 votes each. On proxy share counts, Class V plus his Class A shares give him about 87–88% of the votes. Outside shareholders cannot replace management. He sold heavily in 2025 under a pre-set trading plan. No open-market sale by him was found in 2026. The chief accounting officer leaves on 9 October 2026. Jon Franklin (ex-Rivian) was named successor on 7 October. Two directors were not renominated.
 
 ---
 
@@ -129,7 +129,8 @@ The regulatory stream's rough odds over 12–24 months (its own estimates): bear
 - **0% convertible notes, $1,402.5M in total:**
   - $1.0B due May 2030, converting at about $70.67 a share.
   - $402.5M due 2032, converting at $29.53, which is about today's price. A capped call offsets dilution up to $50.15.
-- **Eucalyptus deferred payments:** about $710M over 18 months, plus an earn-out of up to $200M. About 60% can be paid in stock.
+- **Eucalyptus deferred payments:** about $710M nominal ($683.9M fair value in the Q2 10-Q) over 18 months, plus an earn-out of up to $200M (fair value $59.6M). The 10-K said about 60% can be paid in stock; the Q2 10-Q says "a significant majority".
+- **Receivables facility:** a $400M uncommitted, 364-day facility with JPMorgan, signed 1 July 2026. The drawn balance is not known until the Q3 10-Q.
 - **Shares:** about 233.3M basic. The notes could add about 27.8M shares (11.9%). Eucalyptus stock payments could add up to about 18.6M at today's price (estimate).
 
 **Market price (about 6 October 2026, snippet data):**
@@ -138,11 +139,11 @@ The regulatory stream's rough odds over 12–24 months (its own estimates): bear
 |---|---|
 | Share price | about $29.40 |
 | Market cap | about $6.86B |
-| Enterprise value (EV: market cap plus debt minus cash) | about $7.42B, or about $8.13B including Eucalyptus payments |
+| Enterprise value (EV: market cap plus debt minus cash) | about $7.42B, or about $8.13B including Eucalyptus payments; excludes any draw on the $400M receivables facility |
 | EV / 2026 sales | about 2.3x |
 | EV / adjusted EBITDA | about 25x 2026, about 18x 2027 |
 | 52-week range | $13.74 – $65.30 |
-| Short interest | about 27% of shares (31 Jul 2026; dated) |
+| Short interest | about 26–29% (late Jul 2026; dated); 3.2–3.7 days to cover; borrow fee about 0.3%, so the stock is easy to borrow and squeeze risk is low |
 | Teladoc and LifeMD EV / sales | about 0.55x (unverified) |
 
 Adjusted EBITDA excludes stock pay, which was 5.8% of revenue in 2025. After stock pay, 2026 EBITDA would be only about $114M (estimate), about 65 times EV.
@@ -153,7 +154,7 @@ Adjusted EBITDA excludes stock pay, which was 5.8% of revenue in 2025. After sto
 3. EBITDA × exit multiple = enterprise value.
 4. Subtract net debt, then divide by diluted shares.
 
-The return compares that value with $29.40 over 4.23 years. All inputs are our assumptions.
+The return compares that value with $29.40 over 4.23 years. All inputs are our assumptions. The multiple is applied to EBITDA before stock pay. The base assumes $1.2B of free cash flow from mid-2026 to 2030, about half of cumulative EBITDA, against 18% in 2025.
 
 | Scenario | 2030 subscribers | Revenue per subscriber | EBITDA margin | Exit multiple | Value per share | Return a year |
 |---|---|---|---|---|---|---|
@@ -162,7 +163,7 @@ The return compares that value with $29.40 over 4.23 years. All inputs are our a
 | Bull | 5.8M | $1,250 | 20% | 18x | about $99 | +33% |
 | Management plan ($6.5B, 20%) | — | — | 20% | 14x | about $67 | +21% |
 
-In the base case, today's price is fair (0% a year) at about 3.4M subscribers, or at a 10.5% margin with 4.5M subscribers. A 10% annual return needs about 5.2M subscribers or a 16% margin. **The margin is the swing factor**: each 3 points of 2030 margin moves the base-case return by about 4–5 points a year.
+In the base case, today's price is fair (0% a year) at about 3.4M subscribers, or at a 10.5% margin with 4.5M subscribers. A 10% annual return needs about 5.2M subscribers or a 16% margin. **The margin is the swing factor**: each 3 points of 2030 margin moves the base-case return by about 4–7 points a year, more on the downside.
 
 The bear case is so severe because of leverage. A $2.8B enterprise value leaves little after $1.4B of converts and the Eucalyptus payments. In that case the $1B of 2030 notes would need refinancing.
 
@@ -170,7 +171,26 @@ The bear case is so severe because of leverage. A $2.8B enterprise value leaves 
 
 ---
 
-## 7. What would change the view
+## 7. Devil's-advocate review
+
+A separate reviewer attacked this note from both sides and stress-tested the model (`raw/04-devils-advocate.md`). Its verdict: the call ("not cheap enough") is about right, but the base-case number is too generous.
+
+**Where the base case is too generous:**
+- **Stock pay.** The model values profit before stock-based pay, which was 5.8% of revenue in 2025. Charging it at 4% of revenue as a cost cuts the base from about $38 (+6% a year) to about $28 (−1%). At 5.8% it falls to about $23 (−5.5%).
+- **Cash flow.** The base needs $1.2B of free cash flow from mid-2026 to 2030, about 49% of cumulative EBITDA. That compares with 18% in 2025 and negative cash flow in the first half of 2026. At $400M the base return falls to about 4.5% a year.
+- **Organic growth.** Hims says revenue per subscriber would be $90 without Eucalyptus. That implies Eucalyptus brought in roughly 0.12–0.35M subscribers, so organic growth was about +8% to +11%, not +19% (estimate).
+- **Missing debt.** The $400M JPMorgan receivables facility is not in the model. Fully drawn, it takes the base to about +5.5% and the bear to about −32.5% a year.
+- With all of these fixes applied together, the reviewer's base is about $25.60, or about −3% a year.
+
+**Where the note is too bearish:**
+- **Upside skew.** Bear $7, base $38, bull $99: the downside is capped at about −$29 a share and the upside is about +$69. Weighting 25/50/25 gives about $45.50, or 11% a year. Weighting 30/50/20 gives about 8%. With stock pay charged in every scenario, these fall to about 4% and 1%.
+- **Base revenue looks low.** The August guide implies a Q4 2026 revenue run-rate of about $3.8B. The base case's $5.18B in 2030 is only about 8% a year above that. $6.0B at a 14% margin gives about 10% a year.
+- **Revenue per subscriber is rising.** Gross profit dollars grew 16% in Q2 even as the margin fell 12 points. The Q3 guide implies about $96–99 a month per subscriber, above the base case's $96.
+- **Exit multiple.** A 16x multiple gives about 9.6% a year. But 14x adjusted EBITDA is already about 24x EBITDA after stock pay.
+
+**Net:** an honest central return is about 0–6% a year, below the 6% headline. "Not cheap enough for the risks" holds.
+
+## 8. What would change the view
 
 **Bullish signals:**
 - Adjusted EBITDA margin rising back toward 14% while revenue keeps growing. Our model says this matters more than anything else.
@@ -182,15 +202,16 @@ The bear case is so severe because of leverage. A $2.8B enterprise value leaves 
 - Gross margin below 60%, or 2026 EBITDA at the bottom of the guide.
 - Rising card disputes or churn after the billing fixes the FTC and Visa are forcing.
 - Any DOJ action, a Novo refiling, or FDA action against "personalized" 503A compounding.
-- Eucalyptus payments settled mainly in stock at low prices, which dilutes holders.
+- A material draw on the $400M receivables facility.
+- Eucalyptus instalments settled mainly in stock below $29.53, which dilutes holders.
 
-## 8. Dated signals to watch
+## 9. Dated signals to watch
 
 | Date | Event | What it tells you |
 |---|---|---|
-| 9 Oct 2026 | Chief accounting officer departs | Finance-team continuity before Q3 |
+| 9 Oct 2026 | Chief accounting officer handover to Jon Franklin (named 7 Oct) | Finance-team continuity before Q3 |
 | 2 Nov 2026 | Lead-plaintiff deadline, 2026 securities class action | Legal docket |
-| About 9 Nov 2026 (unverified) | Q3 results; guide was revenue $880–900M and adjusted EBITDA $75–95M | Whether margin is recovering; Eucalyptus payments and share issuance |
+| About 9 Nov 2026 (estimate; date not yet announced) | Q3 results; guide was revenue $880–900M and adjusted EBITDA $75–95M | Whether margin is recovering; Eucalyptus payments and share issuance |
 | Late 2026 (estimate) | Hims' response to the FTC complaint | Settlement path |
 | Dec 2026 (agency target) | Proposed FDA rule on TV drug ads | Marketing model risk |
 | 31 Dec 2026 | DEA telehealth waivers expire unless extended | Testosterone business |
@@ -198,7 +219,7 @@ The bear case is so severe because of leverage. A $2.8B enterprise value leaves 
 | Feb 2027 | Super Bowl; Hims advertised in 2025 and 2026 | FDA reaction to telehealth drug ads |
 | Through end-2027 | Eucalyptus deferred payments (six quarterly instalments) | Cash versus stock settlement |
 
-## 9. Gaps
+## 10. Gaps
 
 - No primary filing was read. The Q2 2026 10-Q should be checked first for debt terms, Eucalyptus accounting, diluted shares and legal accruals.
 - No revenue by category, no compounded versus branded split, no churn, no cost per gross new customer.
